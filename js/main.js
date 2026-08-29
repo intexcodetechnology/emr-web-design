@@ -28,6 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+  const resourceGroups = document.querySelectorAll(".resource-group");
+  resourceGroups.forEach(group => {
+    const toggle = group.querySelector(".resource-label");
+    toggle?.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isOpen = group.classList.contains("active");
+      resourceGroups.forEach(item => item.classList.remove("active"));
+      if (!isOpen) group.classList.add("active");
+    });
+  });
+
 
     /* =========================
        RESOURCE DROPDOWN

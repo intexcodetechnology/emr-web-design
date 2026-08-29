@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Services | EMR</title>
+    <title>Certifications | EMR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -25,7 +25,7 @@
                 <a href="team.html">Team</a>
                 <a href="services.html">Services</a>
                 <div class="nav-item resource-dropdown">
-                    <a href="resource.html" class="nav-trigger">Resource <span class="chevron">▾</span></a>
+                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
                     <div class="resource-menu">
                         <a href="experience.html">Experience</a>
                         <a href="license.html">License</a>
@@ -45,7 +45,7 @@
         <a href="team.html">Team</a>
         <a href="services.html">Services</a>
         <div class="resource-group">
-            <a href="resource.html" class="resource-label">Resource <span>▾</span></a>
+            <button class="resource-label" type="button">Resource <span>▾</span></button>
             <div class="resource-links">
                 <a href="experience.html">Experience</a>
                 <a href="license.html">License</a>
@@ -56,76 +56,68 @@
         </div>
         <a href="contact.html">Contact</a>
     </div>
+
     <section class="page-hero">
         <div class="container">
-            <div class="eyebrow" style="color:#FACC15">What We Do</div>
-            <h1>CAPABILITIES <span>THAT MATTER.</span></h1>
-            <p>EMR's profile highlights offshore catering and associated services alongside industrial and
-                technology-related capabilities.</p>
+            <div class="eyebrow" style="color:#FACC15">Professional Standards</div>
+            <h1>OUR <span>CERTIFICATIONS.</span></h1>
+            <p>Professional, operational and safety-related qualifications that reinforce EMR's commitment to quality and performance.</p>
         </div>
     </section>
-    <section class="section services">
+
+    <section class="section" style="background:var(--g50)">
         <div class="container">
-            <div class="service-list" style="margin-top:0">
-                <div class="service-item reveal">
-                    <div class="service-bg"
-                        style="background-image:url('https://images.unsplash.com/photo-1509390144018-eeaf6505224a?auto=format&fit=crop&w=1600&q=85')">
-                    </div>
-                    <div class="num">01</div>
-                    <div>
-                        <h3>INDUSTRIAL PLANT & SERVICES</h3>
-                        <p>Rotating machinery, compressors, turbines, pumps, gearboxes, centrifuges and associated
-                            industrial services.</p>
-                    </div>
-                    <div class="arrow">↗</div>
-                </div>
-                <div class="service-item reveal">
-                    <div class="service-bg"
-                        style="background-image:url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1600&q=85')">
-                    </div>
-                    <div class="num">02</div>
-                    <div>
-                        <h3>SINCO AUTOMASI</h3>
-                        <p>Automation controls, instrumentation and general mechanical engineering solutions.</p>
-                    </div>
-                    <div class="arrow">↗</div>
-                </div>
-                <div class="service-item reveal">
-                    <div class="service-bg"
-                        style="background-image:url('https://images.unsplash.com/photo-1473445361085-b9a07f55608b?auto=format&fit=crop&w=1600&q=85')">
-                    </div>
-                    <div class="num">03</div>
-                    <div>
-                        <h3>OWS</h3>
-                        <p>Customer-centric, fit-for-purpose solutions delivered through collaboration among
-                            stakeholders.</p>
-                    </div>
-                    <div class="arrow">↗</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container tech">
-            <div class="tech-visual reveal">
-                <div class="tech-circle">
-                    <div class="tech-core">EMR<br>+ TECHNOLOGY</div>
-                </div>
-                <div class="node n1">Industry Expertise</div>
-                <div class="node n2">Technology Transfer</div>
-                <div class="node n3">Local Workforce</div>
-                <div class="node n4">Sustainable Growth</div>
-            </div>
             <div class="reveal">
-                <div class="eyebrow">Future Direction</div>
-                <h2 class="title">BUILDING THE <span>NEXT</span> GENERATION.</h2>
-                <p class="muted" style="margin-top:25px">Since 2024, EMR has actively pursued diversification through
-                    collaboration agreements with technology partners.</p>
-                <div class="equation">Technology Transfer + Industry Expertise + Local Workforce = Sustainable Growth
-                </div>
+                <div class="eyebrow">Quality & Safety</div>
+                <h2 class="title">STANDARD <span>ASSURANCE.</span></h2>
+            </div>
+            <div class="cert-grid">
+                <article class="cert-card reveal">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85" alt="ISO certification">
+                    <div class="cert-info">
+                        <h3>ISO 9001</h3>
+                        <p>Quality management systems</p>
+                    </div>
+                </article>
+                <article class="cert-card reveal">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=85" alt="Safety certification">
+                    <div class="cert-info">
+                        <h3>ISO 45001</h3>
+                        <p>Occupational health and safety</p>
+                    </div>
+                </article>
+                <article class="cert-card reveal">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85" alt="Environmental certification">
+                    <div class="cert-info">
+                        <h3>ISO 14001</h3>
+                        <p>Environmental management</p>
+                    </div>
+                </article>
+                <article class="cert-card reveal">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=85" alt="Safety training">
+                    <div class="cert-info">
+                        <h3>HSE Training</h3>
+                        <p>Workforce competence and safety readiness</p>
+                    </div>
+                </article>
+                <article class="cert-card reveal">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85" alt="Operations training">
+                    <div class="cert-info">
+                        <h3>Operational Excellence</h3>
+                        <p>Service quality across project execution</p>
+                    </div>
+                </article>
+                <article class="cert-card reveal">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85" alt="Industry standards">
+                    <div class="cert-info">
+                        <h3>Industry Standards</h3>
+                        <p>Compliance-aligned business practices</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
+
     <footer>
         <div class="container footer-grid">
             <div class="footer-col">

@@ -682,35 +682,6 @@ button {
     font-weight: 800
 }
 
-.emr-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 30px
-}
-
-.emr-box {
-    padding: 20px;
-    border: 1px solid var(--g200);
-    border-radius: 16px;
-    text-align: center
-}
-
-.emr-box span {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--blue-dark)
-}
-
-.emr-box strong {
-    display: block;
-    margin-top: 8px;
-    color: var(--blue);
-    font-size: 26px;
-    font-weight: 900
-}
-
 .mv-image img {
     aspect-ratio: 4/3.2;
     object-fit: cover;
@@ -1332,10 +1303,6 @@ footer {
 
     .mv-tab {
         flex: 1
-    }
-
-    .emr-grid {
-        grid-template-columns: 1fr
     }
 
     .purpose-grid h2 {

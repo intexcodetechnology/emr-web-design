@@ -14,63 +14,7 @@
 </head>
 
 <body>
-    <header class="navbar">
-        <div class="container nav-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-mark">EMR</div>
-                <div class="logo-text"><strong>EAST MAN RESOURCES</strong><small>SDN. BHD.</small></div>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="team.html">Team</a>
-                <div class="nav-item resource-dropdown services-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Services <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="services-overview.html">Overview</a>
-                        <a href="maritim-services.html">Maritim Services</a>
-                        <a href="oil-gas-services.html">Oil and Gas Services</a>
-                    </div>
-                </div>
-                <div class="nav-item resource-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="license.html">License</a>
-                        <a href="certifications.html">Certifications</a>
-                        <a href="awards.html">Awards</a>
-                        <a href="experience.html">Experience</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-cta">Contact</a>
-            </nav>
-            <button class="menu-btn" aria-label="Open menu">☰</button>
-        </div>
-    </header>
-    <div class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <div class="resource-group services-group">
-            <button class="resource-label" type="button">Services <span>▾</span></button>
-            <div class="resource-links">
-                <a href="services-overview.html">Overview</a>
-                <a href="maritim-services.html">Maritim Services</a>
-                <a href="oil-gas-services.html">Oil and Gas Services</a>
-            </div>
-        </div>
-        <div class="resource-group">
-            <button class="resource-label" type="button">Resource <span>▾</span></button>
-            <div class="resource-links">
-                <a href="license.html">License</a>
-                <a href="certifications.html">Certifications</a>
-                <a href="awards.html">Awards</a>
-                <a href="experience.html">Experience</a>
-                <a href="gallery.html">Gallery</a>
-            </div>
-        </div>
-        <a href="contact.html">Contact</a>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <section class="page-hero">
         <div class="container">
@@ -82,34 +26,50 @@
 
     <section class="section" style="background:var(--g50)">
         <div class="container">
-            <div class="reveal">
-                <div class="eyebrow">Project Highlights</div>
-                <h2 class="title">VISUAL <span>PORTFOLIO.</span></h2>
+            <div class="gallery-hero">
+                <div class="reveal">
+                    <h2 class="gallery-headline">Streamline Your Team,<br><strong>Supercharge Your Workflow</strong></h2>
+                    <p class="gallery-subtitle">All-in-one platform to plan, collaborate, and deliver — faster and smarter.</p>
+                    <a href="#" class="gallery-cta">Get started for Free →</a>
+                </div>
             </div>
-            <div class="gallery">
-                <div class="gallery-item reveal" data-lightbox="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1800&q=90">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=85" alt="Corporate event">
-                    <div class="gallery-overlay"><strong>EVENTS</strong><span>EMR</span></div>
+
+            <div class="gallery-carousel">
+                <div class="gallery-item" style="background: linear-gradient(135deg, #6B5B95 0%, #7D6BA8 100%);">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Profile 1">
                 </div>
-                <div class="gallery-item reveal" data-lightbox="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1800&q=90">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=85" alt="Industry event">
-                    <div class="gallery-overlay"><strong>INDUSTRY</strong><span>COLLABORATION</span></div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85" alt="Profile 2">
                 </div>
-                <div class="gallery-item reveal" data-lightbox="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=90">
-                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=85" alt="Hospitality service">
-                    <div class="gallery-overlay"><strong>HOSPITALITY</strong><span>SERVICE</span></div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #5B8E7D 0%, #6BA892 100%);">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=85" alt="Profile 3">
                 </div>
-                <div class="gallery-item reveal" data-lightbox="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1800&q=90">
-                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1000&q=85" alt="Offshore catering">
-                    <div class="gallery-overlay"><strong>OFFSHORE</strong><span>CATERING</span></div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #E8A5C6 0%, #F0B5D6 100%);">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=85" alt="Profile 4">
                 </div>
-                <div class="gallery-item reveal" data-lightbox="https://images.unsplash.com/photo-1509390144018-eeaf6505224a?auto=format&fit=crop&w=1800&q=90">
-                    <img src="https://images.unsplash.com/photo-1509390144018-eeaf6505224a?auto=format&fit=crop&w=1000&q=85" alt="Industrial service">
-                    <div class="gallery-overlay"><strong>OPERATIONS</strong><span>INDUSTRIAL</span></div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #8B5E9F 0%, #9B7DB8 100%);">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=85" alt="Profile 5">
                 </div>
-                <div class="gallery-item reveal" data-lightbox="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1800&q=90">
-                    <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=1000&q=85" alt="Mechanical equipment">
-                    <div class="gallery-overlay"><strong>TECHNOLOGY</strong><span>SUPPORT</span></div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #D97E5C 0%, #E8956F 100%);">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=85" alt="Profile 6">
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #9B8B9F 0%, #AE9BB2 100%);">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=85" alt="Profile 7">
+                </div>
+            </div>
+
+            <div class="gallery-features">
+                <div class="feature-card reveal">
+                    <h3>Real-Time Collaboration</h3>
+                    <p>Communicate seamlessly and keep everyone in sync with built-in messaging, file sharing, and live updates.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>Task & Project Tracking</h3>
+                    <p>Assign tasks, set deadlines, and visualize progress with boards, lists, and timelines tailored to your team's style.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <h3>Performance Insights</h3>
+                    <p>Make smarter decisions with analytics that show productivity trends, bottlenecks, and team workload balance.</p>
                 </div>
             </div>
         </div>
@@ -150,6 +110,7 @@
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="awards.html">Awards</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="assets/Policies.pdf" target="_blank">Policies</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -166,6 +127,7 @@
             <div class="footer-copy">© 2025 East Man Resources Sdn. Bhd. All Rights Reserved.</div>
         </div>
     </footer>
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
 </body>
 

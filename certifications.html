@@ -14,63 +14,7 @@
 </head>
 
 <body>
-    <header class="navbar">
-        <div class="container nav-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-mark">EMR</div>
-                <div class="logo-text"><strong>EAST MAN RESOURCES</strong><small>SDN. BHD.</small></div>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="team.html">Team</a>
-                <div class="nav-item resource-dropdown services-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Services <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="services-overview.html">Overview</a>
-                        <a href="maritim-services.html">Maritim Services</a>
-                        <a href="oil-gas-services.html">Oil and Gas Services</a>
-                    </div>
-                </div>
-                <div class="nav-item resource-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="license.html">License</a>
-                        <a href="certifications.html">Certifications</a>
-                        <a href="awards.html">Awards</a>
-                        <a href="experience.html">Experience</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-cta">Contact</a>
-            </nav>
-            <button class="menu-btn" aria-label="Open menu">☰</button>
-        </div>
-    </header>
-    <div class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <div class="resource-group services-group">
-            <button class="resource-label" type="button">Services <span>▾</span></button>
-            <div class="resource-links">
-                <a href="services-overview.html">Overview</a>
-                <a href="maritim-services.html">Maritim Services</a>
-                <a href="oil-gas-services.html">Oil and Gas Services</a>
-            </div>
-        </div>
-        <div class="resource-group">
-            <button class="resource-label" type="button">Resource <span>▾</span></button>
-            <div class="resource-links">
-                <a href="license.html">License</a>
-                <a href="certifications.html">Certifications</a>
-                <a href="awards.html">Awards</a>
-                <a href="experience.html">Experience</a>
-                <a href="gallery.html">Gallery</a>
-            </div>
-        </div>
-        <a href="contact.html">Contact</a>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <section class="page-hero">
         <div class="container">
@@ -87,42 +31,42 @@
                 <h2 class="title">STANDARD <span>ASSURANCE.</span></h2>
             </div>
             <div class="cert-grid">
-                <article class="cert-card reveal">
+                <article class="cert-card reveal" data-modal="modal-cert-01">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85" alt="ISO certification">
                     <div class="cert-info">
                         <h3>ISO 9001</h3>
                         <p>Quality management systems</p>
                     </div>
                 </article>
-                <article class="cert-card reveal">
+                <article class="cert-card reveal" data-modal="modal-cert-02">
                     <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=85" alt="Safety certification">
                     <div class="cert-info">
                         <h3>ISO 45001</h3>
                         <p>Occupational health and safety</p>
                     </div>
                 </article>
-                <article class="cert-card reveal">
+                <article class="cert-card reveal" data-modal="modal-cert-03">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85" alt="Environmental certification">
                     <div class="cert-info">
                         <h3>ISO 14001</h3>
                         <p>Environmental management</p>
                     </div>
                 </article>
-                <article class="cert-card reveal">
+                <article class="cert-card reveal" data-modal="modal-cert-04">
                     <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=85" alt="Safety training">
                     <div class="cert-info">
                         <h3>HSE Training</h3>
                         <p>Workforce competence and safety readiness</p>
                     </div>
                 </article>
-                <article class="cert-card reveal">
+                <article class="cert-card reveal" data-modal="modal-cert-05">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=85" alt="Operations training">
                     <div class="cert-info">
                         <h3>Operational Excellence</h3>
                         <p>Service quality across project execution</p>
                     </div>
                 </article>
-                <article class="cert-card reveal">
+                <article class="cert-card reveal" data-modal="modal-cert-06">
                     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85" alt="Industry standards">
                     <div class="cert-info">
                         <h3>Industry Standards</h3>
@@ -132,6 +76,97 @@
             </div>
         </div>
     </section>
+
+    <!-- Modals -->
+    <div class="modal" id="modal-cert-01">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="ISO 9001">
+                <div class="modal-info">
+                    <h2>ISO 9001</h2>
+                    <p>Quality Management Systems</p>
+                    <p>ISO 9001 certification demonstrates our commitment to delivering consistent quality in all products and services. This international standard ensures we maintain effective quality management processes, customer satisfaction, and continuous improvement across our operations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-cert-02">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=85" alt="ISO 45001">
+                <div class="modal-info">
+                    <h2>ISO 45001</h2>
+                    <p>Occupational Health and Safety Management</p>
+                    <p>ISO 45001 certification confirms our dedication to providing safe working conditions and protecting employee health. We implement rigorous occupational health and safety management systems to prevent incidents and maintain a culture of safety at all operational levels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-cert-03">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=85" alt="ISO 14001">
+                <div class="modal-info">
+                    <h2>ISO 14001</h2>
+                    <p>Environmental Management Systems</p>
+                    <p>ISO 14001 certification reflects our environmental responsibility and commitment to sustainable operations. We maintain comprehensive environmental management practices that minimize our ecological impact while complying with all environmental regulations and standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-cert-04">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=85" alt="HSE Training">
+                <div class="modal-info">
+                    <h2>HSE Training</h2>
+                    <p>Workforce Competence and Safety Readiness</p>
+                    <p>Comprehensive Health, Safety, and Environment training programs ensure our workforce is fully competent and prepared for all operational scenarios. We invest in continuous training to maintain the highest safety standards and regulatory compliance across all project sites.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-cert-05">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="Operational Excellence">
+                <div class="modal-info">
+                    <h2>Operational Excellence</h2>
+                    <p>Service Quality Across Project Execution</p>
+                    <p>Our commitment to operational excellence ensures superior service quality throughout project execution. We employ best practices, proven methodologies, and continuous process improvement to deliver exceptional results consistently across all service offerings and client engagements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-cert-06">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=85" alt="Industry Standards">
+                <div class="modal-info">
+                    <h2>Industry Standards</h2>
+                    <p>Compliance-Aligned Business Practices</p>
+                    <p>Adherence to industry standards ensures our business practices align with regulatory requirements and best practices. We maintain strict compliance with all applicable industry standards to ensure quality, safety, and reliability in every aspect of our operations and service delivery.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container footer-grid">
@@ -166,6 +201,7 @@
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="awards.html">Awards</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="assets/Policies.pdf" target="_blank">Policies</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -182,6 +218,7 @@
             <div class="footer-copy">© 2025 East Man Resources Sdn. Bhd. All Rights Reserved.</div>
         </div>
     </footer>
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
 </body>
 

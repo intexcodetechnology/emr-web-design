@@ -14,63 +14,7 @@
 </head>
 
 <body>
-    <header class="navbar">
-        <div class="container nav-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-mark">EMR</div>
-                <div class="logo-text"><strong>EAST MAN RESOURCES</strong><small>SDN. BHD.</small></div>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="team.html">Team</a>
-                <div class="nav-item resource-dropdown services-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Services <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="services-overview.html">Overview</a>
-                        <a href="maritim-services.html">Maritim Services</a>
-                        <a href="oil-gas-services.html">Oil and Gas Services</a>
-                    </div>
-                </div>
-                <div class="nav-item resource-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="license.html">License</a>
-                        <a href="certifications.html">Certifications</a>
-                        <a href="awards.html">Awards</a>
-                        <a href="experience.html">Experience</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-cta">Contact</a>
-            </nav>
-            <button class="menu-btn" aria-label="Open menu">☰</button>
-        </div>
-    </header>
-    <div class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <div class="resource-group services-group">
-            <button class="resource-label" type="button">Services <span>▾</span></button>
-            <div class="resource-links">
-                <a href="services-overview.html">Overview</a>
-                <a href="maritim-services.html">Maritim Services</a>
-                <a href="oil-gas-services.html">Oil and Gas Services</a>
-            </div>
-        </div>
-        <div class="resource-group">
-            <button class="resource-label" type="button">Resource <span>▾</span></button>
-            <div class="resource-links">
-                <a href="license.html">License</a>
-                <a href="certifications.html">Certifications</a>
-                <a href="awards.html">Awards</a>
-                <a href="experience.html">Experience</a>
-                <a href="gallery.html">Gallery</a>
-            </div>
-        </div>
-        <a href="contact.html">Contact</a>
-    </div>
+    <div id="navbar-placeholder"></div>
 
     <section class="page-hero">
         <div class="container">
@@ -86,38 +30,99 @@
                 <div class="eyebrow">Compliance Portfolio</div>
                 <h2 class="title">LICENSING <span>FRAMEWORK.</span></h2>
             </div>
-            <div class="resource-list">
-                <div class="resource-row reveal">
-                    <div class="resource-badge">01</div>
-                    <div>
+            <div class="card-grid">
+                <div class="card reveal" data-modal="modal-license-01">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1554224311-beee415c15c9?auto=format&fit=crop&w=800&q=85" alt="Operational Registration">
+                    </div>
+                    <div class="card-content">
                         <h3>Operational Registration</h3>
-                        <p>Company registration and operating credentials required for service delivery across industrial and offshore support operations.</p>
                     </div>
                 </div>
-                <div class="resource-row reveal">
-                    <div class="resource-badge">02</div>
-                    <div>
+                <div class="card reveal" data-modal="modal-license-02">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="Industrial & Safety Compliance">
+                    </div>
+                    <div class="card-content">
                         <h3>Industrial & Safety Compliance</h3>
-                        <p>Alignment with applicable permit requirements, workplace safety obligations and statutory compliance across project sites.</p>
                     </div>
                 </div>
-                <div class="resource-row reveal">
-                    <div class="resource-badge">03</div>
-                    <div>
+                <div class="card reveal" data-modal="modal-license-03">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=85" alt="Vendor & Supply Accreditation">
+                    </div>
+                    <div class="card-content">
                         <h3>Vendor & Supply Accreditation</h3>
-                        <p>Documented operating standards supporting procurement, service execution and responsible project delivery.</p>
                     </div>
                 </div>
-                <div class="resource-row reveal">
-                    <div class="resource-badge">04</div>
-                    <div>
+                <div class="card reveal" data-modal="modal-license-04">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=85" alt="Project Permit Readiness">
+                    </div>
+                    <div class="card-content">
                         <h3>Project Permit Readiness</h3>
-                        <p>Preparedness for worksite documentation, safety validation and project mobilization requirements.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modals -->
+    <div class="modal" id="modal-license-01">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1554224311-beee415c15c9?auto=format&fit=crop&w=800&q=85" alt="Operational Registration">
+                <div class="modal-info">
+                    <h2>Operational Registration</h2>
+                    <p>Company registration and operating credentials required for service delivery across industrial and offshore support operations. These registrations ensure full compliance with regulatory frameworks and demonstrate our commitment to operating within established legal and operational requirements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-license-02">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=85" alt="Industrial & Safety Compliance">
+                <div class="modal-info">
+                    <h2>Industrial & Safety Compliance</h2>
+                    <p>Alignment with applicable permit requirements, workplace safety obligations and statutory compliance across project sites. We maintain rigorous adherence to all safety regulations, environmental standards, and industry-specific compliance measures to protect our workforce and stakeholders.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-license-03">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=85" alt="Vendor & Supply Accreditation">
+                <div class="modal-info">
+                    <h2>Vendor & Supply Accreditation</h2>
+                    <p>Documented operating standards supporting procurement, service execution and responsible project delivery. Our vendor accreditation processes ensure that all supply chain partners meet our high standards for quality, reliability, and ethical business practices.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-license-04">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=85" alt="Project Permit Readiness">
+                <div class="modal-info">
+                    <h2>Project Permit Readiness</h2>
+                    <p>Preparedness for worksite documentation, safety validation and project mobilization requirements. We maintain comprehensive readiness protocols to ensure seamless project deployment with all necessary permits, certifications, and documentation in place before commencement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <div class="container footer-grid">
@@ -152,6 +157,7 @@
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="awards.html">Awards</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="assets/Policies.pdf" target="_blank">Policies</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -168,6 +174,7 @@
             <div class="footer-copy">© 2025 East Man Resources Sdn. Bhd. All Rights Reserved.</div>
         </div>
     </footer>
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
 </body>
 

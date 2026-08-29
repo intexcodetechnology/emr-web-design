@@ -94,6 +94,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(x => io.observe(x));
 
+  // Modal functionality for cards
+  const initializeModals = () => {
+    // Open modal when card is clicked
+    document.querySelectorAll("[data-modal]").forEach(card => {
+      card.addEventListener("click", () => {
+        const modalId = card.getAttribute("data-modal");
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add("active");
+          document.body.classList.add("lock");
+        }
+      });
+    });
+
+    // Close modal functionality
+    const closeModal = (modal) => {
+      modal.classList.remove("active");
+      document.body.classList.remove("lock");
+    };
+
+    // Close button click
+    document.querySelectorAll(".modal-close").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const modal = btn.closest(".modal");
+        if (modal) closeModal(modal);
+      });
+    });
+
+    // Close when clicking overlay
+    document.querySelectorAll(".modal-overlay").forEach(overlay => {
+      overlay.addEventListener("click", () => {
+        const modal = overlay.closest(".modal");
+        if (modal) closeModal(modal);
+      });
+    });
+  };
+  initializeModals();
+
   const lb = document.querySelector("#lightbox");
   if (lb) {
     const im = lb.querySelector("img"), close = () => { lb.classList.remove("active"); document.body.classList.remove("lock") };

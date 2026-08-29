@@ -1,1 +1,56 @@
-/* license.html — its layout (.resource-list, .resource-row, .resource-badge) is shared with awards.html, so those rules live in style.css. Add license-only rules here. */
+/* license.html — page-specific styles for resource list display */
+
+.resource-list {
+    display: grid;
+    gap: 14px;
+    margin-top: 55px
+}
+
+.resource-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 20px;
+    align-items: center;
+    padding: 26px 26px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(15, 47, 107, .06)
+}
+
+.resource-badge {
+    width: 66px;
+    height: 66px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    background: rgba(250, 204, 21, .15);
+    color: var(--blue-dark);
+    font-weight: 900
+}
+
+.resource-row h3 {
+    font-size: 24px;
+    margin-bottom: 8px
+}
+
+.resource-row p {
+    color: var(--g600);
+    line-height: 1.8
+}
+
+@media (max-width: 768px) {
+    .resource-row {
+        grid-template-columns: 1fr;
+        gap: 15px
+    }
+
+    .resource-badge {
+        width: 50px;
+        height: 50px;
+        font-size: 20px
+    }
+
+    .resource-row h3 {
+        font-size: 18px
+    }
+}

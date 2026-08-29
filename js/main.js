@@ -73,6 +73,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll(".resource-dropdown").forEach(dropdown => {
+    const trigger = dropdown.querySelector(".nav-trigger");
+    if (!trigger) return;
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isOpen = dropdown.classList.contains("active");
+      document.querySelectorAll(".resource-dropdown").forEach(item => item.classList.remove("active"));
+      if (!isOpen) dropdown.classList.add("active");
+      trigger.setAttribute("aria-expanded", String(!isOpen));
+    });
+    document.addEventListener("click", (event) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(x => io.observe(x));
 

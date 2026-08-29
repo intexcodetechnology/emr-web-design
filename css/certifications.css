@@ -1,0 +1,35 @@
+/* certifications.html only — styles shared with other pages stay in style.css */
+
+.cert-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 10px 35px #0f2f6b0f;
+    cursor: pointer;
+    transition: var(--ease)
+}
+
+.cert-card:hover {
+    transform: translateY(-7px)
+}
+
+.cert-card img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 13px
+}
+
+.cert-info {
+    padding: 18px 10px 10px
+}
+
+.cert-info h3 {
+    font-size: 14px;
+    color: var(--blue-dark)
+}
+
+.cert-info p {
+    font-size: 10px;
+    color: var(--g500);
+    margin-top: 6px
+}

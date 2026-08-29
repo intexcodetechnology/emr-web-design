@@ -1,0 +1,255 @@
+/* index.html only — styles shared with other pages stay in style.css */
+
+.btn-dark {
+    background: var(--blue-dark);
+    color: #fff
+}
+
+.btn-dark:hover {
+    background: var(--blue);
+    transform: translateY(-4px)
+}
+
+.btn-outline {
+    border: 1px solid var(--g200);
+    background: #fff;
+    color: var(--blue-dark)
+}
+
+.hero {
+    min-height: 100svh;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    color: #fff;
+    overflow: hidden
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center
+}
+
+.hero-bg:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #030f35eb, #030f3580 45%, #030f351f), linear-gradient(0deg, #030f35bf, transparent 50%)
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 170px 0 95px;
+    padding-left: 8vw
+}
+
+.hero h1 {
+    font-size: clamp(54px, 9vw, 125px);
+    line-height: .86;
+    letter-spacing: -.075em;
+    font-weight: 900;
+    max-width: 1000px
+}
+
+.hero h1 span {
+    color: var(--yellow)
+}
+
+.hero p {
+    max-width: 620px;
+    margin-top: 28px;
+    color: #ffffffc7;
+    line-height: 1.75
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px
+}
+
+.hero-side {
+    position: absolute;
+    right: 40px;
+    bottom: 100px;
+    width: 230px;
+    padding: 25px;
+    border: 1px solid #ffffff33;
+    border-radius: 20px;
+    background: #ffffff14;
+    backdrop-filter: blur(14px)
+}
+
+.hero-side small {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    opacity: .65
+}
+
+.hero-side strong {
+    display: block;
+    font-size: 40px;
+    letter-spacing: -.06em;
+    margin-top: 8px
+}
+
+.hero-side span {
+    font-size: 11px;
+    color: #ffffffb3
+}
+
+.scroll {
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    z-index: 3;
+    font-size: 10px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    display: flex;
+    gap: 10px;
+    align-items: center
+}
+
+.scroll:before {
+    content: "";
+    width: 45px;
+    height: 1px;
+    background: var(--yellow)
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 25px
+}
+
+.stat {
+    padding: 15px;
+    border: 1px solid var(--g200);
+    border-radius: 18px
+}
+
+.stat strong {
+    display: block;
+    color: var(--blue);
+    font-size: 32px
+}
+
+.stat span {
+    font-size: 11px;
+    color: var(--g500)
+}
+
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 55px
+}
+
+.value-card {
+    min-height: 0;
+    padding: 0;
+    border-radius: 23px;
+    background: var(--g50);
+    overflow: hidden;
+    transition: var(--ease);
+}
+
+.value-card > img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.value-content {
+    padding: 25px 28px 28px;
+}
+
+.value-card h3 {
+    margin-top: 18px;
+}
+
+.value-card p {
+    color: var(--g500);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 10px;
+}
+
+.value-card:hover {
+    background: var(--blue);
+    color: #fff;
+    transform: translateY(-8px)
+}
+
+.value-card:hover > img {
+    transform: scale(1.05);
+}
+
+.value-card > img {
+    transition: .6s;
+}
+
+.value-card:hover p {
+    color: #ffffffbf
+}
+
+.value-card:hover .num {
+    color: var(--yellow)
+}
+
+@media (max-width: 900px) {
+    .value-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-content {
+        padding-top: 140px
+    }
+
+    .hero-side {
+        position: static;
+        margin-top: 26px
+    }
+}
+
+@media(max-width:1000px) {
+    .hero-side {
+        display: none
+    }
+
+    .value-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(max-width:650px) {
+    .hero-content {
+        padding: 130px 0 70px
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 15vw, 75px)
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .hero-actions .btn {
+        width: 100%
+    }
+}

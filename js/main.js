@@ -77,28 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(x => io.observe(x));
 
-  document.querySelectorAll("[data-counter]").forEach(el => {
-    const target = +el.dataset.counter; let done = false;
-    const c = new IntersectionObserver(es => {
-      if (!es[0].isIntersecting || done) return; done = true; let s = performance.now();
-      const tick = n => { let p = Math.min((n - s) / 1200, 1), v = 1 - Math.pow(1 - p, 3); el.textContent = Math.floor(target * v).toLocaleString(); if (p < 1) requestAnimationFrame(tick) }; requestAnimationFrame(tick); c.disconnect();
-    }); c.observe(el);
-  });
-
-  document.querySelectorAll(".mv-block").forEach(block => {
-    block.querySelectorAll("[data-mv-tab]").forEach(btn => btn.addEventListener("click", () => {
-      const tab = btn.dataset.mvTab;
-      block.querySelectorAll("[data-mv-tab]").forEach(b => b.classList.toggle("active", b === btn));
-      block.querySelectorAll("[data-mv-panel]").forEach(p => p.classList.toggle("active", p.dataset.mvPanel === tab));
-    }));
-  });
-
-  const modal = document.querySelector("#teamModal");
-  if (modal) {
-    const im = modal.querySelector("[data-modal-image]"), name = modal.querySelector("[data-modal-name]"), role = modal.querySelector("[data-modal-role]"), bio = modal.querySelector("[data-modal-bio]");
-    document.querySelectorAll("[data-team]").forEach(card => card.addEventListener("click", () => { im.src = card.dataset.image; name.textContent = card.dataset.name; role.textContent = card.dataset.role; bio.textContent = card.dataset.bio; modal.classList.add("active"); document.body.classList.add("lock") }));
-    const close = () => { modal.classList.remove("active"); document.body.classList.remove("lock") }; modal.querySelector(".close").addEventListener("click", close); modal.addEventListener("click", e => e.target === modal && close());
-  }
   const lb = document.querySelector("#lightbox");
   if (lb) {
     const im = lb.querySelector("img"), close = () => { lb.classList.remove("active"); document.body.classList.remove("lock") };

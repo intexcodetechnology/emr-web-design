@@ -1,1 +1,88 @@
-/* about.html — its layout (.two-col, .purpose-grid, .cards, .floating, .image-card, .dark-section) is shared with index.html's about preview, so those rules live in style.css. Add about-only rules here. */
+/* about.html — page-specific styles (shared .cards, .card in style.css) */
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center
+}
+
+.image-card {
+    position: relative
+}
+
+.image-card img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 30px
+}
+
+.floating {
+    position: absolute;
+    right: -25px;
+    bottom: 30px;
+    width: 180px;
+    padding: 25px;
+    border-radius: 20px;
+    background: var(--blue);
+    color: #fff;
+    box-shadow: 0 20px 60px #0f2f6b2e
+}
+
+.floating strong {
+    font-size: 40px;
+    display: block
+}
+
+.floating span {
+    font-size: 11px;
+    line-height: 1.5
+}
+
+.dark-section {
+    background: var(--blue-dark);
+    color: #fff
+}
+
+.dark-section .eyebrow {
+    color: var(--yellow)
+}
+
+.purpose-grid {
+    display: grid;
+    grid-template-columns: .7fr 1.3fr;
+    gap: 90px
+}
+
+.purpose-grid h2 {
+    font-size: clamp(55px, 7vw, 95px);
+    line-height: .88;
+    letter-spacing: -.07em
+}
+
+.purpose-grid h2 span {
+    color: var(--yellow)
+}
+
+.num {
+    font-size: 11px;
+    font-weight: 900;
+    color: var(--blue)
+}
+
+@media (max-width: 768px) {
+    .two-col {
+        grid-template-columns: 1fr;
+        gap: 30px
+    }
+
+    .purpose-grid {
+        grid-template-columns: 1fr;
+        gap: 40px
+    }
+
+    .floating {
+        position: static;
+        width: 100%
+    }
+}

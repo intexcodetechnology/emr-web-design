@@ -1,1 +1,39 @@
-/* contact.html — its layout (.contact, .contact-grid, .contact-list, .contact-box) is shared with index.html's contact preview, so those rules live in style.css. Add contact-only rules here. */
+/* contact.html — page-specific styles (shared .contact-list, .contact-box in style.css) */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center
+}
+
+.contact {
+    background: var(--blue);
+    color: #fff
+}
+
+.contact h2 {
+    font-size: clamp(55px, 8vw, 115px);
+    line-height: .88;
+    letter-spacing: -.08em
+}
+
+.contact h2 span {
+    color: var(--yellow)
+}
+
+.contact .muted {
+    color: #ffffffbf;
+    margin-top: 28px
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px
+    }
+
+    .contact h2 {
+        font-size: clamp(32px, 6vw, 60px)
+    }
+}

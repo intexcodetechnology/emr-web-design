@@ -1,5 +1,63 @@
 
+function typeWriter(el, { speed = 34, loop = false, holdTyped = 1600, holdErased = 500 } = {}) {
+  const segments = [];
+  (function walk(node) {
+    node.childNodes.forEach(child => {
+      if (child.nodeType === 3 && child.textContent.trim() !== "") segments.push(child);
+      else if (child.nodeType === 1) walk(child);
+    });
+  })(el);
+  if (!segments.length) return;
+  const full = segments.map(n => n.textContent);
+  segments.forEach(n => n.textContent = "");
+
+  const caret = document.createElement("span");
+  caret.className = "typewriter-caret";
+  caret.setAttribute("aria-hidden", "true");
+  const placeCaret = si => segments[si].parentNode.insertBefore(caret, segments[si].nextSibling);
+  placeCaret(0);
+
+  const finish = () => setTimeout(() => {
+    caret.classList.add("typewriter-caret--done");
+    setTimeout(() => { caret.classList.add("typewriter-caret--fade"); setTimeout(() => caret.remove(), 650) }, 700);
+  }, 300);
+
+  let si = 0, ci = 0;
+  const typeTick = () => {
+    const text = full[si];
+    if (ci < text.length) {
+      segments[si].textContent += text[ci]; ci++;
+      setTimeout(typeTick, speed + Math.random() * 30);
+    } else {
+      si++; ci = 0;
+      if (si < segments.length) { placeCaret(si); setTimeout(typeTick, 120) }
+      else if (loop) setTimeout(startErase, holdTyped);
+      else finish();
+    }
+  };
+
+  let dsi = segments.length - 1;
+  const eraseTick = () => {
+    const cur = segments[dsi].textContent;
+    if (cur.length > 0) {
+      segments[dsi].textContent = cur.slice(0, -1);
+      setTimeout(eraseTick, speed * 0.55);
+    } else {
+      dsi--;
+      if (dsi >= 0) { placeCaret(dsi); setTimeout(eraseTick, speed * 0.55) }
+      else setTimeout(() => { si = 0; ci = 0; placeCaret(0); typeTick() }, holdErased);
+    }
+  };
+  const startErase = () => { dsi = segments.length - 1; placeCaret(dsi); eraseTick() };
+
+  typeTick();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("[data-typewriter]").forEach(el => setTimeout(() => typeWriter(el, { loop: el.hasAttribute("data-typewriter-loop") }), 300));
+  }
+
   const nav = document.querySelector(".navbar"), menu = document.querySelector(".mobile-menu"), menuBtn = document.querySelector(".menu-btn");
   const scroll = () => nav?.classList.toggle("scrolled", scrollY > 50); addEventListener("scroll", scroll); scroll();
   menuBtn?.addEventListener("click", () => { menu.classList.toggle("active"); document.body.classList.toggle("lock") });

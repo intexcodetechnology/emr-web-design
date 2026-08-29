@@ -1,88 +1,54 @@
-/* about.html — page-specific styles (shared .cards, .card in style.css) */
+/* about.html — its layout (.two-col, .purpose-grid, .cards, .floating, .image-card, .dark-section) is shared with index.html's about preview, so those rules live in style.css. Add about-only rules here. */
 
-.two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center
+/* Hero Section */
+.page-hero .eyebrow {
+    color: #FACC15;
 }
 
-.image-card {
-    position: relative
+/* Section Titles */
+.title-custom {
+    font-size: clamp(34px, 4vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
 }
 
-.image-card img {
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border-radius: 30px
+.title-mission {
+    font-size: clamp(34px, 4.5vw, 52px);
+    letter-spacing: -0.03em;
 }
 
-.floating {
-    position: absolute;
-    right: -25px;
-    bottom: 30px;
-    width: 180px;
-    padding: 25px;
-    border-radius: 20px;
-    background: var(--blue);
+/* Text Utilities */
+.muted-margin {
+    margin-top: 20px;
+}
+
+.philosophy-intro {
+    max-width: 650px;
+    margin-top: 20px;
+}
+
+/* CTA Section */
+.cta-container {
+    text-align: center;
+}
+
+.cta-title {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-title span {
+    color: #FACC15;
+}
+
+.cta-actions {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Contact Button Style */
+.btn-outline-light {
     color: #fff;
-    box-shadow: 0 20px 60px #0f2f6b2e
-}
-
-.floating strong {
-    font-size: 40px;
-    display: block
-}
-
-.floating span {
-    font-size: 11px;
-    line-height: 1.5
-}
-
-.dark-section {
-    background: var(--blue-dark);
-    color: #fff
-}
-
-.dark-section .eyebrow {
-    color: var(--yellow)
-}
-
-.purpose-grid {
-    display: grid;
-    grid-template-columns: .7fr 1.3fr;
-    gap: 90px
-}
-
-.purpose-grid h2 {
-    font-size: clamp(55px, 7vw, 95px);
-    line-height: .88;
-    letter-spacing: -.07em
-}
-
-.purpose-grid h2 span {
-    color: var(--yellow)
-}
-
-.num {
-    font-size: 11px;
-    font-weight: 900;
-    color: var(--blue)
-}
-
-@media (max-width: 768px) {
-    .two-col {
-        grid-template-columns: 1fr;
-        gap: 30px
-    }
-
-    .purpose-grid {
-        grid-template-columns: 1fr;
-        gap: 40px
-    }
-
-    .floating {
-        position: static;
-        width: 100%
-    }
+    border-color: #ffffff4d;
+    background: #ffffff0d;
 }

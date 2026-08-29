@@ -76,11 +76,77 @@ document.addEventListener("DOMContentLoaded", () => {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(x => io.observe(x));
 
+  // Modal functionality for cards
+  const initializeModals = () => {
+    // Open modal when card is clicked
+    document.querySelectorAll("[data-modal]").forEach(card => {
+      card.addEventListener("click", () => {
+        const modalId = card.getAttribute("data-modal");
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add("active");
+          document.body.classList.add("lock");
+        }
+      });
+    });
+
+    // Close modal functionality
+    const closeModal = (modal) => {
+      modal.classList.remove("active");
+      document.body.classList.remove("lock");
+    };
+
+    // Close button click
+    document.querySelectorAll(".modal-close").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const modal = btn.closest(".modal");
+        if (modal) closeModal(modal);
+      });
+    });
+
+    // Close when clicking overlay
+    document.querySelectorAll(".modal-overlay").forEach(overlay => {
+      overlay.addEventListener("click", () => {
+        const modal = overlay.closest(".modal");
+        if (modal) closeModal(modal);
+      });
+    });
+  };
+  initializeModals();
+
   const lb = document.querySelector("#lightbox");
   if (lb) {
     const im = lb.querySelector("img"), close = () => { lb.classList.remove("active"); document.body.classList.remove("lock") };
     document.querySelectorAll("[data-lightbox]").forEach(x => x.addEventListener("click", () => { im.src = x.dataset.lightbox; lb.classList.add("active"); document.body.classList.add("lock") }));
     lb.querySelector(".close").addEventListener("click", close); lb.addEventListener("click", e => e.target === lb && close());
   }
-  document.addEventListener("keydown", e => { if (e.key === "Escape") { document.querySelectorAll(".modal.active,.lightbox.active").forEach(x => x.classList.remove("active")); menu?.classList.remove("active"); document.body.classList.remove("lock") } })
+  document.addEventListener("keydown", e => { if (e.key === "Escape") { document.querySelectorAll(".modal.active,.lightbox.active").forEach(x => x.classList.remove("active")); document.body.classList.remove("lock") } })
+
+  document.querySelectorAll("[data-service-accordion]").forEach(group => {
+    const trigger = group.querySelector(".service-toggle");
+    const panel = group.querySelector(".service-panel");
+    if (!trigger || !panel) return;
+
+    const setOpen = isOpen => {
+      group.classList.toggle("active", isOpen);
+      trigger.setAttribute("aria-expanded", String(isOpen));
+      panel.style.maxHeight = isOpen ? `${panel.scrollHeight}px` : "0px";
+    };
+
+    setOpen(group.classList.contains("active"));
+
+    trigger.addEventListener("click", () => {
+      const isOpen = group.classList.contains("active");
+      document.querySelectorAll("[data-service-accordion]").forEach(item => {
+        if (item === group) return;
+        item.classList.remove("active");
+        const otherPanel = item.querySelector(".service-panel");
+        const otherTrigger = item.querySelector(".service-toggle");
+        if (otherPanel) otherPanel.style.maxHeight = "0px";
+        if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+      });
+      setOpen(!isOpen);
+    });
+  });
 });

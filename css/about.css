@@ -25,6 +25,96 @@
 .philosophy-intro {
     max-width: 650px;
     margin-top: 20px;
+    color:#e5e7eb
+}
+
+/* Philosophy Section Layout */
+.philosophy-section {
+    background: linear-gradient(135deg, #081B3A 0%, #0F2F6B 100%);
+    color: #fff;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.philosophy-content .eyebrow {
+    color: #FACC15;
+}
+
+.philosophy-content .title {
+    color: #fff;
+}
+
+.philosophy-content .title span {
+    color: #FACC15;
+}
+
+.philosophy-cards .value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+}
+
+.philosophy-cards .value-card {
+    background: #fff;
+    color: #000;
+    padding: 30px;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.philosophy-cards .value-card:nth-child(2n) {
+    border-right: none;
+}
+
+.philosophy-cards .value-card:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.philosophy-cards .value-card .num {
+    display: block;
+    color: #2563EB;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.philosophy-cards .value-card h3 {
+    color: #FACC15;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.philosophy-cards .value-card p {
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .philosophy-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .philosophy-cards .value-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .philosophy-cards .value-card {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .philosophy-cards .value-card:last-child {
+        border-bottom: none;
+    }
 }
 
 /* CTA Section */
@@ -51,4 +141,68 @@
     color: #fff;
     border-color: #ffffff4d;
     background: #ffffff0d;
+}
+
+/* EMR Grid - Mission Section */
+.emr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.emr-box {
+    position: relative;
+    background: #0F2F6B;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 24px;
+    color: #fff;
+    overflow: hidden;
+}
+
+.emr-box::before {
+    content: attr(data-letter);
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 120px;
+    font-weight: 900;
+    color: #facc154e;
+    line-height: 1;
+    z-index: 0;
+    transition: color 0.3s ease;
+}
+
+.emr-box:hover::before {
+    color: #FACC15;
+}
+
+.emr-box span {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.emr-box strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.6;
+    color: #cbd5e1;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .emr-grid {
+        grid-template-columns: 1fr;
+    }
 }

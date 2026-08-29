@@ -15,49 +15,7 @@
 
 <!-- Navbar -->
 <body>
-    <header class="navbar">
-        <div class="container nav-inner"> 
-            <a href="index.html" class="logo">
-                <div class="logo-mark">EMR</div>
-                <div class="logo-text"><strong>EAST MAN RESOURCES</strong><small>SDN. BHD.</small></div>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="team.html">Team</a>
-                <a href="services.html">Services</a>
-                <div class="nav-item resource-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="license.html">License</a>
-                        <a href="certifications.html">Certifications</a>
-                        <a href="awards.html">Awards</a>
-                        <a href="experience.html">Experience</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-cta">Contact</a>
-            </nav>
-            <button class="menu-btn" aria-label="Open menu">☰</button>
-        </div>
-    </header>
-    <div class="mobile-menu">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="team.html">Team</a>
-        <a href="services.html">Services</a>
-        <div class="resource-group">
-            <button class="resource-label" type="button">Resource <span>▾</span></button>
-            <div class="resource-links">
-                <a href="license.html">License</a>
-                <a href="certifications.html">Certifications</a>
-                <a href="awards.html">Awards</a>
-                <a href="experience.html">Experience</a>
-                <a href="gallery.html">Gallery</a>
-            </div>
-        </div>
-        <a href="contact.html">Contact</a>
-    </div>
+    <div id="navbar-placeholder"></div>
     <section class="page-hero">
         <div class="container">
             <div class="eyebrow">About EMR</div>
@@ -146,17 +104,19 @@
                     <p class="muted">We shall excel by maintaining our integrity, being competitive, surpassing
                         expectation and nurturing long-lasting relationships with suppliers and customers. We shall
                         meet the needs of our customers by:</p>
-                    <ul class="mv-list">
-                        <li>Providing <strong>e</strong>ffectual safe food in all our hospitality services</li>
-                        <li>Being <strong>m</strong>indful that health, safety and knowledge enhancement of our
-                            employees are important in reaching our goals</li>
-                        <li>Continuing to be <strong>r</strong>esourceful in our activities while protecting and
-                            caring for our environment</li>
-                    </ul>
                     <div class="emr-grid">
-                        <div class="emr-box"><span>EFFECTUAL</span><strong>E</strong></div>
-                        <div class="emr-box"><span>MINDFUL</span><strong>M</strong></div>
-                        <div class="emr-box"><span>RESOURCEFUL</span><strong>R</strong></div>
+                        <div class="emr-box" data-letter="E">
+                            <span>EFFECTUAL</span>
+                            <strong>Providing effectual safe food in all our hospitality services.</strong>
+                        </div>
+                        <div class="emr-box" data-letter="M">
+                            <span>MINDFUL</span>
+                            <strong>Being mindful that health, safety and knowledge enhancement of our employees are important in reaching our goals.</strong>
+                        </div>
+                        <div class="emr-box" data-letter="R">
+                            <span>RESOURCEFUL</span>
+                            <strong>Continuing to be resourceful in our activities while protecting and caring for our environment.</strong>
+                        </div>
                     </div>
                 </div>
                 <div class="mv-panel" data-mv-panel="vision">
@@ -172,35 +132,35 @@
     </section>
 
     <!-- Our Philosophy Section -->
-    <section class="section">
-        <div class="container reveal">
-            <div class="eyebrow">Our Philosophy</div>
-            <h2 class="title">HOW WE <span>WORK.</span></h2>
-            <p class="muted philosophy-intro">EMR is committed to working in synergy with
-                customers, suppliers and partners while continuously improving and empowering its team.</p>
-            <div class="value-grid">
-                <div class="value-card"><span class="num">01</span>
-                    <div>
+    <section class="section philosophy-section">
+        <div class="container philosophy-grid">
+            <div class="philosophy-content reveal">
+                <div class="eyebrow">Our Philosophy</div>
+                <h2 class="title">HOW WE <span>WORK.</span></h2>
+                <p class="muted philosophy-intro">EMR is committed to working in synergy with
+                    customers, suppliers and partners while continuously improving and empowering its team.</p>
+            </div>
+            <div class="philosophy-cards reveal">
+                <div class="value-grid">
+                    <div class="value-card">
+                        <span class="num">01</span>
                         <h3>Synergy</h3>
-                        <p>Working together to provide the best and most competitive service.</p>
+                        <p>Working as one to provide the best, most competitive and timely service.</p>
                     </div>
-                </div>
-                <div class="value-card"><span class="num">02</span>
-                    <div>
+                    <div class="value-card">
+                        <span class="num">02</span>
                         <h3>Empathy</h3>
-                        <p>Maintaining understanding and respect throughout the EMR team.</p>
+                        <p>Genuine regard for everyone on the EMR team, at every level.</p>
                     </div>
-                </div>
-                <div class="value-card"><span class="num">03</span>
-                    <div>
+                    <div class="value-card">
+                        <span class="num">03</span>
                         <h3>Tolerance</h3>
-                        <p>Building sound relationships with partners and suppliers.</p>
+                        <p>Sound, lasting relationships with partners and suppliers.</p>
                     </div>
-                </div>
-                <div class="value-card"><span class="num">04</span>
-                    <div>
+                    <div class="value-card">
+                        <span class="num">04</span>
                         <h3>Empowerment</h3>
-                        <p>Giving staff the confidence to diligently commit to EMR's philosophy.</p>
+                        <p>Every staff member trusted to commit to this philosophy daily.</p>
                     </div>
                 </div>
             </div>
@@ -232,7 +192,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="team.html">Team</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services-overview.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -253,6 +213,7 @@
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="awards.html">Awards</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="assets/Policies.pdf" target="_blank">Policies</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -269,6 +230,7 @@
             <div class="footer-copy">© 2025 East Man Resources Sdn. Bhd. All Rights Reserved.</div>
         </div>
     </footer>
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
     <script src="js/about.js"></script>
 </body>

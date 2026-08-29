@@ -5,6 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
   menuBtn?.addEventListener("click", () => { menu.classList.toggle("active"); document.body.classList.toggle("lock") });
   menu?.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { menu.classList.remove("active"); document.body.classList.remove("lock") }));
 
+  const resourceGroups = document.querySelectorAll(".resource-group");
+  resourceGroups.forEach(group => {
+    const toggle = group.querySelector(".resource-label");
+    toggle?.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isOpen = group.classList.contains("active");
+      resourceGroups.forEach(item => item.classList.remove("active"));
+      if (!isOpen) group.classList.add("active");
+    });
+  });
+
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(x => io.observe(x));
 

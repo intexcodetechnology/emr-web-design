@@ -1,4 +1,3 @@
-
 function typeWriter(el, { speed = 34, loop = false, holdTyped = 1600, holdErased = 500 } = {}) {
   const segments = [];
   (function walk(node) {

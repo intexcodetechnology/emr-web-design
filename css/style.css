@@ -110,6 +110,31 @@ button {
     transition: var(--ease)
 }
 
+.typewriter-caret {
+    display: inline-block;
+    width: 5px;
+    height: .78em;
+    margin-left: 8px;
+    background: var(--yellow);
+    vertical-align: -0.08em;
+    animation: typewriter-blink .9s steps(1) infinite;
+}
+
+.typewriter-caret--done {
+    animation: none;
+}
+
+.typewriter-caret--fade {
+    opacity: 0;
+    transition: opacity .6s ease;
+}
+
+@keyframes typewriter-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
 .btn-primary {
     background: var(--yellow);
     color: #111

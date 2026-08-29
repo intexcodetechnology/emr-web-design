@@ -73,6 +73,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  document.querySelectorAll(".resource-dropdown").forEach(dropdown => {
+    const trigger = dropdown.querySelector(".nav-trigger");
+    if (!trigger) return;
+    trigger.addEventListener("click", (event) => {
+      event.preventDefault();
+      const isOpen = dropdown.classList.contains("active");
+      document.querySelectorAll(".resource-dropdown").forEach(item => item.classList.remove("active"));
+      if (!isOpen) dropdown.classList.add("active");
+      trigger.setAttribute("aria-expanded", String(!isOpen));
+    });
+    document.addEventListener("click", (event) => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("active");
+        trigger.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target) } }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(x => io.observe(x));
 
@@ -83,4 +101,31 @@ document.addEventListener("DOMContentLoaded", () => {
     lb.querySelector(".close").addEventListener("click", close); lb.addEventListener("click", e => e.target === lb && close());
   }
   document.addEventListener("keydown", e => { if (e.key === "Escape") { document.querySelectorAll(".modal.active,.lightbox.active").forEach(x => x.classList.remove("active")); menu?.classList.remove("active"); document.body.classList.remove("lock") } })
+
+  document.querySelectorAll("[data-service-accordion]").forEach(group => {
+    const trigger = group.querySelector(".service-toggle");
+    const panel = group.querySelector(".service-panel");
+    if (!trigger || !panel) return;
+
+    const setOpen = isOpen => {
+      group.classList.toggle("active", isOpen);
+      trigger.setAttribute("aria-expanded", String(isOpen));
+      panel.style.maxHeight = isOpen ? `${panel.scrollHeight}px` : "0px";
+    };
+
+    setOpen(group.classList.contains("active"));
+
+    trigger.addEventListener("click", () => {
+      const isOpen = group.classList.contains("active");
+      document.querySelectorAll("[data-service-accordion]").forEach(item => {
+        if (item === group) return;
+        item.classList.remove("active");
+        const otherPanel = item.querySelector(".service-panel");
+        const otherTrigger = item.querySelector(".service-toggle");
+        if (otherPanel) otherPanel.style.maxHeight = "0px";
+        if (otherTrigger) otherTrigger.setAttribute("aria-expanded", "false");
+      });
+      setOpen(!isOpen);
+    });
+  });
 });

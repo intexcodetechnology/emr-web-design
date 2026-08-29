@@ -1,1 +1,71 @@
-/* gallery.html — its layout (.gallery, .gallery-item, .gallery-overlay, .lightbox) is shared with index.html's gallery preview, so those rules live in style.css. Add gallery-only rules here. */
+/* gallery.html — page-specific styles */
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr .8fr;
+    grid-auto-rows: 220px;
+    gap: 12px;
+    margin-top: 55px
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer
+}
+
+.gallery-item:first-child {
+    grid-row: span 2
+}
+
+.gallery-item:nth-child(4) {
+    grid-column: span 2
+}
+
+.gallery-item img {
+    height: 100%;
+    object-fit: cover;
+    transition: .7s
+}
+
+.gallery-item:hover img {
+    transform: scale(1.07)
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    background: linear-gradient(transparent 30%, #081b3acc);
+    opacity: 0;
+    transition: var(--ease);
+    color: #fff
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1
+}
+
+.gallery-overlay span {
+    color: var(--yellow);
+    font-size: 10px;
+    margin-top: 5px
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+        gap: 10px
+    }
+
+    .gallery-item:first-child,
+    .gallery-item:nth-child(4) {
+        grid-row: auto;
+        grid-column: auto
+    }
+}

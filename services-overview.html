@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Resource | EMR</title>
+    <title>Services Overview | EMR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/resource.css">
+    <link rel="stylesheet" href="css/services.css">
 </head>
 
 <body>
@@ -24,14 +23,21 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="team.html">Team</a>
-                <a href="services.html">Services</a>
+                <div class="nav-item resource-dropdown services-dropdown">
+                    <button class="nav-trigger" type="button" aria-expanded="false">Services <span class="chevron">▾</span></button>
+                    <div class="resource-menu">
+                        <a href="services-overview.html">Overview</a>
+                        <a href="maritim-services.html">Maritim Services</a>
+                        <a href="oil-gas-services.html">Oil and Gas Services</a>
+                    </div>
+                </div>
                 <div class="nav-item resource-dropdown">
                     <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
                     <div class="resource-menu">
-                        <a href="experience.html">Experience</a>
                         <a href="license.html">License</a>
                         <a href="certifications.html">Certifications</a>
                         <a href="awards.html">Awards</a>
+                        <a href="experience.html">Experience</a>
                         <a href="gallery.html">Gallery</a>
                     </div>
                 </div>
@@ -44,14 +50,21 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="team.html">Team</a>
-        <a href="services.html">Services</a>
+        <div class="resource-group services-group">
+            <button class="resource-label" type="button">Services <span>▾</span></button>
+            <div class="resource-links">
+                <a href="services-overview.html">Overview</a>
+                <a href="maritim-services.html">Maritim Services</a>
+                <a href="oil-gas-services.html">Oil and Gas Services</a>
+            </div>
+        </div>
         <div class="resource-group">
             <button class="resource-label" type="button">Resource <span>▾</span></button>
             <div class="resource-links">
-                <a href="experience.html">Experience</a>
                 <a href="license.html">License</a>
                 <a href="certifications.html">Certifications</a>
                 <a href="awards.html">Awards</a>
+                <a href="experience.html">Experience</a>
                 <a href="gallery.html">Gallery</a>
             </div>
         </div>
@@ -60,60 +73,32 @@
 
     <section class="page-hero">
         <div class="container">
-            <div class="eyebrow" style="color:#FACC15">Company Resource Hub</div>
-            <h1>OUR <span>RESOURCES.</span></h1>
-            <p>Explore EMR's experience, certifications, licenses, industry recognition and project highlights across our operations.</p>
+            <div class="eyebrow" style="color:#FACC15">What We Do</div>
+            <h1>CAPABILITIES <span>THAT MATTER.</span></h1>
+            <p>EMR's profile highlights offshore catering and associated services alongside industrial and technology-related capabilities.</p>
         </div>
     </section>
 
-    <section class="section" style="background:var(--g50)">
-        <div class="container">
-            <div class="reveal">
-                <div class="eyebrow">Resource Overview</div>
-                <h2 class="title">PROVEN <span>CAPABILITIES.</span></h2>
+    <section class="section">
+        <div class="container tech">
+            <div class="tech-visual reveal">
+                <div class="retainable-visual" aria-label="Retainable service network visual">
+                    <div class="retainable-link l1"></div>
+                    <div class="retainable-link l2"></div>
+                    <div class="retainable-link l3"></div>
+                    <div class="retainable-link l4"></div>
+                    <div class="retainable-node n1">Industry Expertise</div>
+                    <div class="retainable-node n2">Technology Transfer</div>
+                    <div class="retainable-node n3">Local Workforce</div>
+                    <div class="retainable-node n4">Sustainable Growth</div>
+                    <div class="retainable-core">retainable<small>future</small></div>
+                </div>
             </div>
-
-            <div class="resource-grid">
-                <a class="resource-card reveal" href="experience.html">
-                    <div class="resource-icon">01</div>
-                    <div>
-                        <h3>Experience</h3>
-                        <p>Project track record spanning offshore and industrial service operations.</p>
-                    </div>
-                    <span>View</span>
-                </a>
-                <a class="resource-card reveal" href="license.html">
-                    <div class="resource-icon">02</div>
-                    <div>
-                        <h3>License</h3>
-                        <p>Relevant permits, registrations and compliance credentials for operations.</p>
-                    </div>
-                    <span>View</span>
-                </a>
-                <a class="resource-card reveal" href="certifications.html">
-                    <div class="resource-icon">03</div>
-                    <div>
-                        <h3>Certifications</h3>
-                        <p>Industry-standard qualifications supporting quality, safety and reliability.</p>
-                    </div>
-                    <span>View</span>
-                </a>
-                <a class="resource-card reveal" href="awards.html">
-                    <div class="resource-icon">04</div>
-                    <div>
-                        <h3>Awards</h3>
-                        <p>Recognition of safety performance, service quality and operational excellence.</p>
-                    </div>
-                    <span>View</span>
-                </a>
-                <a class="resource-card reveal" href="gallery.html">
-                    <div class="resource-icon">05</div>
-                    <div>
-                        <h3>Gallery</h3>
-                        <p>Project snapshots, operational scenes, events, and company activities.</p>
-                    </div>
-                    <span>View</span>
-                </a>
+            <div class="reveal">
+                <div class="eyebrow">Future Direction</div>
+                <h2 class="title">BUILDING THE <span>NEXT</span> GENERATION.</h2>
+                <p class="muted" style="margin-top:25px">Since 2024, EMR has actively pursued diversification through collaboration agreements with technology partners.</p>
+                <div class="equation">Technology Transfer + Industry Expertise + Local Workforce = Sustainable Growth</div>
             </div>
         </div>
     </section>
@@ -130,7 +115,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="team.html">Team</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services-overview.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>

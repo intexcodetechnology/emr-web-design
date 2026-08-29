@@ -54,7 +54,7 @@ button {
 }
 
 .section {
-    padding: 110px 0
+    padding: 55px 0
 }
 
 .eyebrow {
@@ -84,7 +84,10 @@ button {
 }
 
 .title span {
-    color: var(--blue)
+    color: var(--blue);
+    font-size: 0.50em;
+    letter-spacing: -0.03em
+
 }
 
 .muted {
@@ -296,7 +299,8 @@ button {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 170px 0 95px
+    padding: 170px 0 95px;
+    padding-left: 8vw
 }
 
 .hero h1 {
@@ -424,7 +428,7 @@ button {
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 50px;
     align-items: center
 }
 
@@ -433,7 +437,7 @@ button {
 }
 
 .image-card img {
-    aspect-ratio: 4/5;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border-radius: 30px
 }
@@ -464,11 +468,11 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
-    margin-top: 40px
+    margin-top: 25px
 }
 
 .stat {
-    padding: 25px;
+    padding: 15px;
     border: 1px solid var(--g200);
     border-radius: 18px
 }
@@ -555,14 +559,34 @@ button {
 }
 
 .value-card {
-    min-height: 280px;
-    padding: 28px;
+    min-height: 0;
+    padding: 0;
     border-radius: 23px;
     background: var(--g50);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: var(--ease)
+    overflow: hidden;
+    transition: var(--ease);
+}
+
+.value-card > img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.value-content {
+    padding: 25px 28px 28px;
+}
+
+.value-card h3 {
+    margin-top: 18px;
+}
+
+.value-card p {
+    color: var(--g500);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 10px;
 }
 
 .value-card:hover {
@@ -571,10 +595,12 @@ button {
     transform: translateY(-8px)
 }
 
-.value-card p {
-    color: var(--g500);
-    font-size: 13px;
-    line-height: 1.7
+.value-card:hover > img {
+    transform: scale(1.05);
+}
+
+.value-card > img {
+    transition: .6s;
 }
 
 .value-card:hover p {
@@ -706,14 +732,14 @@ button {
 
 .service-item {
     position: relative;
-    min-height: 220px;
-    padding: 30px 0;
+    min-height: 150px;
+    padding: 20px 0;
     border-top: 1px solid #ffffff22;
     display: grid;
-    grid-template-columns: 90px 1fr 60px;
-    gap: 25px;
+    grid-template-columns: 70px 1fr 50px;
+    gap: 20px;
     align-items: center;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .service-item:last-child {
@@ -744,17 +770,17 @@ button {
 }
 
 .service-item h3 {
-    font-size: clamp(34px, 5vw, 65px);
+    font-size: clamp(28px, 3.5vw, 50px);
     line-height: .92;
-    letter-spacing: -.06em
+    letter-spacing: -.05em;
 }
 
 .service-item p {
     max-width: 600px;
     color: #ffffff94;
-    line-height: 1.7;
-    font-size: 13px;
-    margin-top: 12px
+    line-height: 1.5;
+    font-size: 12px;
+    margin-top: 8px;
 }
 
 .arrow {
@@ -1098,6 +1124,8 @@ footer {
     opacity: 1;
     transform: none
 }
+
+
 
 @media(max-width:1000px) {
     .container {

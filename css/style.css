@@ -179,17 +179,12 @@ button {
 .logo-mark {
     width: 40px;
     height: 40px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    background: #fff;
-    color: var(--blue);
-    font-size: 12px
+    object-fit: contain;
+    display: block
 }
 
 .scrolled .logo-mark {
-    background: var(--blue);
-    color: #fff
+    /* Logo image styling on scroll if needed */
 }
 
 .logo-text {

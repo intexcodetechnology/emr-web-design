@@ -13,10 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const bioEl = spotlight.querySelector("[data-spot-bio]");
   const indexEl = spotlight.querySelector("[data-spot-index]");
   const totalEl = spotlight.querySelector("[data-spot-total]");
+  const progressEl = spotlight.querySelector("[data-spot-progress]");
   const prevBtn = spotlight.querySelector("[data-spot-prev]");
   const nextBtn = spotlight.querySelector("[data-spot-next]");
 
-  totalEl.textContent = String(thumbs.length).padStart(2, "0");
+  if (totalEl) totalEl.textContent = String(thumbs.length).padStart(2, "0");
 
   let active = Math.max(0, thumbs.findIndex(t => t.classList.contains("active")));
 
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deptEl.textContent = t.dataset.dept;
     bioEl.textContent = t.dataset.bio;
     indexEl.textContent = String(active + 1).padStart(2, "0");
+    if (progressEl) progressEl.style.width = `${((active + 1) / thumbs.length) * 100}%`;
   };
 
   const goTo = (i) => {
@@ -48,8 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   thumbs.forEach((t, i) => t.addEventListener("click", () => goTo(i)));
-  prevBtn.addEventListener("click", () => goTo((active - 1 + thumbs.length) % thumbs.length));
-  nextBtn.addEventListener("click", () => goTo((active + 1) % thumbs.length));
+  if (prevBtn) prevBtn.addEventListener("click", () => goTo((active - 1 + thumbs.length) % thumbs.length));
+  if (nextBtn) nextBtn.addEventListener("click", () => goTo((active + 1) % thumbs.length));
 
   apply();
 });

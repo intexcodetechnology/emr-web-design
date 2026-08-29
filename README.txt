@@ -7,7 +7,8 @@ Files:
 - team.html
 - services.html
 - contact.html
-- css/style.css
+- css/style.css (shared styles: navbar, footer, buttons, and sections reused across pages)
+- css/<page>.css (styles exclusive to that page, e.g. css/team.css, css/index.css)
 - js/main.js
 - assets/
 

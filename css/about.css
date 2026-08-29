@@ -1,0 +1,54 @@
+/* about.html — its layout (.two-col, .purpose-grid, .cards, .floating, .image-card, .dark-section) is shared with index.html's about preview, so those rules live in style.css. Add about-only rules here. */
+
+/* Hero Section */
+.page-hero .eyebrow {
+    color: #FACC15;
+}
+
+/* Section Titles */
+.title-custom {
+    font-size: clamp(34px, 4vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+}
+
+.title-mission {
+    font-size: clamp(34px, 4.5vw, 52px);
+    letter-spacing: -0.03em;
+}
+
+/* Text Utilities */
+.muted-margin {
+    margin-top: 20px;
+}
+
+.philosophy-intro {
+    max-width: 650px;
+    margin-top: 20px;
+}
+
+/* CTA Section */
+.cta-container {
+    text-align: center;
+}
+
+.cta-title {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-title span {
+    color: #FACC15;
+}
+
+.cta-actions {
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Contact Button Style */
+.btn-outline-light {
+    color: #fff;
+    border-color: #ffffff4d;
+    background: #ffffff0d;
+}

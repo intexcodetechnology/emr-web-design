@@ -74,6 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }); c.observe(el);
   });
 
+  document.querySelectorAll(".mv-block").forEach(block => {
+    block.querySelectorAll("[data-mv-tab]").forEach(btn => btn.addEventListener("click", () => {
+      const tab = btn.dataset.mvTab;
+      block.querySelectorAll("[data-mv-tab]").forEach(b => b.classList.toggle("active", b === btn));
+      block.querySelectorAll("[data-mv-panel]").forEach(p => p.classList.toggle("active", p.dataset.mvPanel === tab));
+    }));
+  });
+
   const modal = document.querySelector("#teamModal");
   if (modal) {
     const im = modal.querySelector("[data-modal-image]"), name = modal.querySelector("[data-modal-name]"), role = modal.querySelector("[data-modal-role]"), bio = modal.querySelector("[data-modal-bio]");

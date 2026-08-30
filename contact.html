@@ -14,32 +14,7 @@
 </head>
 
 <body>
-    <header class="navbar">
-        <div class="container nav-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-mark">EMR</div>
-                <div class="logo-text"><strong>EAST MAN RESOURCES</strong><small>SDN. BHD.</small></div>
-            </a>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="team.html">Team</a>
-                <a href="services.html">Services</a>
-                <div class="nav-item resource-dropdown">
-                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
-                    <div class="resource-menu">
-                        <a href="license.html">License</a>
-                        <a href="certifications.html">Certifications</a>
-                        <a href="awards.html">Awards</a>
-                        <a href="experience.html">Experience</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
-                <a href="contact.html" class="nav-cta">Contact</a>
-            </nav>
-            <button class="menu-btn" aria-label="Open menu">☰</button>
-        </div>
-    </header>
+    <div id="navbar-placeholder"></div>
     <div class="mobile-menu">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -266,42 +241,9 @@
             <div class="footer-copy">© 2025 East Man Resources Sdn. Bhd. All Rights Reserved.</div>
         </div>
     </footer>
+    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
-
-    <script>
-        (() => {
-            const items = document.querySelectorAll('[data-contact-reveal]');
-
-            if (!items.length) return;
-
-            // Respect accessibility preference.
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                items.forEach(item => item.classList.add('is-visible'));
-                return;
-            }
-
-            const observer = new IntersectionObserver((entries, observerInstance) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-
-                    const parentCards = entry.target.closest('.office-cards');
-                    if (parentCards) {
-                        const cards = [...parentCards.querySelectorAll('[data-contact-reveal]')];
-                        const index = cards.indexOf(entry.target);
-                        entry.target.style.transitionDelay = `${Math.max(index, 0) * 120}ms`;
-                    }
-
-                    entry.target.classList.add('is-visible');
-                    observerInstance.unobserve(entry.target);
-                });
-            }, {
-                threshold: 0.16,
-                rootMargin: '0px 0px -55px 0px'
-            });
-
-            items.forEach(item => observer.observe(item));
-        })();
-    </script>
+    <script src="js/contact.js"></script>
 
 </body>
 

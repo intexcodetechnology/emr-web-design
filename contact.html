@@ -14,7 +14,49 @@
 </head>
 
 <body>
-    <div id="navbar-placeholder"></div>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-mark">EMR</div>
+                <div class="logo-text"><strong>EAST MAN RESOURCES</strong><small>SDN. BHD.</small></div>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="team.html">Team</a>
+                <a href="services.html">Services</a>
+                <div class="nav-item resource-dropdown">
+                    <button class="nav-trigger" type="button" aria-expanded="false">Resource <span class="chevron">▾</span></button>
+                    <div class="resource-menu">
+                        <a href="license.html">License</a>
+                        <a href="certifications.html">Certifications</a>
+                        <a href="awards.html">Awards</a>
+                        <a href="experience.html">Experience</a>
+                        <a href="gallery.html">Gallery</a>
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-cta">Contact</a>
+            </nav>
+            <button class="menu-btn" aria-label="Open menu">☰</button>
+        </div>
+    </header>
+    <div class="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="team.html">Team</a>
+        <a href="services.html">Services</a>
+        <div class="resource-group">
+            <button class="resource-label" type="button">Resource <span>▾</span></button>
+            <div class="resource-links">
+                <a href="license.html">License</a>
+                <a href="certifications.html">Certifications</a>
+                <a href="awards.html">Awards</a>
+                <a href="experience.html">Experience</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+        </div>
+        <a href="contact.html">Contact</a>
+    </div>
     <section class="page-hero">
         <div class="container">
             <div class="eyebrow" style="color:#FACC15">Contact EMR</div>
@@ -22,17 +64,27 @@
             <p>For business enquiries, partnerships and service opportunities, get in touch with the EMR team.</p>
         </div>
     </section>
-    <section class="section contact">
+        <section class="section contact">
         <div class="container">
-            <div class="contact-intro" data-contact-reveal>
-                <div class="eyebrow">Get In Touch</div>
-                <h2>START A <span>CONVERSATION.</span></h2>
-                <p class="muted">We welcome enquiries relating to EMR's services, partnerships and business
-                    opportunities.</p>
-                <a href="mailto:support@emr.net.my" class="btn btn-primary contact-email">
-                    support@emr.net.my ↗
-                </a>
-            </div>
+            
+<div class="contact-hero-grid">
+    <div class="contact-intro" data-contact-reveal>
+        <div class="eyebrow" style="color:#FACC15">Get In Touch</div>
+        <h2>START A <span>CONVERSATION.</span></h2>
+        <p class="muted">We welcome enquiries relating to EMR's services, partnerships and business
+            opportunities.</p>
+        <a href="mailto:support@emr.net.my" class="btn btn-primary contact-email">
+            support@emr.net.my ↗
+        </a>
+    </div>
+
+</div>
+
+        </div>
+    </section>
+
+    <section class="section office-locations-section">
+        <div class="container">
 
             <div class="location-heading" data-contact-reveal>
                 <div>
@@ -85,7 +137,7 @@
 
                 <article class="office-card" data-contact-reveal>
                     <div class="office-image">
-                        <img src="https://zafigo.com/wp-content/uploads/2021/06/cover_miri.jpg"
+                        <img src="https://parkcityholdings.com.my/parklife/wp-content/uploads/2023/03/A-fresh-retail-experience-in-Oil-Town.webp"
                             alt="Miri, Sarawak city view" loading="lazy">
                         <span class="office-state">Sarawak</span>
                     </div>
@@ -198,7 +250,6 @@
                     <li><a href="certifications.html">Certifications</a></li>
                     <li><a href="awards.html">Awards</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="assets/Policies.pdf" target="_blank">Policies</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -215,7 +266,6 @@
             <div class="footer-copy">© 2025 East Man Resources Sdn. Bhd. All Rights Reserved.</div>
         </div>
     </footer>
-    <script src="js/navbar.js"></script>
     <script src="js/main.js"></script>
 
     <script>

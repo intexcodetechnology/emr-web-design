@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     img.src = t.dataset.image;
     img.alt = t.dataset.name;
+    img.style.setProperty("--portrait-scale", t.dataset.scale || 1);
     nameEl.textContent = t.dataset.name;
     roleEl.textContent = t.dataset.role;
     deptEl.textContent = t.dataset.dept;

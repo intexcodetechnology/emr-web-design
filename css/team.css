@@ -261,12 +261,14 @@
     object-position: bottom;
     margin-bottom: -46px;
     filter: drop-shadow(0 30px 40px #00000055);
+    transform: scale(var(--portrait-scale, 1));
+    transform-origin: bottom right;
     transition: opacity .25s ease, transform .25s ease;
 }
 
 .spotlight-visual.is-fading img {
     opacity: 0;
-    transform: translateY(8px) scale(.98);
+    transform: translateY(8px) scale(calc(var(--portrait-scale, 1) * .98));
     margin-bottom: -40px;
 }
 
@@ -374,6 +376,9 @@
     .spotlight-visual img {
         max-height: 260px;
         margin-bottom: -20px;
+        /* mobile centers the portrait instead of right-aligning it, so
+           scale from the bottom-center to keep it symmetric there */
+        transform-origin: bottom center;
     }
 
     .spotlight-panel {

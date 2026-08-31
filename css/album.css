@@ -1,55 +1,166 @@
-/* license.html — page-specific styles */
+/* album.html — page-specific styles */
 
 /* ============================
-   License Card Grid
+   Segmented filter control
 ============================ */
-.license-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  margin-top: 55px;
+.album-filterbar {
+  margin-top: 40px;
+  display: flex;
 }
 
-.license-card {
+.album-filterbar {
+  position: relative;
+}
+
+.album-filterbar::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 0;
+  bottom: 6px;
+  width: 36px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 248, 250, 0),
+    var(--g50, #f7f8fa) 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.album-filterbar.can-scroll::after {
+  opacity: 1;
+}
+
+.album-filter {
+  position: relative;
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid rgba(15, 47, 107, 0.1);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(15, 47, 107, 0.08);
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.album-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-indicator {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  height: calc(100% - 12px);
+  width: 0;
+  border-radius: 999px;
+  background: var(--deep, #0f2f6b);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.filter-btn {
+  position: relative;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #55607a;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn.is-active {
+  color: #fff;
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: inherit;
+  opacity: 0.6;
+  min-width: 1.4em;
+}
+
+.filter-btn.is-active .filter-count {
+  opacity: 0.75;
+}
+
+/* ============================
+   Album Card Grid
+============================ */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.album-grid.is-filtering .album-card {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+.album-card {
   position: relative;
   aspect-ratio: 3 / 4;
-  min-height: 380px;
-  border-radius: 26px;
+  min-height: 340px;
+  border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
   background: #0b1830;
-  box-shadow: 0 16px 40px rgba(15, 47, 107, 0.16);
+  box-shadow: 0 16px 40px rgba(15, 47, 107, 0.14);
   transition:
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease,
+    transform 0.35s ease;
   border: 1px solid rgba(15, 47, 107, 0.06);
 }
 
-.license-card:hover,
-.license-card:focus-visible {
+.album-card.is-hidden {
+  display: none;
+}
+
+.album-card:hover,
+.album-card:focus-visible {
   transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(10, 25, 60, 0.32);
+  box-shadow: 0 30px 60px rgba(10, 25, 60, 0.3);
   outline: none;
 }
 
-.license-card-image {
+.album-card-image {
   position: absolute;
   inset: 0;
 }
 
-.license-card-image img {
+.album-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.license-card:hover .license-card-image img {
+.album-card:hover .album-card-image img {
   transform: scale(1.1);
 }
 
-/* Darkening gradient so text stays legible over any photo */
-.license-card-scrim {
+.album-card-scrim {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -62,17 +173,16 @@
   transition: opacity 0.5s ease;
 }
 
-.license-card:hover .license-card-scrim {
+.album-card:hover .album-card-scrim {
   opacity: 0.85;
 }
 
-/* Top-corner icon badge */
-.license-card-icon {
+.album-card-icon {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 46px;
-  height: 46px;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.16);
   backdrop-filter: blur(10px);
@@ -84,62 +194,95 @@
   color: #fff;
   transition:
     background 0.35s ease,
+    color 0.35s ease,
     transform 0.35s ease;
   z-index: 3;
 }
 
-.license-card-icon svg {
-  width: 22px;
-  height: 22px;
+.album-card-icon svg {
+  width: 20px;
+  height: 20px;
   stroke: currentColor;
   fill: none;
 }
 
-.license-card:hover .license-card-icon {
-  background: #facc15;
-  color: #0f2f6b;
+.album-card[data-category="license"]:hover .album-card-icon {
+  background: var(--blue, #2563eb);
+  color: #fff;
   transform: scale(1.08) rotate(8deg);
 }
 
-/* Bottom content block */
-.license-card-content {
+.album-card[data-category="certification"]:hover .album-card-icon {
+  background: #fff;
+  color: var(--deep, #0f2f6b);
+  transform: scale(1.08) rotate(8deg);
+}
+
+.album-card[data-category="award"]:hover .album-card-icon {
+  background: var(--yellow, #facc15);
+  color: var(--deep, #0f2f6b);
+  transform: scale(1.08) rotate(8deg);
+}
+
+.album-card-content {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 26px 24px 24px;
+  padding: 24px 22px 22px;
   z-index: 3;
 }
 
-.license-card-tag {
-  display: inline-block;
+/* Category tag colors */
+.album-card-tag,
+.modal-tag {
+  display: inline-flex;
+  align-items: center;
   padding: 5px 13px;
   border-radius: 999px;
-  background: rgba(250, 204, 21, 0.16);
-  border: 1px solid rgba(250, 204, 21, 0.45);
-  color: #facc15;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
 }
 
-.license-card-content h3 {
-  font-size: 1.3rem;
+.tag-license {
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(96, 150, 255, 0.5);
+  color: #a9c4ff;
+}
+
+.tag-certification {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 47, 107, 0.2);
+  color: var(--deep, #0f2f6b);
+}
+
+.tag-award {
+  background: rgba(250, 204, 21, 0.18);
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  color: #facc15;
+}
+
+.modal-tag.tag-certification {
+  color: var(--deep, #0f2f6b);
+}
+
+.album-card-content h3 {
+  font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.3;
   color: #fff;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   letter-spacing: -0.3px;
 }
 
-.license-card-cta {
+.album-card-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 6px 6px 6px 20px;
+  padding: 6px 6px 6px 18px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -150,20 +293,20 @@
     border-color 0.35s ease;
 }
 
-.license-card-cta span {
+.album-card-cta span {
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.license-card-cta-arrow {
+.album-card-cta-arrow {
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #fff;
-  color: #0f2f6b;
+  color: var(--deep, #0f2f6b);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -173,45 +316,71 @@
     color 0.35s ease;
 }
 
-.license-card-cta-arrow svg {
-  width: 16px;
-  height: 16px;
+.album-card-cta-arrow svg {
+  width: 15px;
+  height: 15px;
   stroke: currentColor;
   fill: none;
 }
 
-.license-card:hover .license-card-cta {
+.album-card:hover .album-card-cta {
   background: #fff;
   border-color: #fff;
 }
 
-.license-card:hover .license-card-cta span {
-  color: #0f2f6b;
+.album-card:hover .album-card-cta span {
+  color: var(--deep, #0f2f6b);
 }
 
-.license-card:hover .license-card-cta-arrow {
-  background: #0f2f6b;
+.album-card:hover .album-card-cta-arrow {
+  background: var(--deep, #0f2f6b);
   color: #fff;
   transform: translateX(3px);
 }
 
-/* Top accent bar echo of brand gradient, revealed on hover */
-.license-card::after {
+/* Top accent bar, colored per category, revealed on hover */
+.album-card::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #facc15 0%, #0f2f6b 100%);
   z-index: 4;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.license-card:hover::after {
+.album-card[data-category="license"]::after {
+  background: linear-gradient(
+    90deg,
+    var(--blue, #2563eb) 0%,
+    var(--deep, #0f2f6b) 100%
+  );
+}
+
+.album-card[data-category="certification"]::after {
+  background: linear-gradient(90deg, #fff 0%, var(--blue, #2563eb) 100%);
+}
+
+.album-card[data-category="award"]::after {
+  background: linear-gradient(
+    90deg,
+    var(--yellow, #facc15) 0%,
+    var(--deep, #0f2f6b) 100%
+  );
+}
+
+.album-card:hover::after {
   transform: scaleX(1);
+}
+
+.album-empty {
+  text-align: center;
+  color: var(--g500, #6b7280);
+  padding: 60px 0;
+  font-size: 1rem;
 }
 
 /* ============================
@@ -247,10 +416,10 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   cursor: pointer;
-  animation: fadeIn 0.3s ease;
+  animation: albumFadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
+@keyframes albumFadeIn {
   from {
     opacity: 0;
   }
@@ -268,11 +437,11 @@
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 35px 90px rgba(0, 0, 0, 0.4);
-  animation: slideUpModal 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: albumSlideUpModal 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-@keyframes slideUpModal {
+@keyframes albumSlideUpModal {
   from {
     transform: translateY(40px) scale(0.98);
     opacity: 0;
@@ -306,9 +475,9 @@
 }
 
 .modal-close:hover {
-  background: #facc15;
-  color: #0f2f6b;
-  border-color: #facc15;
+  background: var(--yellow, #facc15);
+  color: var(--deep, #0f2f6b);
+  border-color: var(--yellow, #facc15);
   transform: rotate(90deg) scale(1.08);
 }
 
@@ -322,7 +491,7 @@
 .modal-media {
   position: relative;
   width: 100%;
-  height: 340px;
+  height: 320px;
   overflow: hidden;
 }
 
@@ -331,10 +500,10 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  animation: imageZoom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: albumImageZoom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes imageZoom {
+@keyframes albumImageZoom {
   from {
     transform: scale(0.95);
     opacity: 0;
@@ -359,10 +528,10 @@
 .modal-info {
   padding: 40px 48px 48px;
   background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
-  animation: slideInContent 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  animation: albumSlideInContent 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
-@keyframes slideInContent {
+@keyframes albumSlideInContent {
   from {
     transform: translateY(20px);
     opacity: 0;
@@ -371,29 +540,6 @@
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-.modal-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(15, 47, 107, 0.08);
-  border: 1px solid rgba(15, 47, 107, 0.14);
-  color: #0f2f6b;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-
-.modal-tag svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  fill: none;
 }
 
 .modal-info h2 {
@@ -409,7 +555,11 @@
   display: block;
   width: 60px;
   height: 4px;
-  background: linear-gradient(90deg, #facc15 0%, #0f2f6b 100%);
+  background: linear-gradient(
+    90deg,
+    var(--yellow, #facc15) 0%,
+    var(--deep, #0f2f6b) 100%
+  );
   margin-bottom: 16px;
   border-radius: 2px;
 }
@@ -426,7 +576,6 @@
   margin-bottom: 0;
 }
 
-/* Scrollbar Styling */
 .modal-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -448,88 +597,98 @@
    Responsive Design
 ============================ */
 @media (max-width: 1024px) {
-  .license-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 26px;
+  .album-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
   }
 
   .modal-content {
     max-width: 600px;
   }
-
   .modal-media {
-    height: 300px;
+    height: 280px;
   }
-
   .modal-info {
     padding: 36px 40px 40px;
   }
-
   .modal-info h2 {
     font-size: 1.75rem;
   }
-
-  .license-card-content h3 {
-    font-size: 1.15rem;
+  .album-card-content h3 {
+    font-size: 1.1rem;
   }
 }
 
 @media (max-width: 768px) {
-  .license-grid {
+  .album-filterbar {
+    margin-top: 28px;
+  }
+
+  .filter-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .filter-btn {
+    padding: 9px 13px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .album-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-    margin-top: 40px;
+    gap: 16px;
+    margin-top: 28px;
   }
 
-  .license-card {
+  .album-card {
     aspect-ratio: 3 / 4;
-    min-height: 300px;
-    border-radius: 20px;
+    min-height: 260px;
+    border-radius: 18px;
   }
 
-  .license-card-icon {
-    width: 38px;
-    height: 38px;
-    top: 14px;
-    right: 14px;
+  .album-card-icon {
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    right: 12px;
   }
 
-  .license-card-icon svg {
-    width: 18px;
-    height: 18px;
+  .album-card-icon svg {
+    width: 17px;
+    height: 17px;
   }
 
-  .license-card-content {
-    padding: 18px 16px 18px;
+  .album-card-content {
+    padding: 16px 14px 16px;
   }
 
-  .license-card-tag {
+  .album-card-tag {
     font-size: 9.5px;
     padding: 4px 10px;
     margin-bottom: 10px;
   }
 
-  .license-card-content h3 {
-    font-size: 0.98rem;
-    margin-bottom: 14px;
+  .album-card-content h3 {
+    font-size: 0.92rem;
+    margin-bottom: 12px;
   }
 
-  .license-card-cta {
-    padding: 4px 4px 4px 14px;
+  .album-card-cta {
+    padding: 4px 4px 4px 12px;
   }
-
-  .license-card-cta span {
-    font-size: 0.75rem;
+  .album-card-cta span {
+    font-size: 0.72rem;
   }
-
-  .license-card-cta-arrow {
-    width: 28px;
-    height: 28px;
+  .album-card-cta-arrow {
+    width: 26px;
+    height: 26px;
   }
-
-  .license-card-cta-arrow svg {
-    width: 13px;
-    height: 13px;
+  .album-card-cta-arrow svg {
+    width: 12px;
+    height: 12px;
   }
 
   .modal-content {
@@ -537,7 +696,6 @@
     max-height: 92vh;
     border-radius: 22px;
   }
-
   .modal-close {
     width: 40px;
     height: 40px;
@@ -545,26 +703,21 @@
     top: 16px;
     right: 16px;
   }
-
   .modal-media {
-    height: 220px;
+    height: 200px;
     border-radius: 22px 22px 0 0;
   }
-
   .modal-info {
     padding: 28px 24px 32px;
   }
-
   .modal-info h2 {
     font-size: 1.4rem;
     margin-bottom: 12px;
   }
-
   .modal-info h2::before {
     width: 46px;
     margin-bottom: 12px;
   }
-
   .modal-info p {
     font-size: 0.96rem;
     line-height: 1.7;
@@ -572,23 +725,19 @@
 }
 
 @media (max-width: 480px) {
-  .license-grid {
+  .album-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
-
-  .license-card {
+  .album-card {
     aspect-ratio: 4 / 3.2;
   }
-
   .modal-media {
-    height: 200px;
+    height: 190px;
   }
-
   .modal-info {
     padding: 24px 20px 28px;
   }
-
   .modal-info h2 {
     font-size: 1.3rem;
   }

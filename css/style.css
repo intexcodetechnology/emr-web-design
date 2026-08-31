@@ -614,49 +614,31 @@ button {
 
 .mv-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: start
+    grid-template-columns: 1fr;
 }
 
-.mv-tabs {
-    display: flex;
-    gap: 12px;
+.mv-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
     margin-top: 32px
 }
 
-.mv-tab {
-    padding: 14px 26px;
-    border-radius: 12px;
-    border: 1px solid var(--g200);
-    background: #fff;
-    color: var(--blue-dark);
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: var(--ease)
-}
-
-.mv-tab.active {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: #fff
-}
-
 .mv-panel {
-    display: none;
-    margin-top: 34px
+    padding: 0 40px
 }
 
-.mv-panel.active {
-    display: block
+.mv-panel:first-child {
+    padding-left: 0
+}
+
+.mv-panel + .mv-panel {
+    border-left: 1px solid var(--g200)
 }
 
 .mv-panel h3 {
     font-size: 24px;
-    color: var(--blue-dark)
+    color: #FACC15;
 }
 
 .mv-panel p {
@@ -679,13 +661,6 @@ button {
 .mv-list strong {
     color: var(--blue);
     font-weight: 800
-}
-
-.mv-image img {
-    aspect-ratio: 4/3.2;
-    object-fit: cover;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px #0f2f6b1f
 }
 
 .feature-grid {
@@ -1296,12 +1271,19 @@ footer {
         grid-template-columns: 1fr
     }
 
-    .mv-tabs {
-        flex-wrap: wrap
+    .mv-columns {
+        grid-template-columns: 1fr;
+        gap: 40px
     }
 
-    .mv-tab {
-        flex: 1
+    .mv-panel {
+        padding: 0
+    }
+
+    .mv-panel + .mv-panel {
+        border-left: 0;
+        border-top: 1px solid var(--g200);
+        padding-top: 40px
     }
 
     .purpose-grid h2 {

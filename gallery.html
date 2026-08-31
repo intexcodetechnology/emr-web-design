@@ -1,417 +1,171 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>Gallery | EMR</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/gallery.css" />
-  </head>
 
-  <body>
-    <div id="navbar-placeholder"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Gallery | EMR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/gallery.css" />
+</head>
 
-    <section class="gallery-hero" data-gallery>
-      <div class="gallery-feature">
-        <img
-          class="gallery-feature-image"
-          src="assets/About/about.jpg"
-          alt="EMR team at work"
-          data-feature-image
-        />
-        <div class="gallery-feature-shade"></div>
-      </div>
+<body>
+  <div id="navbar-placeholder"></div>
 
-      <div class="gallery-hero-content">
-        <div class="gallery-feature-copy">
-          <span class="gallery-feature-eyebrow" data-feature-eyebrow
-            >Team Culture</span
-          >
-          <h1 data-feature-title>Built around people</h1>
-          <p data-feature-caption>
-            Every operation starts with a team that cares.
-          </p>
-          <div class="gallery-feature-actions">
-            <button type="button" class="gallery-play" data-gallery-cta>
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path d="M6 4l14 8-14 8V4z" />
-              </svg>
-              <span>View photo</span>
-            </button>
-            <button type="button" class="gallery-expand" data-gallery-cta>
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>View full size</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="gallery-list">
-          <div class="gallery-list-head">
-            <span class="gallery-list-label">Gallery</span>
-            <button
-              type="button"
-              class="gallery-pause"
-              data-gallery-toggle
-              aria-label="Pause gallery"
-            >
-              Pause
-            </button>
-          </div>
-
-          <div class="gallery-row">
-            <button
-              type="button"
-              class="gallery-row-arrow gallery-row-arrow--prev"
-              data-gallery-prev
-              aria-label="Previous photo"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M15 6l-6 6 6 6"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-
-            <div
-              class="gallery-carousel"
-              role="list"
-              aria-label="EMR activity gallery"
-            >
-              <button
-                class="gallery-item is-active"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image1.jpg"
-                data-eyebrow="Team Culture"
-                data-title="Built around people"
-                data-caption="Every operation starts with a team that cares."
-                data-lightbox="assets/Gallery/image1.jpg"
-              >
-                <img src="assets/Gallery/image1.jpg" alt="EMR team at work" />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image2.jpg"
-                data-eyebrow="Company Milestones"
-                data-title="Shared milestones"
-                data-caption="Progress feels better when it is shared."
-                data-lightbox="assets/Gallery/image2.jpg"
-              >
-                <img
-                  src="assets/Gallery/image2.jpg"
-                  alt="EMR company gathering"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image3.jpg"
-                data-eyebrow="Team Building"
-                data-title="One team, many talents"
-                data-caption="Different strengths, one dependable standard."
-                data-lightbox="assets/Gallery/image3.jpg"
-              >
-                <img src="assets/Gallery/image3.jpg" alt="EMR team activity" />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image5.jpg"
-                data-eyebrow="Hospitality"
-                data-title="Care in every detail"
-                data-caption="Hospitality is part of how we show up."
-                data-lightbox="assets/Gallery/image5.jpg"
-              >
-                <img
-                  src="assets/Gallery/image5.jpg"
-                  alt="EMR food service activity"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image6.jpg"
-                data-eyebrow="Our People"
-                data-title="The people behind EMR"
-                data-caption="Professionalism is personal here."
-                data-lightbox="assets/Gallery/image6.jpg"
-              >
-                <img
-                  src="assets/Gallery/image6.jpg"
-                  alt="EMR professional activity"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image7.jpg"
-                data-eyebrow="Operations"
-                data-title="Made to move forward"
-                data-caption="Reliable work, wherever the day takes us."
-                data-lightbox="assets/Gallery/image7.jpg"
-              >
-                <img src="assets/Gallery/image7.jpg" alt="EMR operations" />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image8.jpg"
-                data-eyebrow="Vision & Values"
-                data-title="A bigger picture"
-                data-caption="Our shared vision keeps every detail aligned."
-                data-lightbox="assets/Gallery/image8.jpg"
-              >
-                <img
-                  src="assets/Gallery/image8.jpg"
-                  alt="EMR mission and vision"
-                />
-              </button>
-              <button
-                class="gallery-item is-active"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image9.jpg"
-                data-eyebrow="Team Culture"
-                data-title="Built around people"
-                data-caption="Every operation starts with a team that cares."
-                data-lightbox="assets/Gallery/image9.jpg"
-              >
-                <img src="assets/Gallery/image9.jpg" alt="EMR team at work" />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image10.jpg"
-                data-eyebrow="Company Milestones"
-                data-title="Shared milestones"
-                data-caption="Progress feels better when it is shared."
-                data-lightbox="assets/Gallery/image10.jpg"
-              >
-                <img
-                  src="assets/Gallery/image10.jpg"
-                  alt="EMR company gathering"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image11.jpg"
-                data-eyebrow="Team Building"
-                data-title="One team, many talents"
-                data-caption="Different strengths, one dependable standard."
-                data-lightbox="assets/Gallery/image11.jpg"
-              >
-                <img src="assets/Gallery/image11.jpg" alt="EMR team activity" />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image12.jpg"
-                data-eyebrow="Hospitality"
-                data-title="Care in every detail"
-                data-caption="Hospitality is part of how we show up."
-                data-lightbox="assets/Gallery/image12.jpg"
-              >
-                <img
-                  src="assets/Gallery/image12.jpg"
-                  alt="EMR food service activity"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image13.jpg"
-                data-eyebrow="Our People"
-                data-title="The people behind EMR"
-                data-caption="Professionalism is personal here."
-                data-lightbox="assets/Gallery/image13.jpg"
-              >
-                <img
-                  src="assets/Gallery/image13.jpg"
-                  alt="EMR professional activity"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image14.jpg"
-                data-eyebrow="Operations"
-                data-title="Made to move forward"
-                data-caption="Reliable work, wherever the day takes us."
-                data-lightbox="assets/Gallery/image14.jpg"
-              >
-                <img src="assets/Gallery/image14.jpg" alt="EMR operations" />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image15.jpg"
-                data-eyebrow="Vision & Values"
-                data-title="A bigger picture"
-                data-caption="Our shared vision keeps every detail aligned."
-                data-lightbox="assets/Gallery/image15.jpg"
-              >
-                <img
-                  src="assets/Gallery/image15.jpg"
-                  alt="EMR mission and vision"
-                />
-              </button>
-              <button
-                class="gallery-item"
-                type="button"
-                data-gallery-item
-                data-image="assets/Gallery/image16.jpg"
-                data-eyebrow="Vision & Values"
-                data-title="A bigger picture"
-                data-caption="Our shared vision keeps every detail aligned."
-                data-lightbox="assets/Gallery/image16.jpg"
-              >
-                <img
-                  src="assets/Gallery/image16.jpg"
-                  alt="EMR mission and vision"
-                />
-              </button>
-            </div>
-
-            <button
-              type="button"
-              class="gallery-row-arrow gallery-row-arrow--next"
-              data-gallery-next
-              aria-label="Next photo"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M9 6l6 6-6 6"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <span class="gallery-progress"><i data-gallery-progress></i></span>
-        </div>
-      </div>
-    </section>
-
-    <div class="lightbox" id="lightbox">
-      <button class="close">×</button><img src="" alt="Gallery preview" />
+  <section class="gallery-hero" data-gallery>
+    <div class="gallery-feature">
+      <img class="gallery-feature-image" src="assets/About/about.jpg" alt="EMR team at work" data-feature-image />
+      <div class="gallery-feature-shade"></div>
     </div>
 
-    <footer>
-      <div class="container footer-grid">
-        <div class="footer-col">
-          <div class="footer-logo">EAST MAN <span>RESOURCES</span></div>
-          <p>
-            Delivering reliable, safe and value-driven service solutions for the
-            energy and industrial sectors.
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="services-overview.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li>Industrial Plant Services</li>
-            <li>Offshore Catering</li>
-            <li>Logistics Support</li>
-            <li>Safety & Compliance</li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="experience.html">Experience</a></li>
-            <li><a href="license.html">License</a></li>
-            <li><a href="certifications.html">Certifications</a></li>
-            <li><a href="awards.html">Awards</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="assets/Policies.pdf" target="_blank">Policies</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li>support@emr.net.my</li>
-            <li>+6088-251854</li>
-            <li>Kota Kinabalu, Sabah</li>
-            <li>Miri, Sarawak</li>
-          </ul>
+    <div class="gallery-hero-content">
+      <div class="gallery-feature-copy">
+        <span class="gallery-feature-eyebrow" data-feature-eyebrow>Team Culture</span>
+        <h1 data-feature-title>Built around people</h1>
+        <p data-feature-caption>
+          Every operation starts with a team that cares.
+        </p>
+        <div class="gallery-feature-actions">
+          <button type="button" class="gallery-play" data-gallery-cta>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M6 4l14 8-14 8V4z" />
+            </svg>
+            <span>View photo</span>
+          </button>
+          <button type="button" class="gallery-expand" data-gallery-cta>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 3H3v6M15 3h6v6M9 21H3v-6M15 21h6v-6" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span>View full size</span>
+          </button>
         </div>
       </div>
-      <div class="container footer-bottom">
-        <div class="footer-copy">
-          © 2025 East Man Resources Sdn. Bhd. All Rights Reserved.
+
+      <div class="gallery-list">
+        <div class="gallery-list-head">
+          <span class="gallery-list-label">Gallery</span>
+          <button type="button" class="gallery-pause" data-gallery-toggle aria-label="Pause gallery">
+            Pause
+          </button>
         </div>
+
+        <div class="gallery-row">
+          <button type="button" class="gallery-row-arrow gallery-row-arrow--prev" data-gallery-prev
+            aria-label="Previous photo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <div class="gallery-carousel" role="list" aria-label="EMR activity gallery">
+            <button class="gallery-item is-active" type="button" data-gallery-item
+              data-image="assets/Gallery/image1.jpg" data-eyebrow="Team Culture" data-title="Built around people"
+              data-caption="Every operation starts with a team that cares." data-lightbox="assets/Gallery/image1.jpg">
+              <img src="assets/Gallery/image1.jpg" alt="EMR team at work" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image2.jpg"
+              data-eyebrow="Company Milestones" data-title="Shared milestones"
+              data-caption="Progress feels better when it is shared." data-lightbox="assets/Gallery/image2.jpg">
+              <img src="assets/Gallery/image2.jpg" alt="EMR company gathering" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image3.jpg"
+              data-eyebrow="Team Building" data-title="One team, many talents"
+              data-caption="Different strengths, one dependable standard." data-lightbox="assets/Gallery/image3.jpg">
+              <img src="assets/Gallery/image3.jpg" alt="EMR team activity" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image5.jpg"
+              data-eyebrow="Hospitality" data-title="Care in every detail"
+              data-caption="Hospitality is part of how we show up." data-lightbox="assets/Gallery/image5.jpg">
+              <img src="assets/Gallery/image5.jpg" alt="EMR food service activity" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image6.jpg"
+              data-eyebrow="Our People" data-title="The people behind EMR"
+              data-caption="Professionalism is personal here." data-lightbox="assets/Gallery/image6.jpg">
+              <img src="assets/Gallery/image6.jpg" alt="EMR professional activity" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image7.jpg"
+              data-eyebrow="Operations" data-title="Made to move forward"
+              data-caption="Reliable work, wherever the day takes us." data-lightbox="assets/Gallery/image7.jpg">
+              <img src="assets/Gallery/image7.jpg" alt="EMR operations" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image8.jpg"
+              data-eyebrow="Vision & Values" data-title="A bigger picture"
+              data-caption="Our shared vision keeps every detail aligned." data-lightbox="assets/Gallery/image8.jpg">
+              <img src="assets/Gallery/image8.jpg" alt="EMR mission and vision" />
+            </button>
+            <button class="gallery-item is-active" type="button" data-gallery-item
+              data-image="assets/Gallery/image9.jpg" data-eyebrow="Team Culture" data-title="Built around people"
+              data-caption="Every operation starts with a team that cares." data-lightbox="assets/Gallery/image9.jpg">
+              <img src="assets/Gallery/image9.jpg" alt="EMR team at work" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image10.jpg"
+              data-eyebrow="Company Milestones" data-title="Shared milestones"
+              data-caption="Progress feels better when it is shared." data-lightbox="assets/Gallery/image10.jpg">
+              <img src="assets/Gallery/image10.jpg" alt="EMR company gathering" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image11.jpg"
+              data-eyebrow="Team Building" data-title="One team, many talents"
+              data-caption="Different strengths, one dependable standard." data-lightbox="assets/Gallery/image11.jpg">
+              <img src="assets/Gallery/image11.jpg" alt="EMR team activity" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image12.jpg"
+              data-eyebrow="Hospitality" data-title="Care in every detail"
+              data-caption="Hospitality is part of how we show up." data-lightbox="assets/Gallery/image12.jpg">
+              <img src="assets/Gallery/image12.jpg" alt="EMR food service activity" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image13.jpg"
+              data-eyebrow="Our People" data-title="The people behind EMR"
+              data-caption="Professionalism is personal here." data-lightbox="assets/Gallery/image13.jpg">
+              <img src="assets/Gallery/image13.jpg" alt="EMR professional activity" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image14.jpg"
+              data-eyebrow="Operations" data-title="Made to move forward"
+              data-caption="Reliable work, wherever the day takes us." data-lightbox="assets/Gallery/image14.jpg">
+              <img src="assets/Gallery/image14.jpg" alt="EMR operations" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image15.jpg"
+              data-eyebrow="Vision & Values" data-title="A bigger picture"
+              data-caption="Our shared vision keeps every detail aligned." data-lightbox="assets/Gallery/image15.jpg">
+              <img src="assets/Gallery/image15.jpg" alt="EMR mission and vision" />
+            </button>
+            <button class="gallery-item" type="button" data-gallery-item data-image="assets/Gallery/image16.jpg"
+              data-eyebrow="Vision & Values" data-title="A bigger picture"
+              data-caption="Our shared vision keeps every detail aligned." data-lightbox="assets/Gallery/image16.jpg">
+              <img src="assets/Gallery/image16.jpg" alt="EMR mission and vision" />
+            </button>
+          </div>
+
+          <button type="button" class="gallery-row-arrow gallery-row-arrow--next" data-gallery-next
+            aria-label="Next photo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+
+        <span class="gallery-progress"><i data-gallery-progress></i></span>
       </div>
-    </footer>
-    <script src="js/navbar.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/gallery.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <button class="close">×</button><img src="" alt="Gallery preview" />
+  </div>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+
 </html>

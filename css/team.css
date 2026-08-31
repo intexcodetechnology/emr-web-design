@@ -349,6 +349,22 @@
     font-weight: 700;
 }
 
+/* ---------- Organizational chart (single source-of-truth image) ---------- */
+.org-chart-wrap {
+    margin-top: 40px;
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 20px;
+}
+
+.org-chart-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 900px;
+    border-radius: 20px;
+}
+
 @media (max-width: 860px) {
     .spotlight-frame-bg {
         bottom: 24px;

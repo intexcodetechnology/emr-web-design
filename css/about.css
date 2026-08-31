@@ -260,56 +260,60 @@
 .emr-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 30px;
+    gap: 0;
+    margin-top: 40px;
 }
 
 .emr-box {
     position: relative;
-    background: #0F2F6B;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 16px;
-    padding: 24px;
-    color: #fff;
+    text-align: center;
+    padding: 20px 24px 8px;
     overflow: hidden;
+}
+
+.emr-box + .emr-box {
+    border-left: 1px solid var(--g200);
 }
 
 .emr-box::before {
     content: attr(data-letter);
     position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 120px;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 128px;
     font-weight: 900;
-    color: #facc154e;
+    color: var(--g100);
     line-height: 1;
     z-index: 0;
     transition: color 0.3s ease;
+    user-select: none;
 }
 
 .emr-box:hover::before {
-    color: #FACC15;
+    color: #facc15;
 }
 
 .emr-box span {
     display: block;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: 800;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #FACC15;
-    margin-bottom: 8px;
+    color: var(--black);
+    margin-bottom: 10px;
     position: relative;
     z-index: 1;
 }
 
 .emr-box strong {
     display: block;
-    font-size: 16px;
-    font-weight: 600;
+    max-width: 230px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 1.6;
-    color: #cbd5e1;
+    color: var(--g600);
     position: relative;
     z-index: 1;
 }
@@ -317,5 +321,14 @@
 @media (max-width: 768px) {
     .emr-grid {
         grid-template-columns: 1fr;
+    }
+
+    .emr-box + .emr-box {
+        border-left: 0;
+        border-top: 1px solid var(--g200);
+    }
+
+    .emr-box {
+        padding: 28px 24px 20px;
     }
 }

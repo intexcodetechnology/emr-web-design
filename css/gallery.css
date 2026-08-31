@@ -1,387 +1,1677 @@
-/* =========================================
+/* =========================================================
+   EAST MAN RESOURCES
    GALLERY PAGE
-   Full-viewport hero (mirrors Home's .hero
-   sizing/spacing pattern) + rotating cards
-========================================= */
+========================================================= */
+
+
+/* =========================================================
+   GALLERY HERO
+========================================================= */
 
 .gallery-hero {
   min-height: 100svh;
+
   position: relative;
+
   display: flex;
   align-items: flex-end;
-  color: #fff;
+
+  color: #ffffff;
+
   overflow: hidden;
+
   isolation: isolate;
 }
 
-/* ---------- Background layer ---------- */
+
+/* =========================================================
+   FEATURED BACKGROUND
+========================================================= */
+
 .gallery-feature {
   position: absolute;
+
   inset: 0;
+
   z-index: 0;
+
   overflow: hidden;
+
   background: var(--deep, #081b3a);
 }
+
+
 .gallery-feature-image {
   position: absolute;
+
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
+
   transform: scale(1.02);
+
   transition:
     opacity 0.5s ease,
-    transform 1.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform 1.3s
+      cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+      );
 }
-.gallery-feature.is-changing .gallery-feature-image {
-  opacity: 0.45;
-  transform: scale(1.07);
+
+
+.gallery-feature.is-changing
+.gallery-feature-image {
+  opacity: 0.4;
+
+  transform: scale(1.06);
 }
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
 .gallery-feature-shade {
   position: absolute;
+
   inset: 0;
+
+  pointer-events: none;
+
   background:
     linear-gradient(
       100deg,
-      #030f35eb 0%,
-      #030f35b0 34%,
-      #030f3545 58%,
+      rgba(3, 15, 53, 0.94) 0%,
+      rgba(3, 15, 53, 0.7) 34%,
+      rgba(3, 15, 53, 0.28) 58%,
       transparent 82%
     ),
-    linear-gradient(0deg, #030f35d9 0%, transparent 55%);
+
+    linear-gradient(
+      0deg,
+      rgba(3, 15, 53, 0.88) 0%,
+      transparent 58%
+    );
 }
 
-/* ---------- Content overlay ---------- */
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
 .gallery-hero-content {
   position: relative;
+
   z-index: 2;
+
   width: 100%;
-  padding: 170px 8vw 60px;
+
+  padding:
+    170px
+    8vw
+    60px;
+
   display: flex;
   flex-direction: column;
+
   gap: 46px;
 }
 
-/* ---------- Featured copy ---------- */
+
+/* =========================================================
+   FEATURE INFORMATION
+========================================================= */
+
 .gallery-feature-copy {
   max-width: 560px;
 }
+
+
 .gallery-feature-eyebrow {
   display: inline-block;
-  color: var(--yellow);
+
+  color: var(
+    --yellow,
+    #ffc700
+  );
+
   font-size: 11px;
+
   font-weight: 800;
+
   letter-spacing: 0.16em;
+
   text-transform: uppercase;
+
   margin-bottom: 18px;
-  transition: opacity 0.3s ease;
+
+  transition:
+    opacity 0.3s ease;
 }
+
+
 .gallery-feature-copy h1 {
-  font-size: clamp(40px, 6vw, 84px);
+  margin:
+    0
+    0
+    18px;
+
+  font-size:
+    clamp(
+      40px,
+      6vw,
+      84px
+    );
+
   line-height: 0.92;
+
   letter-spacing: -0.045em;
+
   font-weight: 900;
-  margin: 0 0 18px;
-  transition: opacity 0.3s ease;
+
+  transition:
+    opacity 0.3s ease;
 }
+
+
 .gallery-feature-copy p {
-  color: #ffffffc7;
-  font-size: 15px;
-  line-height: 1.75;
   max-width: 520px;
-  margin: 0 0 30px;
-  transition: opacity 0.3s ease;
+
+  margin:
+    0
+    0
+    30px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  transition:
+    opacity 0.3s ease;
 }
-.gallery-feature.is-changing ~ .gallery-hero-content .gallery-feature-eyebrow,
-.gallery-feature.is-changing ~ .gallery-hero-content .gallery-feature-copy h1,
-.gallery-feature.is-changing ~ .gallery-hero-content .gallery-feature-copy p {
+
+
+/* Hide text during transition */
+
+.gallery-feature.is-changing
+~
+.gallery-hero-content
+.gallery-feature-eyebrow,
+
+.gallery-feature.is-changing
+~
+.gallery-hero-content
+.gallery-feature-copy
+h1,
+
+.gallery-feature.is-changing
+~
+.gallery-hero-content
+.gallery-feature-copy
+p {
   opacity: 0;
 }
 
+
+/* =========================================================
+   FEATURE BUTTONS
+========================================================= */
+
 .gallery-feature-actions {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 12px;
 }
+
+
+/* View Photo */
+
 .gallery-play {
   display: inline-flex;
+
   align-items: center;
+  justify-content: center;
+
   gap: 10px;
+
   appearance: none;
+
   cursor: pointer;
+
   border: 0;
-  background: var(--yellow);
-  color: var(--deep, #081b3a);
-  padding: 14px 26px;
+
+  background:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  color:
+    var(
+      --deep,
+      #081b3a
+    );
+
+  padding:
+    14px
+    26px;
+
   border-radius: 999px;
+
   font-size: 13px;
+
   font-weight: 800;
+
   letter-spacing: 0.02em;
+
   transition:
-    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.3s
+      cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+      ),
+
     filter 0.25s ease;
 }
+
+
 .gallery-play:hover,
 .gallery-play:focus-visible {
   filter: brightness(1.08);
-  transform: translateY(-4px) scale(1.02);
-  outline: none;
-}
-.gallery-expand {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  appearance: none;
-  cursor: pointer;
-  color: #fff;
-  background: #ffffff14;
-  border: 1px solid #ffffff40;
-  padding: 14px 24px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  transition:
-    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-    background 0.25s ease,
-    border-color 0.25s ease;
-}
-.gallery-expand:hover,
-.gallery-expand:focus-visible {
-  background: #ffffff26;
-  border-color: #ffffff80;
-  transform: translateY(-4px) scale(1.02);
+
+  transform:
+    translateY(-4px)
+    scale(1.02);
+
   outline: none;
 }
 
-/* ---------- Poster list ---------- */
+
+/* View Full Size */
+
+.gallery-expand {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  appearance: none;
+
+  cursor: pointer;
+
+  color: #ffffff;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  padding:
+    14px
+    24px;
+
+  border-radius: 999px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    transform 0.3s
+      cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+      ),
+
+    background 0.25s ease,
+
+    border-color 0.25s ease;
+}
+
+
+.gallery-expand:hover,
+.gallery-expand:focus-visible {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
+  border-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.5
+    );
+
+  transform:
+    translateY(-4px)
+    scale(1.02);
+
+  outline: none;
+}
+
+
+/* =========================================================
+   GALLERY LIST
+========================================================= */
+
 .gallery-list {
   width: 100%;
 }
+
+
 .gallery-list-head {
   display: flex;
+
   align-items: center;
-  justify-content: space-between;
+
+  justify-content:
+    space-between;
+
   margin-bottom: 14px;
 }
+
+
 .gallery-list-label {
-  color: #fff;
+  color: #ffffff;
+
   font-size: 12px;
+
   font-weight: 800;
+
   letter-spacing: 0.14em;
+
   text-transform: uppercase;
+
   opacity: 0.85;
 }
+
+
+/* =========================================================
+   PLAY / PAUSE
+========================================================= */
+
 .gallery-pause {
   border: 0;
+
   background: none;
-  color: #ffffffa0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    );
+
   font-size: 11px;
+
   font-weight: 700;
+
   letter-spacing: 0.1em;
+
   text-transform: uppercase;
+
   cursor: pointer;
+
+  transition:
+    color 0.2s ease;
 }
+
+
 .gallery-pause:hover {
-  color: var(--yellow);
+  color:
+    var(
+      --yellow,
+      #ffc700
+    );
 }
+
+
+/* =========================================================
+   GALLERY ROW
+========================================================= */
 
 .gallery-row {
   display: flex;
+
   align-items: center;
+
   gap: 10px;
 }
+
+
+/* =========================================================
+   MAIN CAROUSEL ARROWS
+========================================================= */
+
 .gallery-row-arrow {
-  flex: 0 0 auto;
+  flex:
+    0
+    0
+    auto;
+
   display: inline-flex;
+
   align-items: center;
+
   justify-content: center;
+
   width: 40px;
   height: 40px;
+
   border-radius: 50%;
+
   appearance: none;
+
   cursor: pointer;
-  color: #fff;
-  background: #ffffff14;
-  border: 1.5px solid #ffffff2a;
+
+  color: #ffffff;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.08
+    );
+
+  border:
+    1.5px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.18
+    );
+
+  backdrop-filter:
+    blur(10px);
+
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
     color 0.25s ease,
     transform 0.2s ease;
 }
+
+
 .gallery-row-arrow:hover,
 .gallery-row-arrow:focus-visible {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  color: var(--deep, #081b3a);
+  background:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  border-color:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  color:
+    var(
+      --deep,
+      #081b3a
+    );
+
+  transform: scale(1.08);
+
   outline: none;
 }
 
+
+/* =========================================================
+   CAROUSEL
+========================================================= */
+
 .gallery-carousel {
-  flex: 1 1 auto;
+  flex:
+    1
+    1
+    auto;
+
   display: flex;
+
   gap: 12px;
+
   overflow-x: auto;
+
   scroll-behavior: smooth;
-  scroll-snap-type: x proximity;
-  padding: 6px 2px 10px;
+
+  scroll-snap-type:
+    x proximity;
+
+  padding:
+    6px
+    2px
+    10px;
+
   scrollbar-width: none;
 }
+
+
 .gallery-carousel::-webkit-scrollbar {
   display: none;
 }
 
+
+/* =========================================================
+   THUMBNAILS
+========================================================= */
+
 .gallery-item {
   appearance: none;
+
   border: 0;
+
   padding: 0;
+
   cursor: pointer;
+
   position: relative;
-  flex: 0 0 auto;
-  width: clamp(84px, 9vw, 122px);
+
+  flex:
+    0
+    0
+    auto;
+
+  width:
+    clamp(
+      84px,
+      9vw,
+      122px
+    );
+
   aspect-ratio: 2 / 3;
+
   border-radius: 12px;
+
   overflow: hidden;
+
   background: #1a2c47;
+
   scroll-snap-align: start;
-  box-shadow: 0 10px 22px #05122a3d;
-  transform: translateY(0) scale(1);
+
+  box-shadow:
+    0
+    10px
+    22px
+    rgba(
+      5,
+      18,
+      42,
+      0.24
+    );
+
+  transform:
+    translateY(0)
+    scale(1);
+
   transition:
-    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.35s
+      cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+      ),
+
     box-shadow 0.35s ease,
+
     outline-color 0.25s ease;
-  outline: 2px solid transparent;
+
+  outline:
+    2px solid
+    transparent;
+
   outline-offset: 3px;
 }
+
+
 .gallery-item img {
+  display: block;
+
   width: 100%;
+
   height: 100%;
+
   object-fit: cover;
-  transition: transform 0.6s ease;
+
+  transition:
+    transform 0.6s ease;
 }
+
+
 .gallery-item:hover,
 .gallery-item:focus-visible {
-  transform: translateY(-6px) scale(1.05);
-  outline-color: #ffffff55;
+  transform:
+    translateY(-6px)
+    scale(1.05);
+
+  outline-color:
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+
   z-index: 2;
 }
+
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+
+/* Active */
+
 .gallery-item.is-active {
-  transform: translateY(-4px) scale(1.08);
-  outline-color: var(--yellow);
-  box-shadow: 0 16px 34px #05122a5c;
+  transform:
+    translateY(-4px)
+    scale(1.08);
+
+  outline-color:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  box-shadow:
+    0
+    16px
+    34px
+    rgba(
+      5,
+      18,
+      42,
+      0.36
+    );
+
   z-index: 3;
 }
+
+
 .gallery-item.is-active:hover {
-  transform: translateY(-9px) scale(1.1);
+  transform:
+    translateY(-9px)
+    scale(1.1);
 }
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
 
 .gallery-progress {
   display: block;
+
   margin-top: 18px;
+
   width: 100%;
+
   max-width: 220px;
+
   height: 3px;
-  background: #ffffff26;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.15
+    );
+
   border-radius: 999px;
+
   overflow: hidden;
 }
+
+
 .gallery-progress i {
   display: block;
+
   height: 100%;
-  width: 14.28%;
-  background: var(--yellow);
+
+  width: 0;
+
+  background:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  border-radius: 999px;
+
   transform-origin: left;
-  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  transition:
+    width 0.6s
+      cubic-bezier(
+        0.2,
+        0.8,
+        0.2,
+        1
+      );
 }
 
-/* ---------- Tablet ---------- */
-@media (max-width: 1000px) {
+
+/* =========================================================
+   FULL SCREEN LIGHTBOX
+========================================================= */
+
+.lightbox {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    rgba(
+      2,
+      10,
+      25,
+      0.96
+    );
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+
+/* Open */
+
+.lightbox.is-open {
+  opacity: 1;
+
+  visibility: visible;
+
+  pointer-events: auto;
+}
+
+
+/* =========================================================
+   LIGHTBOX MAIN
+========================================================= */
+
+.lightbox-main {
+  position: relative;
+
+  width:
+    min(
+      82vw,
+      1300px
+    );
+
+  height:
+    min(
+      90vh,
+      900px
+    );
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   LIGHTBOX IMAGE AREA
+========================================================= */
+
+.lightbox-image-container {
+  width: 100%;
+
+  flex:
+    1
+    1
+    auto;
+
+  min-height: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  padding:
+    10px
+    0;
+}
+
+
+/* =========================================================
+   ACTUAL LIGHTBOX IMAGE
+========================================================= */
+
+.lightbox-image {
+  display: block;
+
+  width: auto;
+
+  height: auto;
+
+  max-width: 100%;
+
+  max-height:
+    calc(
+      100vh
+      -
+      155px
+    );
+
+  object-fit: contain;
+
+  object-position: center;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0
+    30px
+    80px
+    rgba(
+      0,
+      0,
+      0,
+      0.45
+    );
+
+  opacity: 1;
+
+  transform:
+    scale(1);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s ease;
+}
+
+
+/* Changing Image */
+
+.lightbox-image.is-changing {
+  opacity: 0.25;
+
+  transform:
+    scale(0.985);
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.lightbox-close {
+  position: fixed;
+
+  top: 22px;
+
+  right: 22px;
+
+  z-index: 100002;
+
+  width: 54px;
+
+  height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.25
+    );
+
+  background:
+    rgba(
+      4,
+      16,
+      38,
+      0.72
+    );
+
+  color: #ffffff;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 30px;
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.25s ease;
+}
+
+
+.lightbox-close:hover,
+.lightbox-close:focus-visible {
+  background:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  border-color:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  color:
+    var(
+      --deep,
+      #081b3a
+    );
+
+  transform:
+    rotate(90deg);
+
+  outline: none;
+}
+
+
+/* =========================================================
+   LIGHTBOX NAVIGATION
+========================================================= */
+
+.lightbox-nav {
+  position: fixed;
+
+  top: 50%;
+
+  z-index: 100001;
+
+  width: 60px;
+
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.24
+    );
+
+  background:
+    rgba(
+      4,
+      16,
+      38,
+      0.72
+    );
+
+  color: #ffffff;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 31px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transform:
+    translateY(-50%);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Previous */
+
+.lightbox-prev {
+  left: 30px;
+}
+
+
+/* Next */
+
+.lightbox-next {
+  right: 30px;
+}
+
+
+.lightbox-nav:hover,
+.lightbox-nav:focus-visible {
+  background:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  border-color:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  color:
+    var(
+      --deep,
+      #081b3a
+    );
+
+  outline: none;
+}
+
+
+.lightbox-prev:hover {
+  transform:
+    translateY(-50%)
+    translateX(-4px);
+}
+
+
+.lightbox-next:hover {
+  transform:
+    translateY(-50%)
+    translateX(4px);
+}
+
+
+/* =========================================================
+   LIGHTBOX INFORMATION
+========================================================= */
+
+.lightbox-details {
+  flex:
+    0
+    0
+    auto;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content:
+    space-between;
+
+  gap: 30px;
+
+  padding-top: 14px;
+
+  color: #ffffff;
+}
+
+
+.lightbox-text {
+  max-width: 700px;
+}
+
+
+.lightbox-eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color:
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+}
+
+
+.lightbox-title {
+  margin:
+    0
+    0
+    6px;
+
+  color: #ffffff;
+
+  font-size:
+    clamp(
+      18px,
+      2vw,
+      26px
+    );
+
+  font-weight: 800;
+
+  line-height: 1.25;
+}
+
+
+.lightbox-caption {
+  margin: 0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.68
+    );
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+.lightbox-counter {
+  flex:
+    0
+    0
+    auto;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.72
+    );
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+  max-width: 1000px
+) {
+
   .gallery-feature-copy {
     max-width: 460px;
   }
+
+
+  .lightbox-main {
+    width: 82vw;
+  }
+
+
+  .lightbox-prev {
+    left: 15px;
+  }
+
+
+  .lightbox-next {
+    right: 15px;
+  }
+
+
+  .lightbox-nav {
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 25px;
+  }
+
+
+  .lightbox-close {
+    width: 48px;
+
+    height: 48px;
+
+    font-size: 26px;
+  }
 }
 
-/* ---------- Mobile ---------- */
-@media (max-width: 650px) {
+
+/* =========================================================
+   MOBILE GALLERY
+========================================================= */
+
+@media (
+  max-width: 650px
+) {
+
   .gallery-hero-content {
-    padding: 130px 20px 40px;
+    padding:
+      130px
+      20px
+      40px;
+
     gap: 32px;
   }
+
+
+  .gallery-feature-copy h1 {
+    font-size:
+      clamp(
+        38px,
+        13vw,
+        58px
+      );
+  }
+
+
   .gallery-feature-copy p {
     display: none;
   }
+
+
   .gallery-row-arrow {
     display: none;
   }
+
+
   .gallery-item {
     width: 80px;
   }
-  .gallery-feature-actions .gallery-expand span,
-  .gallery-feature-actions .gallery-play span {
-    font-size: 12.5px;
-  }
-}
 
-/* ---------- Reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .gallery-feature-image,
+
+  .gallery-feature-actions {
+    gap: 9px;
+  }
+
+
   .gallery-play,
-  .gallery-expand,
-  .gallery-row-arrow,
-  .gallery-item {
-    transition: none !important;
+  .gallery-expand {
+    padding:
+      12px
+      17px;
   }
-  .gallery-feature-image {
-    transform: none !important;
+
+
+  .gallery-feature-actions
+  .gallery-expand
+  span,
+
+  .gallery-feature-actions
+  .gallery-play
+  span {
+    font-size: 12px;
+  }
+
+
+  /* =====================================
+     MOBILE LIGHTBOX
+  ====================================== */
+
+  .lightbox-main {
+    width: 100%;
+
+    height: 100%;
+
+    padding:
+      76px
+      16px
+      92px;
+  }
+
+
+  .lightbox-image-container {
+    width: 100%;
+
+    padding: 0;
+  }
+
+
+  .lightbox-image {
+    max-width: 100%;
+
+    max-height: 67vh;
+
+    border-radius: 6px;
+  }
+
+
+  .lightbox-close {
+    top: 14px;
+
+    right: 14px;
+
+    width: 44px;
+
+    height: 44px;
+
+    font-size: 25px;
+  }
+
+
+  /* Move arrows to bottom */
+
+  .lightbox-nav {
+    top: auto;
+
+    bottom: 20px;
+
+    width: 46px;
+
+    height: 46px;
+
+    font-size: 22px;
+
+    transform: none;
+  }
+
+
+  .lightbox-prev {
+    left: 20px;
+  }
+
+
+  .lightbox-next {
+    right: 20px;
+  }
+
+
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    transform: none;
+  }
+
+
+  .lightbox-details {
+    align-items:
+      flex-start;
+
+    gap: 15px;
+
+    padding:
+      14px
+      4px
+      0;
+  }
+
+
+  .lightbox-caption {
+    display: none;
+  }
+
+
+  .lightbox-title {
+    font-size: 17px;
+  }
+
+
+  .lightbox-counter {
+    font-size: 12px;
   }
 }
 
-/* Lightbox (scoped here in case the shared stylesheet doesn't already style it) */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  display: flex;
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (
+  max-width: 420px
+) {
+
+  .gallery-feature-actions {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .gallery-play,
+  .gallery-expand {
+    width: fit-content;
+  }
+
+
+  .lightbox-main {
+    padding-left: 12px;
+
+    padding-right: 12px;
+  }
+
+
+  .lightbox-details {
+    gap: 10px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion:
+    reduce
+) {
+
+  .gallery-feature-image,
+
+  .gallery-play,
+
+  .gallery-expand,
+
+  .gallery-row-arrow,
+
+  .gallery-item,
+
+  .gallery-item img,
+
+  .lightbox,
+
+  .lightbox-image,
+
+  .lightbox-close,
+
+  .lightbox-nav {
+    transition:
+      none !important;
+  }
+
+
+  .gallery-feature-image {
+    transform:
+      none !important;
+  }
+}
+
+/* =========================================================
+   LIGHTBOX CLICK FIX
+========================================================= */
+
+#lightbox {
+  pointer-events: none;
+}
+
+#lightbox.is-open {
+  pointer-events: auto !important;
+}
+
+#lightbox .lightbox-main {
+  pointer-events: none;
+}
+
+#lightbox .lightbox-image-container {
+  pointer-events: none;
+}
+
+#lightbox #lightboxImage {
+  pointer-events: auto;
+}
+
+#lightbox #lightboxClose,
+#lightbox #lightboxPrev,
+#lightbox #lightboxNext {
+  pointer-events: auto !important;
+
+  cursor: pointer !important;
+
+  position: fixed !important;
+}
+
+#lightbox #lightboxClose {
+  z-index: 2147483647 !important;
+}
+
+#lightbox #lightboxPrev,
+#lightbox #lightboxNext {
+  z-index: 2147483646 !important;
+}
+
+/* =========================================================
+   FORCE CLOSE BUTTON CLICKABILITY
+========================================================= */
+
+#lightboxClose {
+  position: fixed !important;
+
+  top: 22px !important;
+  right: 22px !important;
+
+  z-index: 2147483647 !important;
+
+  pointer-events: auto !important;
+
+  cursor: pointer !important;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex !important;
   align-items: center;
   justify-content: center;
-  background: #081b3ae6;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease;
-  padding: 40px;
-}
-.lightbox.is-open {
-  opacity: 1;
-  visibility: visible;
-}
-.lightbox img {
-  max-width: min(90vw, 1100px);
-  max-height: 85vh;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 30px 70px #00000055;
-}
-.lightbox .close {
-  position: absolute;
-  top: 24px;
-  right: clamp(20px, 5vw, 48px);
-  width: 44px;
-  height: 44px;
+
   border-radius: 50%;
-  border: 1.5px solid #ffffff55;
-  background: transparent;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  background: rgba(4, 16, 38, 0.85);
+
   color: #fff;
-  font-size: 22px;
+
+  font-size: 30px;
+
   line-height: 1;
-  cursor: pointer;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease;
-}
-.lightbox .close:hover {
-  background: var(--yellow);
-  border-color: var(--yellow);
-  color: var(--deep);
 }

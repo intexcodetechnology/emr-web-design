@@ -273,8 +273,16 @@
   font-weight: 800;
   line-height: 1.3;
   color: #fff;
-  margin: 0 0 18px;
+  margin: 0 0 6px;
   letter-spacing: -0.3px;
+}
+
+.album-card-meta {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 18px;
 }
 
 .album-card-cta {
@@ -381,6 +389,78 @@
   color: var(--g500, #6b7280);
   padding: 60px 0;
   font-size: 1rem;
+}
+
+/* Card/modal media placeholder for items with no photo on file yet
+   (kept honest rather than substituting an unrelated stock image) */
+.album-card-image--empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    #16273b,
+    #16273b 12px,
+    #1c3049 12px,
+    #1c3049 24px
+  );
+}
+
+.album-card-image--empty span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.modal-media--empty {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    #16273b,
+    #16273b 12px,
+    #1c3049 12px,
+    #1c3049 24px
+  );
+}
+
+.modal-media--empty span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+@media (max-width: 1024px) {
+  .modal-media--empty {
+    height: 280px;
+  }
+}
+@media (max-width: 420px) {
+  .modal-media--empty {
+    height: 200px;
+    border-radius: 22px 22px 0 0;
+  }
+}
+@media (max-width: 480px) {
+  .modal-media--empty {
+    height: 190px;
+  }
 }
 
 /* ============================
@@ -562,6 +642,28 @@
   );
   margin-bottom: 16px;
   border-radius: 2px;
+}
+
+.modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  margin: 0 0 22px;
+  background: var(--g50, #f7f8fa);
+  border: 1px solid rgba(15, 47, 107, 0.08);
+  border-radius: 14px;
+}
+
+.modal-meta span {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.modal-meta strong {
+  color: var(--deep, #0f2f6b);
+  font-weight: 700;
 }
 
 .modal-info p {

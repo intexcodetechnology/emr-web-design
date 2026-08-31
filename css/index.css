@@ -3,581 +3,523 @@
    Interactive Hero + Shared Components
 ========================================= */
 
-
 /* =========================================
    BUTTONS
 ========================================= */
 
 .btn-dark {
-    background: var(--blue-dark);
-    color: #fff;
+  background: var(--blue-dark);
+  color: #fff;
 }
 
 .btn-dark:hover {
-    background: var(--blue);
-    transform: translateY(-4px);
+  background: var(--blue);
+  transform: translateY(-4px);
 }
 
 .btn-outline {
-    border: 1px solid var(--g200);
-    background: #fff;
-    color: var(--blue-dark);
+  border: 1px solid var(--g200);
+  background: #fff;
+  color: var(--blue-dark);
 }
-
 
 /* =========================================
    HERO
 ========================================= */
 
 .hero {
-    min-height: 100svh;
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    color: #fff;
-    overflow: hidden;
-    isolation: isolate;
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
 }
-
 
 /* =========================================
    HERO BACKGROUND
 ========================================= */
 
 .hero-bg {
-    position: absolute;
-    inset: -5%;
-    background-size: cover;
-    background-position: center;
-    transform: translate3d(0, 0, 0) scale(1.06);
-    transition: transform 0.15s ease-out;
-    will-change: transform;
+  position: absolute;
+  inset: -5%;
+  background-size: cover;
+  background-position: center;
+  transform: translate3d(0, 0, 0) scale(1.06);
+  transition: transform 0.15s ease-out;
+  will-change: transform;
 }
 
 .hero-bg:after {
-    content: "";
-    position: absolute;
-    inset: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
 
-    background:
-        linear-gradient(
-            90deg,
-            #030f35eb,
-            #030f3580 45%,
-            #030f351f
-        ),
-        linear-gradient(
-            0deg,
-            #030f35bf,
-            transparent 50%
-        );
+  background:
+    linear-gradient(90deg, #030f35eb, #030f3580 45%, #030f351f),
+    linear-gradient(0deg, #030f35bf, transparent 50%);
 }
-
 
 /* =========================================
    CURSOR SPOTLIGHT
 ========================================= */
 
 .hero:before {
-    content: "";
-    position: absolute;
+  content: "";
+  position: absolute;
 
-    width: 600px;
-    height: 600px;
+  width: 600px;
+  height: 600px;
 
-    left: var(--mouse-x, 50%);
-    top: var(--mouse-y, 50%);
+  left: var(--mouse-x, 50%);
+  top: var(--mouse-y, 50%);
 
-    transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    pointer-events: none;
+  pointer-events: none;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(255, 255, 255, 0.22) 0%,
-            rgba(255, 255, 255, 0.12) 18%,
-            rgba(255, 255, 255, 0.05) 40%,
-            transparent 72%
-        );
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.22) 0%,
+    rgba(255, 255, 255, 0.12) 18%,
+    rgba(255, 255, 255, 0.05) 40%,
+    transparent 72%
+  );
 
-    opacity: 0;
+  opacity: 0;
 
-    transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
 
-    mix-blend-mode: screen;
+  mix-blend-mode: screen;
 
-    z-index: 1;
+  z-index: 1;
 }
 
 .hero.is-interacting:before {
-    opacity: 1;
+  opacity: 1;
 }
 
 .hero.is-interacting:before {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 /* =========================================
    HERO CONTENT
 ========================================= */
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 
-    padding: 170px 0 95px;
-    padding-left: 8vw;
+  padding: 170px 0 95px;
+  padding-left: 8vw;
 
-    transform:
-        translate3d(
-            var(--content-x, 0px),
-            var(--content-y, 0px),
-            0
-        );
+  transform: translate3d(var(--content-x, 0px), var(--content-y, 0px), 0);
 
-    transition: transform 0.15s ease-out;
+  transition: transform 0.15s ease-out;
 
-    will-change: transform;
+  will-change: transform;
 }
-
 
 /* =========================================
    HERO EYEBROW
 ========================================= */
 
 .hero .eyebrow {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
-
 
 /* =========================================
    HERO TITLE
 ========================================= */
 
 .hero h1 {
-    font-size: clamp(54px, 9vw, 125px);
-    line-height: 0.86;
-    letter-spacing: -0.075em;
-    font-weight: 900;
-    max-width: 1000px;
+  font-size: clamp(54px, 9vw, 125px);
+  line-height: 0.86;
+  letter-spacing: -0.075em;
+  font-weight: 900;
+  max-width: 1000px;
 
-    transform:
-        translate3d(
-            var(--title-x, 0px),
-            var(--title-y, 0px),
-            0
-        );
+  transform: translate3d(var(--title-x, 0px), var(--title-y, 0px), 0);
 
-    transition: transform 0.12s ease-out;
+  transition: transform 0.12s ease-out;
 
-    will-change: transform;
+  will-change: transform;
 }
 
 .hero h1 span {
-    color: var(--yellow);
+  color: var(--yellow);
 }
-
 
 /* =========================================
    HERO DESCRIPTION
 ========================================= */
 
 .hero p {
-    max-width: 620px;
-    margin-top: 28px;
+  max-width: 620px;
+  margin-top: 28px;
 
-    color: #ffffffc7;
+  color: #ffffffc7;
 
-    line-height: 1.75;
+  line-height: 1.75;
 }
-
 
 /* =========================================
    HERO BUTTONS
 ========================================= */
 
 .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 
-    margin-top: 32px;
+  margin-top: 32px;
 }
 
 .hero-actions .btn {
-    transition:
-        transform 0.3s cubic-bezier(.2, .8, .2, 1),
-        box-shadow 0.3s ease;
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.3s ease;
 }
 
 .hero-actions .btn:hover {
-    transform: translateY(-5px) scale(1.02);
+  transform: translateY(-5px) scale(1.02);
 }
-
 
 /* =========================================
    ESTABLISHED CARD
 ========================================= */
 
 .hero-side {
-    position: absolute;
+  position: absolute;
 
-    right: 40px;
-    bottom: 100px;
+  right: 40px;
+  bottom: 100px;
 
-    width: 230px;
+  width: 230px;
 
-    padding: 25px;
+  padding: 25px;
 
-    border: 1px solid #ffffff33;
-    border-radius: 20px;
+  border: 1px solid #ffffff33;
+  border-radius: 20px;
 
-    background: #ffffff14;
+  background: #ffffff14;
 
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 
-    z-index: 3;
+  z-index: 3;
 
-    transform:
-        translate3d(
-            var(--card-x, 0px),
-            var(--card-y, 0px),
-            0
-        )
-        rotateX(var(--card-rotate-x, 0deg))
-        rotateY(var(--card-rotate-y, 0deg));
+  transform: translate3d(var(--card-x, 0px), var(--card-y, 0px), 0)
+    rotateX(var(--card-rotate-x, 0deg)) rotateY(var(--card-rotate-y, 0deg));
 
-    transition: transform 0.18s ease-out;
+  transition: transform 0.18s ease-out;
 
-    will-change: transform;
+  will-change: transform;
 }
 
 .hero-side small {
-    font-size: 10px;
+  font-size: 10px;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    letter-spacing: 0.15em;
+  letter-spacing: 0.15em;
 
-    opacity: 0.65;
+  opacity: 0.65;
 }
 
 .hero-side strong {
-    display: block;
+  display: block;
 
-    font-size: 40px;
+  font-size: 40px;
 
-    letter-spacing: -0.06em;
+  letter-spacing: -0.06em;
 
-    margin-top: 8px;
+  margin-top: 8px;
 }
 
 .hero-side span {
-    font-size: 11px;
+  font-size: 11px;
 
-    color: #ffffffb3;
+  color: #ffffffb3;
 }
-
 
 /* =========================================
    SCROLL INDICATOR
 ========================================= */
 
 .scroll {
-    position: absolute;
+  position: absolute;
 
-    right: 35px;
-    bottom: 35px;
+  right: 35px;
+  bottom: 35px;
 
-    z-index: 3;
+  z-index: 3;
 
-    font-size: 10px;
+  font-size: 10px;
 
-    letter-spacing: 0.15em;
+  letter-spacing: 0.15em;
 
-    text-transform: uppercase;
+  text-transform: uppercase;
 
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 
-    display: flex;
+  display: flex;
 
-    gap: 10px;
+  gap: 10px;
 
-    align-items: center;
+  align-items: center;
 }
 
 .scroll:before {
-    content: "";
+  content: "";
 
-    width: 45px;
-    height: 1px;
+  width: 45px;
+  height: 1px;
 
-    background: var(--yellow);
+  background: var(--yellow);
 }
-
 
 /* =========================================
    TYPEWRITER CURSOR
 ========================================= */
 
 .typewriter-caret {
-    display: inline-block;
+  display: inline-block;
 
-    width: 5px;
-    height: 0.78em;
+  width: 5px;
+  height: 0.78em;
 
-    margin-left: 8px;
+  margin-left: 8px;
 
-    background: var(--yellow);
+  background: var(--yellow);
 
-    vertical-align: -0.08em;
+  vertical-align: -0.08em;
 
-    animation:
-        typewriter-blink 0.9s steps(1) infinite;
+  animation: typewriter-blink 0.9s steps(1) infinite;
 }
 
 .typewriter-caret--done {
-    animation: none;
+  animation: none;
 }
 
 .typewriter-caret--fade {
-    opacity: 0;
+  opacity: 0;
 
-    transition:
-        opacity 0.6s ease;
+  transition: opacity 0.6s ease;
 }
 
 @keyframes typewriter-blink {
-
-    50% {
-        opacity: 0;
-    }
-
+  50% {
+    opacity: 0;
+  }
 }
-
 
 /* =========================================
    STATS
 ========================================= */
 
 .stats {
-    display: grid;
+  display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
-    gap: 12px;
+  gap: 12px;
 
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .stat {
-    padding: 15px;
+  padding: 15px;
 
-    border: 1px solid var(--g200);
+  border: 1px solid var(--g200);
 
-    border-radius: 18px;
+  border-radius: 18px;
 }
 
 .stat strong {
-    display: block;
+  display: block;
 
-    color: var(--blue);
+  color: var(--blue);
 
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .stat span {
-    font-size: 11px;
+  font-size: 11px;
 
-    color: var(--g500);
+  color: var(--g500);
 }
-
 
 /* =========================================
    VALUE GRID
 ========================================= */
 
 .value-grid {
-    display: grid;
+  display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
-    gap: 15px;
+  gap: 15px;
 
-    margin-top: 55px;
+  margin-top: 55px;
 }
-
 
 /* =========================================
    VALUE CARD
 ========================================= */
 
 .value-card {
-    min-height: 0;
+  min-height: 0;
 
-    padding: 0;
+  padding: 0;
 
-    border-radius: 23px;
+  border-radius: 23px;
 
-    background: var(--g50);
+  background: var(--g50);
 
-    overflow: hidden;
+  overflow: hidden;
 
-    transition: var(--ease);
+  transition: var(--ease);
 }
 
 .value-card > img {
-    width: 100%;
-    height: 180px;
+  width: 100%;
+  height: 180px;
 
-    object-fit: cover;
+  object-fit: cover;
 
-    display: block;
+  display: block;
 
-    transition: 0.6s;
+  transition: 0.6s;
 }
 
 .value-content {
-    padding: 25px 28px 28px;
+  padding: 25px 28px 28px;
 }
 
 .value-card h3 {
-    margin-top: 18px;
+  margin-top: 18px;
 }
 
 .value-card p {
-    color: var(--g500);
+  color: var(--g500);
 
-    font-size: 13px;
+  font-size: 13px;
 
-    line-height: 1.7;
+  line-height: 1.7;
 
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .value-card:hover {
-    background: var(--blue);
+  background: var(--blue);
 
-    color: #fff;
+  color: #fff;
 
-    transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 .value-card:hover > img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .value-card:hover p {
-    color: #ffffffbf;
+  color: #ffffffbf;
 }
 
 .value-card:hover .num {
-    color: var(--yellow);
+  color: var(--yellow);
 }
-
 
 /* =========================================
    TABLET
 ========================================= */
 
 @media (max-width: 1000px) {
+  .hero-side {
+    display: none;
+  }
 
-    .hero-side {
-        display: none;
-    }
-
-    .value-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
+  .value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-
 
 /* =========================================
    MOBILE
 ========================================= */
 
 @media (max-width: 650px) {
+  .hero {
+    align-items: flex-end;
+  }
 
-    .hero {
-        align-items: flex-end;
-    }
+  .hero-content {
+    padding: 130px 0 70px;
 
-    .hero-content {
-        padding: 130px 0 70px;
+    padding-left: 0;
 
-        padding-left: 0;
+    transform: none !important;
+  }
 
-        transform: none !important;
-    }
+  .hero h1 {
+    font-size: clamp(48px, 15vw, 75px);
 
-    .hero h1 {
-        font-size:
-            clamp(48px, 15vw, 75px);
+    line-height: 0.9;
 
-        line-height: 0.9;
+    transform: none !important;
+  }
 
-        transform: none !important;
-    }
+  .hero-actions {
+    flex-direction: column;
 
-    .hero-actions {
-        flex-direction: column;
+    align-items: stretch;
+  }
 
-        align-items: stretch;
-    }
+  .hero-actions .btn {
+    width: 100%;
+  }
 
-    .hero-actions .btn {
-        width: 100%;
-    }
+  .scroll {
+    display: none;
+  }
 
-    .scroll {
-        display: none;
-    }
+  .hero-bg {
+    transform: scale(1.03);
+  }
 
-    .hero-bg {
-        transform: scale(1.03);
-    }
+  .hero:before {
+    display: none;
+  }
 
-    .hero:before {
-        display: none;
-    }
-
-    .value-grid {
-        grid-template-columns: 1fr;
-    }
-
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
 }
-
 
 /* =========================================
    REDUCED MOTION
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-bg,
+  .hero-content,
+  .hero h1,
+  .hero-side {
+    transform: none !important;
 
-    .hero-bg,
-    .hero-content,
-    .hero h1,
-    .hero-side {
-        transform: none !important;
+    transition: none !important;
+  }
 
-        transition: none !important;
-    }
+  .hero:before {
+    display: none;
+  }
 
-    .hero:before {
-        display: none;
-    }
-
-    .typewriter-caret {
-        animation: none;
-    }
-
+  .typewriter-caret {
+    animation: none;
+  }
 }

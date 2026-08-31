@@ -19,13 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (totalEl) totalEl.textContent = String(thumbs.length).padStart(2, "0");
 
-  let active = Math.max(0, thumbs.findIndex(t => t.classList.contains("active")));
+  let active = Math.max(
+    0,
+    thumbs.findIndex((t) => t.classList.contains("active")),
+  );
 
   const apply = () => {
     const t = thumbs[active];
-    thumbs.forEach(x => x.classList.remove("active"));
+    thumbs.forEach((x) => x.classList.remove("active"));
     t.classList.add("active");
-    t.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    t.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
 
     img.src = t.dataset.image;
     img.alt = t.dataset.name;
@@ -35,7 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     deptEl.textContent = t.dataset.dept;
     bioEl.textContent = t.dataset.bio;
     indexEl.textContent = String(active + 1).padStart(2, "0");
-    if (progressEl) progressEl.style.width = `${((active + 1) / thumbs.length) * 100}%`;
+    if (progressEl)
+      progressEl.style.width = `${((active + 1) / thumbs.length) * 100}%`;
   };
 
   const goTo = (i) => {
@@ -51,8 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   thumbs.forEach((t, i) => t.addEventListener("click", () => goTo(i)));
-  if (prevBtn) prevBtn.addEventListener("click", () => goTo((active - 1 + thumbs.length) % thumbs.length));
-  if (nextBtn) nextBtn.addEventListener("click", () => goTo((active + 1) % thumbs.length));
+  if (prevBtn)
+    prevBtn.addEventListener("click", () =>
+      goTo((active - 1 + thumbs.length) % thumbs.length),
+    );
+  if (nextBtn)
+    nextBtn.addEventListener("click", () => goTo((active + 1) % thumbs.length));
 
   apply();
 });

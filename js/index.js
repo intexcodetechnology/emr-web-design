@@ -1,694 +1,341 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* =========================================
+  /* =========================================
        TYPEWRITER
     ========================================= */
 
-    function typeWriter(
-        el,
-        {
-            speed = 34,
-            loop = false,
-            holdTyped = 1600,
-            holdErased = 500
-        } = {}
-    ) {
+  function typeWriter(
+    el,
+    { speed = 34, loop = false, holdTyped = 1600, holdErased = 500 } = {},
+  ) {
+    const segments = [];
 
-        const segments = [];
+    (function walk(node) {
+      node.childNodes.forEach((child) => {
+        if (child.nodeType === 3 && child.textContent.trim() !== "") {
+          segments.push(child);
+        } else if (child.nodeType === 1) {
+          walk(child);
+        }
+      });
+    })(el);
 
-        (function walk(node) {
+    if (!segments.length) return;
 
-            node.childNodes.forEach(child => {
+    const full = segments.map((n) => n.textContent);
 
-                if (
-                    child.nodeType === 3 &&
-                    child.textContent.trim() !== ""
-                ) {
-                    segments.push(child);
-                }
+    segments.forEach((n) => {
+      n.textContent = "";
+    });
 
-                else if (child.nodeType === 1) {
-                    walk(child);
-                }
+    const caret = document.createElement("span");
 
-            });
+    caret.className = "typewriter-caret";
 
-        })(el);
+    caret.setAttribute("aria-hidden", "true");
 
+    const placeCaret = (si) => {
+      segments[si].parentNode.insertBefore(caret, segments[si].nextSibling);
+    };
 
-        if (!segments.length) return;
+    placeCaret(0);
 
+    const finish = () => {
+      setTimeout(() => {
+        caret.classList.add("typewriter-caret--done");
 
-        const full = segments.map(n => n.textContent);
+        setTimeout(() => {
+          caret.classList.add("typewriter-caret--fade");
 
+          setTimeout(() => {
+            caret.remove();
+          }, 650);
+        }, 700);
+      }, 300);
+    };
 
-        segments.forEach(n => {
-            n.textContent = "";
-        });
+    let si = 0;
+    let ci = 0;
 
+    const typeTick = () => {
+      const text = full[si];
 
-        const caret = document.createElement("span");
+      if (ci < text.length) {
+        segments[si].textContent += text[ci];
 
-        caret.className = "typewriter-caret";
+        ci++;
 
-        caret.setAttribute(
-            "aria-hidden",
-            "true"
-        );
+        setTimeout(typeTick, speed + Math.random() * 30);
+      } else {
+        si++;
+        ci = 0;
 
+        if (si < segments.length) {
+          placeCaret(si);
 
-        const placeCaret = si => {
+          setTimeout(typeTick, 120);
+        } else if (loop) {
+          setTimeout(startErase, holdTyped);
+        } else {
+          finish();
+        }
+      }
+    };
 
-            segments[si].parentNode.insertBefore(
-                caret,
-                segments[si].nextSibling
-            );
+    let dsi = segments.length - 1;
 
-        };
+    const eraseTick = () => {
+      const cur = segments[dsi].textContent;
 
+      if (cur.length > 0) {
+        segments[dsi].textContent = cur.slice(0, -1);
 
-        placeCaret(0);
+        setTimeout(eraseTick, speed * 0.55);
+      } else {
+        dsi--;
 
+        if (dsi >= 0) {
+          placeCaret(dsi);
 
-        const finish = () => {
+          setTimeout(eraseTick, speed * 0.55);
+        } else {
+          setTimeout(() => {
+            si = 0;
+            ci = 0;
 
-            setTimeout(() => {
+            placeCaret(0);
 
-                caret.classList.add(
-                    "typewriter-caret--done"
-                );
+            typeTick();
+          }, holdErased);
+        }
+      }
+    };
 
-                setTimeout(() => {
+    const startErase = () => {
+      dsi = segments.length - 1;
 
-                    caret.classList.add(
-                        "typewriter-caret--fade"
-                    );
+      placeCaret(dsi);
 
-                    setTimeout(() => {
-                        caret.remove();
-                    }, 650);
+      eraseTick();
+    };
 
-                }, 700);
+    typeTick();
+  }
 
-            }, 300);
-
-        };
-
-
-        let si = 0;
-        let ci = 0;
-
-
-        const typeTick = () => {
-
-            const text = full[si];
-
-
-            if (ci < text.length) {
-
-                segments[si].textContent +=
-                    text[ci];
-
-                ci++;
-
-
-                setTimeout(
-                    typeTick,
-                    speed + Math.random() * 30
-                );
-
-
-            } else {
-
-                si++;
-                ci = 0;
-
-
-                if (si < segments.length) {
-
-                    placeCaret(si);
-
-                    setTimeout(
-                        typeTick,
-                        120
-                    );
-
-
-                } else if (loop) {
-
-                    setTimeout(
-                        startErase,
-                        holdTyped
-                    );
-
-
-                } else {
-
-                    finish();
-
-                }
-
-            }
-
-        };
-
-
-        let dsi =
-            segments.length - 1;
-
-
-        const eraseTick = () => {
-
-            const cur =
-                segments[dsi].textContent;
-
-
-            if (cur.length > 0) {
-
-                segments[dsi].textContent =
-                    cur.slice(0, -1);
-
-
-                setTimeout(
-                    eraseTick,
-                    speed * 0.55
-                );
-
-
-            } else {
-
-                dsi--;
-
-
-                if (dsi >= 0) {
-
-                    placeCaret(dsi);
-
-                    setTimeout(
-                        eraseTick,
-                        speed * 0.55
-                    );
-
-
-                } else {
-
-                    setTimeout(() => {
-
-                        si = 0;
-                        ci = 0;
-
-                        placeCaret(0);
-
-                        typeTick();
-
-                    }, holdErased);
-
-                }
-
-            }
-
-        };
-
-
-        const startErase = () => {
-
-            dsi =
-                segments.length - 1;
-
-            placeCaret(dsi);
-
-            eraseTick();
-
-        };
-
-
-        typeTick();
-
-    }
-
-
-    /* =========================================
+  /* =========================================
        START TYPEWRITER
     ========================================= */
 
-    if (
-        !matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("[data-typewriter]").forEach((el) => {
+      setTimeout(() => {
+        typeWriter(el, {
+          speed: 34,
 
-        document
-            .querySelectorAll("[data-typewriter]")
-            .forEach(el => {
+          loop: el.hasAttribute("data-typewriter-loop"),
 
-                setTimeout(() => {
+          holdTyped: 1600,
 
-                    typeWriter(el, {
+          holdErased: 500,
+        });
+      }, 300);
+    });
+  }
 
-                        speed: 34,
-
-                        loop:
-                            el.hasAttribute(
-                                "data-typewriter-loop"
-                            ),
-
-                        holdTyped: 1600,
-
-                        holdErased: 500
-
-                    });
-
-                }, 300);
-
-            });
-
-    }
-
-
-    /* =========================================
+  /* =========================================
        NAVBAR
     ========================================= */
 
-    const nav =
-        document.querySelector(".navbar");
+  const nav = document.querySelector(".navbar");
 
-    const menu =
-        document.querySelector(".mobile-menu");
+  const menu = document.querySelector(".mobile-menu");
 
-    const menuBtn =
-        document.querySelector(".menu-btn");
+  const menuBtn = document.querySelector(".menu-btn");
 
+  const scroll = () => {
+    nav?.classList.toggle("scrolled", scrollY > 50);
+  };
 
-    const scroll = () => {
+  addEventListener("scroll", scroll);
 
-        nav?.classList.toggle(
-            "scrolled",
-            scrollY > 50
-        );
+  scroll();
 
-    };
-
-
-    addEventListener(
-        "scroll",
-        scroll
-    );
-
-    scroll();
-
-
-    /* =========================================
+  /* =========================================
        MOBILE MENU
     ========================================= */
 
-    menuBtn?.addEventListener(
-        "click",
-        () => {
+  menuBtn?.addEventListener("click", () => {
+    menu.classList.toggle("active");
 
-            menu.classList.toggle(
-                "active"
-            );
+    document.body.classList.toggle("lock");
+  });
 
-            document.body.classList.toggle(
-                "lock"
-            );
+  menu?.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => {
+      menu.classList.remove("active");
 
-        }
-    );
+      document.body.classList.remove("lock");
+    });
+  });
 
-
-    menu?.querySelectorAll("a")
-        .forEach(a => {
-
-            a.addEventListener(
-                "click",
-                () => {
-
-                    menu.classList.remove(
-                        "active"
-                    );
-
-                    document.body.classList.remove(
-                        "lock"
-                    );
-
-                }
-            );
-
-        });
-
-
-    /* =========================================
+  /* =========================================
        RESOURCE DROPDOWN
     ========================================= */
 
-    const resourceGroups =
-        document.querySelectorAll(
-            ".resource-group"
-        );
+  const resourceGroups = document.querySelectorAll(".resource-group");
 
+  resourceGroups.forEach((group) => {
+    const toggle = group.querySelector(".resource-label");
 
-    resourceGroups.forEach(group => {
+    toggle?.addEventListener("click", (event) => {
+      event.preventDefault();
 
-        const toggle =
-            group.querySelector(
-                ".resource-label"
-            );
+      const isOpen = group.classList.contains("active");
 
+      resourceGroups.forEach((item) => {
+        item.classList.remove("active");
+      });
 
-        toggle?.addEventListener(
-            "click",
-            event => {
-
-                event.preventDefault();
-
-
-                const isOpen =
-                    group.classList.contains(
-                        "active"
-                    );
-
-
-                resourceGroups.forEach(
-                    item => {
-
-                        item.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-
-                if (!isOpen) {
-
-                    group.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
+      if (!isOpen) {
+        group.classList.add("active");
+      }
     });
+  });
 
-
-    /* =========================================
+  /* =========================================
        REVEAL ANIMATION
     ========================================= */
 
-    const io =
-        new IntersectionObserver(
-            entries => {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
 
-                entries.forEach(entry => {
+          io.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+    },
+  );
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+  document.querySelectorAll(".reveal").forEach((element) => {
+    io.observe(element);
+  });
 
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        io.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-    document
-        .querySelectorAll(".reveal")
-        .forEach(element => {
-
-            io.observe(element);
-
-        });
-
-
-    /* =========================================
+  /* =========================================
        COUNTER
     ========================================= */
 
-    document
-        .querySelectorAll("[data-counter]")
-        .forEach(el => {
+  document.querySelectorAll("[data-counter]").forEach((el) => {
+    const target = +el.dataset.counter;
 
-            const target =
-                +el.dataset.counter;
+    let done = false;
 
-            let done = false;
+    const counterObserver = new IntersectionObserver((entries) => {
+      if (!entries[0].isIntersecting || done) {
+        return;
+      }
 
+      done = true;
 
-            const counterObserver =
-                new IntersectionObserver(
-                    entries => {
+      const startTime = performance.now();
 
-                        if (
-                            !entries[0]
-                                .isIntersecting ||
-                            done
-                        ) {
-                            return;
-                        }
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / 1200, 1);
 
+        const value = 1 - Math.pow(1 - progress, 3);
 
-                        done = true;
+        el.textContent = Math.floor(target * value).toLocaleString();
 
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      };
 
-                        const startTime =
-                            performance.now();
+      requestAnimationFrame(tick);
 
+      counterObserver.disconnect();
+    });
 
-                        const tick = now => {
+    counterObserver.observe(el);
+  });
 
-                            const progress =
-                                Math.min(
-                                    (now - startTime) /
-                                        1200,
-                                    1
-                                );
-
-
-                            const value =
-                                1 -
-                                Math.pow(
-                                    1 - progress,
-                                    3
-                                );
-
-
-                            el.textContent =
-                                Math.floor(
-                                    target * value
-                                ).toLocaleString();
-
-
-                            if (
-                                progress < 1
-                            ) {
-
-                                requestAnimationFrame(
-                                    tick
-                                );
-
-                            }
-
-                        };
-
-
-                        requestAnimationFrame(
-                            tick
-                        );
-
-
-                        counterObserver.disconnect();
-
-                    }
-                );
-
-
-            counterObserver.observe(el);
-
-        });
-
-
-    /* =========================================
+  /* =========================================
        GALLERY LIGHTBOX
     ========================================= */
 
-    const lb =
-        document.querySelector(
-            "#lightbox"
-        );
+  const lb = document.querySelector("#lightbox");
 
+  if (lb) {
+    const im = lb.querySelector("img");
 
-    if (lb) {
+    const close = () => {
+      lb.classList.remove("active");
 
-        const im =
-            lb.querySelector("img");
+      document.body.classList.remove("lock");
+    };
 
+    document.querySelectorAll("[data-lightbox]").forEach((item) => {
+      item.addEventListener("click", () => {
+        im.src = item.dataset.lightbox;
 
-        const close = () => {
+        lb.classList.add("active");
 
-            lb.classList.remove(
-                "active"
-            );
+        document.body.classList.add("lock");
+      });
+    });
 
-            document.body.classList.remove(
-                "lock"
-            );
+    lb.querySelector(".close")?.addEventListener("click", close);
 
-        };
+    lb.addEventListener("click", (event) => {
+      if (event.target === lb) {
+        close();
+      }
+    });
+  }
 
-
-        document
-            .querySelectorAll(
-                "[data-lightbox]"
-            )
-            .forEach(item => {
-
-                item.addEventListener(
-                    "click",
-                    () => {
-
-                        im.src =
-                            item.dataset.lightbox;
-
-                        lb.classList.add(
-                            "active"
-                        );
-
-                        document.body.classList.add(
-                            "lock"
-                        );
-
-                    }
-                );
-
-            });
-
-
-        lb.querySelector(".close")
-            ?.addEventListener(
-                "click",
-                close
-            );
-
-
-        lb.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target === lb
-                ) {
-
-                    close();
-
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =========================================
+  /* =========================================
        LIVE INTERACTIVE HERO
     ========================================= */
 
-    const hero =
-        document.querySelector(".hero");
+  const hero = document.querySelector(".hero");
 
+  if (hero && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    let mouseX = 0.5;
+    let mouseY = 0.5;
 
-    if (
-        hero &&
-        !matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
+    let currentX = 0.5;
+    let currentY = 0.5;
 
-        let mouseX = 0.5;
-        let mouseY = 0.5;
+    const bg = hero.querySelector(".hero-bg");
 
-        let currentX = 0.5;
-        let currentY = 0.5;
+    const heroContent = hero.querySelector(".hero-content");
 
+    const heroTitle = hero.querySelector("h1");
 
-        const bg =
-            hero.querySelector(
-                ".hero-bg"
-            );
+    const heroCard = hero.querySelector(".hero-side");
 
+    const updateHero = () => {
+      currentX += (mouseX - currentX) * 0.08;
 
-        const heroContent =
-            hero.querySelector(
-                ".hero-content"
-            );
+      currentY += (mouseY - currentY) * 0.08;
 
+      const offsetX = (currentX - 0.5) * 2;
 
-        const heroTitle =
-            hero.querySelector(
-                "h1"
-            );
+      const offsetY = (currentY - 0.5) * 2;
 
+      /* Cursor spotlight */
 
-        const heroCard =
-            hero.querySelector(
-                ".hero-side"
-            );
+      hero.style.setProperty("--mouse-x", `${currentX * 100}%`);
 
+      hero.style.setProperty("--mouse-y", `${currentY * 100}%`);
 
-        const updateHero = () => {
+      /* Background parallax */
 
-            currentX +=
-                (mouseX - currentX) *
-                0.08;
-
-
-            currentY +=
-                (mouseY - currentY) *
-                0.08;
-
-
-            const offsetX =
-                (currentX - 0.5) * 2;
-
-
-            const offsetY =
-                (currentY - 0.5) * 2;
-
-
-            /* Cursor spotlight */
-
-            hero.style.setProperty(
-                "--mouse-x",
-                `${currentX * 100}%`
-            );
-
-
-            hero.style.setProperty(
-                "--mouse-y",
-                `${currentY * 100}%`
-            );
-
-
-            /* Background parallax */
-
-            if (bg) {
-
-                bg.style.transform = `
+      if (bg) {
+        bg.style.transform = `
                     translate3d(
                         ${offsetX * -14}px,
                         ${offsetY * -10}px,
@@ -696,45 +343,36 @@ document.addEventListener("DOMContentLoaded", () => {
                     )
                     scale(1.06)
                 `;
+      }
 
-            }
+      /* Content movement */
 
-
-            /* Content movement */
-
-            if (heroContent) {
-
-                heroContent.style.transform = `
+      if (heroContent) {
+        heroContent.style.transform = `
                     translate3d(
                         ${offsetX * 5}px,
                         ${offsetY * 4}px,
                         0
                     )
                 `;
+      }
 
-            }
+      /* Headline movement */
 
-
-            /* Headline movement */
-
-            if (heroTitle) {
-
-                heroTitle.style.transform = `
+      if (heroTitle) {
+        heroTitle.style.transform = `
                     translate3d(
                         ${offsetX * 9}px,
                         ${offsetY * 7}px,
                         0
                     )
                 `;
+      }
 
-            }
+      /* Established card */
 
-
-            /* Established card */
-
-            if (heroCard) {
-
-                heroCard.style.transform = `
+      if (heroCard) {
+        heroCard.style.transform = `
                     translate3d(
                         ${offsetX * -8}px,
                         ${offsetY * -6}px,
@@ -743,107 +381,50 @@ document.addEventListener("DOMContentLoaded", () => {
                     rotateX(${offsetY * -2}deg)
                     rotateY(${offsetX * 2}deg)
                 `;
+      }
 
-            }
+      requestAnimationFrame(updateHero);
+    };
 
+    /* Mouse movement */
 
-            requestAnimationFrame(
-                updateHero
-            );
+    hero.addEventListener("pointermove", (event) => {
+      const rect = hero.getBoundingClientRect();
 
-        };
+      mouseX = (event.clientX - rect.left) / rect.width;
 
+      mouseY = (event.clientY - rect.top) / rect.height;
 
-        /* Mouse movement */
+      hero.classList.add("is-interacting");
+    });
 
-        hero.addEventListener(
-            "pointermove",
-            event => {
+    /* Mouse leave */
 
-                const rect =
-                    hero.getBoundingClientRect();
+    hero.addEventListener("pointerleave", () => {
+      mouseX = 0.5;
+      mouseY = 0.5;
 
+      hero.classList.remove("is-interacting");
+    });
 
-                mouseX =
-                    (event.clientX - rect.left) /
-                    rect.width;
+    requestAnimationFrame(updateHero);
+  }
 
-
-                mouseY =
-                    (event.clientY - rect.top) /
-                    rect.height;
-
-
-                hero.classList.add(
-                    "is-interacting"
-                );
-
-            }
-        );
-
-
-        /* Mouse leave */
-
-        hero.addEventListener(
-            "pointerleave",
-            () => {
-
-                mouseX = 0.5;
-                mouseY = 0.5;
-
-
-                hero.classList.remove(
-                    "is-interacting"
-                );
-
-            }
-        );
-
-
-        requestAnimationFrame(
-            updateHero
-        );
-
-    }
-
-
-    /* =========================================
+  /* =========================================
        ESCAPE KEY
     ========================================= */
 
-    document.addEventListener(
-        "keydown",
-        event => {
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      document
+        .querySelectorAll(".modal.active, .lightbox.active")
+        .forEach((element) => {
+          element.classList.remove("active");
+        });
 
-            if (
-                event.key === "Escape"
-            ) {
+      menu?.classList.remove("active");
 
-                document
-                    .querySelectorAll(
-                        ".modal.active, .lightbox.active"
-                    )
-                    .forEach(element => {
-
-                        element.classList.remove(
-                            "active"
-                        );
-
-                    });
-
-
-                menu?.classList.remove(
-                    "active"
-                );
-
-
-                document.body.classList.remove(
-                    "lock"
-                );
-
-            }
-
-        }
-    );
-
+      document.body.classList.remove("lock");
+    }
+  });
 });

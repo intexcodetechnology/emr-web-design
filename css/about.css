@@ -2,333 +2,372 @@
 
 /* Hero Section */
 .page-hero .eyebrow {
-    color: #FACC15;
+  color: #facc15;
 }
 
 /* Animated Geometric Background */
 .page-hero .geometric-background {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .page-hero .shape {
-    position: absolute;
-    opacity: 0.2;
-    transform-origin: center;
+  position: absolute;
+  opacity: 0.2;
+  transform-origin: center;
 }
 
 .page-hero .square {
-    width: 40px;
-    height: 40px;
-    background: #f72585;
-    animation: geo-rotate 20s infinite linear;
+  width: 40px;
+  height: 40px;
+  background: #f72585;
+  animation: geo-rotate 20s infinite linear;
 }
 
 .page-hero .circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #4cc9f0;
-    animation: geo-pulse 15s infinite alternate;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #4cc9f0;
+  animation: geo-pulse 15s infinite alternate;
 }
 
 .page-hero .triangle {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 50px solid #7209b7;
-    animation: geo-float 12s infinite ease-in-out;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #7209b7;
+  animation: geo-float 12s infinite ease-in-out;
 }
 
 .page-hero .rectangle {
-    width: 80px;
-    height: 30px;
-    background: #4361ee;
-    animation: geo-slide 18s infinite linear;
+  width: 80px;
+  height: 30px;
+  background: #4361ee;
+  animation: geo-slide 18s infinite linear;
 }
 
 @keyframes geo-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes geo-pulse {
-    0% { transform: scale(1); opacity: 0.1; }
-    50% { transform: scale(1.5); opacity: 0.3; }
-    100% { transform: scale(1); opacity: 0.1; }
+  0% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
 }
 
 @keyframes geo-float {
-    0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-    50% { transform: translateY(-20px) translateX(20px) rotate(180deg); }
-    100% { transform: translateY(0px) translateX(0px) rotate(360deg); }
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(360deg);
+  }
 }
 
 @keyframes geo-slide {
-    0% { transform: translateX(-100px) rotate(0deg); }
-    50% { transform: translateX(100px) rotate(180deg); }
-    100% { transform: translateX(-100px) rotate(360deg); }
+  0% {
+    transform: translateX(-100px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(100px) rotate(180deg);
+  }
+  100% {
+    transform: translateX(-100px) rotate(360deg);
+  }
 }
 
 .page-hero .particles {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .page-hero .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background-color: #fff;
-    opacity: 0.5;
-    animation: geo-sparkle 8s infinite linear;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.5;
+  animation: geo-sparkle 8s infinite linear;
 }
 
 @keyframes geo-sparkle {
-    0% { opacity: 0; }
-    50% { opacity: 0.8; }
-    100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .page-hero .gradient-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: radial-gradient(circle at center, transparent 0%, var(--deep) 80%);
-    animation: geo-pulse-overlay 10s infinite alternate;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    var(--deep) 80%
+  );
+  animation: geo-pulse-overlay 10s infinite alternate;
 }
 
 @keyframes geo-pulse-overlay {
-    0% { opacity: 0.8; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .page-hero .shape,
-    .page-hero .particle,
-    .page-hero .gradient-overlay {
-        animation: none;
-    }
+  .page-hero .shape,
+  .page-hero .particle,
+  .page-hero .gradient-overlay {
+    animation: none;
+  }
 }
 
 /* Section Titles */
 .title-custom {
-    font-size: clamp(34px, 4vw, 48px);
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+  font-size: clamp(34px, 4vw, 48px);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .title-mission {
-    font-size: clamp(34px, 4.5vw, 52px);
-    letter-spacing: -0.03em;
+  font-size: clamp(34px, 4.5vw, 52px);
+  letter-spacing: -0.03em;
 }
 
 /* Text Utilities */
 .muted-margin {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .philosophy-intro {
-    max-width: 650px;
-    margin-top: 20px;
-    color:#e5e7eb
+  max-width: 650px;
+  margin-top: 20px;
+  color: #e5e7eb;
 }
 
 /* Philosophy Section Layout */
 .philosophy-section {
-    background: linear-gradient(135deg, #081B3A 0%, #0F2F6B 100%);
-    color: #fff;
+  background: linear-gradient(135deg, #081b3a 0%, #0f2f6b 100%);
+  color: #fff;
 }
 
 .philosophy-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
 
 .philosophy-content .eyebrow {
-    color: #FACC15;
+  color: #facc15;
 }
 
 .philosophy-content .title {
-    color: #fff;
+  color: #fff;
 }
 
 .philosophy-content .title span {
-    color: #FACC15;
+  color: #facc15;
 }
 
 .philosophy-cards .value-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
 }
 
 .philosophy-cards .value-card {
-    background: #fff;
-    color: #000;
-    padding: 30px;
-    border-right: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+  color: #000;
+  padding: 30px;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .philosophy-cards .value-card:nth-child(2n) {
-    border-right: none;
+  border-right: none;
 }
 
-.philosophy-cards .value-card:nth-last-child(-n+2) {
-    border-bottom: none;
+.philosophy-cards .value-card:nth-last-child(-n + 2) {
+  border-bottom: none;
 }
 
 .philosophy-cards .value-card .num {
-    display: block;
-    color: #2563EB;
-    font-size: 14px;
-    font-weight: 800;
-    margin-bottom: 12px;
+  display: block;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
 .philosophy-cards .value-card h3 {
-    color: #FACC15;
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 10px;
+  color: #facc15;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .philosophy-cards .value-card p {
-    color: #64748B;
-    font-size: 14px;
-    line-height: 1.6;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .philosophy-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
-    .philosophy-cards .value-grid {
-        grid-template-columns: 1fr;
-    }
+  .philosophy-cards .value-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .philosophy-cards .value-card {
-        border-right: none;
-        border-bottom: 1px solid #e5e7eb;
-    }
+  .philosophy-cards .value-card {
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
 
-    .philosophy-cards .value-card:last-child {
-        border-bottom: none;
-    }
+  .philosophy-cards .value-card:last-child {
+    border-bottom: none;
+  }
 }
 
 /* CTA Section */
 .cta-container {
-    text-align: center;
+  text-align: center;
 }
 
 .cta-title {
-    max-width: 700px;
-    margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .cta-title span {
-    color: #FACC15;
+  color: #facc15;
 }
 
 .cta-actions {
-    justify-content: center;
-    margin-top: 30px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
 /* Contact Button Style */
 .btn-outline-light {
-    color: #fff;
-    border-color: #ffffff4d;
-    background: #ffffff0d;
+  color: #fff;
+  border-color: #ffffff4d;
+  background: #ffffff0d;
 }
 
 /* EMR Grid - Mission Section */
 .emr-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 40px;
 }
 
 .emr-box {
-    position: relative;
-    text-align: center;
-    padding: 20px 24px 8px;
-    overflow: hidden;
+  position: relative;
+  text-align: center;
+  padding: 20px 24px 8px;
+  overflow: hidden;
 }
 
 .emr-box + .emr-box {
-    border-left: 1px solid var(--g200);
+  border-left: 1px solid var(--g200);
 }
 
 .emr-box::before {
-    content: attr(data-letter);
-    position: absolute;
-    top: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 128px;
-    font-weight: 900;
-    color: var(--g100);
-    line-height: 1;
-    z-index: 0;
-    transition: color 0.3s ease;
-    user-select: none;
+  content: attr(data-letter);
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 128px;
+  font-weight: 900;
+  color: var(--g100);
+  line-height: 1;
+  z-index: 0;
+  transition: color 0.3s ease;
+  user-select: none;
 }
 
 .emr-box:hover::before {
-    color: #facc15;
+  color: #facc15;
 }
 
 .emr-box span {
-    display: block;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--black);
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 1;
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .emr-box strong {
-    display: block;
-    max-width: 230px;
-    margin: 0 auto;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.6;
-    color: var(--g600);
-    position: relative;
-    z-index: 1;
+  display: block;
+  max-width: 230px;
+  margin: 0 auto;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--g600);
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
-    .emr-grid {
-        grid-template-columns: 1fr;
-    }
+  .emr-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .emr-box + .emr-box {
-        border-left: 0;
-        border-top: 1px solid var(--g200);
-    }
+  .emr-box + .emr-box {
+    border-left: 0;
+    border-top: 1px solid var(--g200);
+  }
 
-    .emr-box {
-        padding: 28px 24px 20px;
-    }
+  .emr-box {
+    padding: 28px 24px 20px;
+  }
 }

@@ -1,42 +1,42 @@
 /* experience.html only — styles shared with other pages stay in style.css */
 
 .list {
-    display: grid;
-    gap: 10px;
-    margin-top: 55px
+  display: grid;
+  gap: 10px;
+  margin-top: 55px;
 }
 
 .list-item {
-    display: grid;
-    grid-template-columns: 70px 1fr 30px;
-    gap: 20px;
-    align-items: center;
-    padding: 22px 25px;
-    border-radius: 18px;
-    background: #fff;
-    transition: var(--ease)
+  display: grid;
+  grid-template-columns: 70px 1fr 30px;
+  gap: 20px;
+  align-items: center;
+  padding: 22px 25px;
+  border-radius: 18px;
+  background: #fff;
+  transition: var(--ease);
 }
 
 .list-item:hover {
-    background: var(--blue);
-    color: #fff;
-    transform: translateX(8px)
+  background: var(--blue);
+  color: #fff;
+  transform: translateX(8px);
 }
 
 .list-item small {
-    display: block;
-    color: var(--g500);
-    margin-top: 5px
+  display: block;
+  color: var(--g500);
+  margin-top: 5px;
 }
 
 .list-item:hover small {
-    color: #ffffffb3
+  color: #ffffffb3;
 }
 
-@media(max-width:650px) {
-    .list-item {
-        grid-template-columns: 45px 1fr 25px;
-        gap: 10px;
-        padding: 18px
-    }
+@media (max-width: 650px) {
+  .list-item {
+    grid-template-columns: 45px 1fr 25px;
+    gap: 10px;
+    padding: 18px;
+  }
 }

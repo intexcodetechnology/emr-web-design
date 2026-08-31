@@ -1,4 +1,3 @@
-
 // Hero Geometric Background
 document.addEventListener("DOMContentLoaded", () => {
   const background = document.getElementById("hero-geometric-background");
@@ -9,7 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   for (let i = 0; i < 40; i++) {
     const shape = document.createElement("div");
-    const shapeClass = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+    const shapeClass =
+      shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
     shape.className = `shape ${shapeClass}`;
 
     const posX = Math.random() * 100;
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const y = e.clientY / window.innerHeight;
       const speed = 0.05;
 
-      background.querySelectorAll(".shape").forEach(shape => {
+      background.querySelectorAll(".shape").forEach((shape) => {
         const shapeX = parseFloat(shape.style.left);
         const shapeY = parseFloat(shape.style.top);
         shape.style.left = `${shapeX + (x - 0.5) * speed}%`;

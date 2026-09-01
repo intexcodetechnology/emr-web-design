@@ -189,6 +189,305 @@
   transform: translateY(-5px) scale(1.02);
 }
 
+/* =========================
+   CLIENT LOGO SLIDER
+========================= */
+
+.clients-section {
+    position: relative;
+    padding: 45px 0 55px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.clients-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.5px;
+    background: var(--blue-dark);
+    border-radius: 8px 8px 0 0;
+}
+
+
+/* TITLE */
+
+.clients-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.clients-label span {
+    width: 40px;
+    height: 2px;
+    background: var(--yellow);
+}
+
+.clients-label p {
+    margin: 0;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+
+/* SLIDER */
+
+.clients-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+
+/* FADE SIDES */
+
+.clients-slider::before,
+.clients-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.clients-slider::before {
+    left: 0;
+    background: linear-gradient(
+        90deg,
+        #fff,
+        transparent
+    );
+}
+
+.clients-slider::after {
+    right: 0;
+    background: linear-gradient(
+        270deg,
+        #fff,
+        transparent
+    );
+}
+
+
+/* MOVING TRACK */
+
+.clients-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+
+    animation: clientsMove 25s linear infinite;
+}
+
+/* LOGO */
+
+.client-logo {
+    width: 300px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    opacity: .55;
+    filter: grayscale(100%);
+
+    transition:
+        opacity .3s ease,
+        filter .3s ease,
+        transform .3s ease;
+}
+
+.client-logo img {
+    width: auto;
+    height: auto;
+
+    max-width: 220px;
+    max-height: 90px;
+
+    object-fit: contain;
+}
+
+
+/* HOVER */
+
+.client-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.08);
+}
+
+
+/* LEFT → RIGHT */
+
+@keyframes clientsMove {
+
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* PAUSE WHEN HOVER */
+
+.clients-track:hover {
+    animation-play-state: paused;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .clients-section {
+        padding: 40px 0;
+    }
+
+    .clients-label {
+        margin-bottom: 25px;
+    }
+
+    .client-logo {
+        width: 180px;
+        height: 80px;
+    }
+
+    .client-logo img {
+        max-width: 115px;
+        max-height: 50px;
+    }
+
+    .clients-slider::before,
+    .clients-slider::after {
+        width: 60px;
+    }
+
+}
+
+/* =========================
+   CLIENTS / PARTNERS
+========================= */
+
+.clients-section {
+    padding: 45px 0 55px;
+    background: #fff;
+    overflow: hidden;
+
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.clients-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 35px;
+}
+
+.clients-label span {
+    width: 35px;
+    height: 2px;
+    background: var(--yellow);
+}
+
+.clients-label p {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .16em;
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+.clients-logos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    gap: 35px;
+}
+
+.client-logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .55;
+    filter: grayscale(100%);
+    transition: .35s ease;
+}
+
+.client-logo img {
+    max-width: 150px;
+    max-height: 65px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.client-logo:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: translateY(-4px);
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .clients-logos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .clients-section {
+        padding: 45px 0;
+    }
+
+    .clients-logos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .client-logo {
+        height: 70px;
+    }
+
+    .client-logo img {
+        max-width: 120px;
+        max-height: 50px;
+    }
+
+    .clients-label p {
+        font-size: 9px;
+    }
+
+}
+
 /* =========================================
    ESTABLISHED CARD
 ========================================= */

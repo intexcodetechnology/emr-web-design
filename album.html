@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Album | EMR</title>
+    <link rel="icon" type="image/png" href="assets/EMR_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/album.css" />
+  </head>
+
+  <body>
+    <div id="navbar-placeholder"></div>
+
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow" style="color: #facc15">
+          Credentials & Recognition
+        </div>
+        <h1>OUR <span>ALBUM.</span></h1>
+        <p>
+          Licenses, certifications and awards that stand behind every project
+          EMR delivers — browsed in one place, organized by category.
+        </p>
+      </div>
+    </section>
+
+    <section class="section album-section" style="background: var(--g50)">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Compliance & Distinction</div>
+          <h2 class="title">A RECORD YOU CAN <span>VERIFY.</span></h2>
+        </div>
+
+        <div class="album-filterbar reveal">
+          <div
+            class="album-filter"
+            role="tablist"
+            aria-label="Filter album by category"
+          >
+            <button
+              class="filter-btn is-active"
+              data-filter="all"
+              role="tab"
+              aria-selected="true"
+              type="button"
+            >
+              All <span class="filter-count" data-count-for="all"></span>
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="license"
+              role="tab"
+              aria-selected="false"
+              type="button"
+            >
+              Licenses
+              <span class="filter-count" data-count-for="license"></span>
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="certification"
+              role="tab"
+              aria-selected="false"
+              type="button"
+            >
+              Certifications
+              <span class="filter-count" data-count-for="certification"></span>
+            </button>
+            <button
+              class="filter-btn"
+              data-filter="award"
+              role="tab"
+              aria-selected="false"
+              type="button"
+            >
+              Awards <span class="filter-count" data-count-for="award"></span>
+            </button>
+            <span class="filter-indicator" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="album-grid">
+          <!-- ===================== LICENSES ===================== -->
+          <!-- Source: company profile, "License, Certifications and Awards" page -->
+          <article
+            class="album-card reveal"
+            data-category="license"
+            data-modal="modal-album-01"
+          >
+            <div class="album-card-image">
+              <img
+                src="assets/License/petronas-license.jpg"
+                alt="PETRONAS Vendor License & Registration"
+              />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15 3v5h5"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 13h6M9 17h6"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-license">License</span>
+              <h3>PETRONAS Vendor License &amp; Registration</h3>
+              <span class="album-card-meta">PETRONAS · 2024–2027</span>
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="album-card reveal album-card--placeholder"
+            data-category="license"
+            data-modal="modal-album-02"
+          >
+            <div class="album-card-image album-card-image--empty">
+              <span>Document to be added</span>
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M6 3h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15 3v5h5"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 13h6M9 17h6"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-license">License</span>
+              <h3>Ministry of Finance License</h3>
+              <span class="album-card-meta">Ministry of Finance, Malaysia</span>
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ===================== CERTIFICATIONS ===================== -->
+          <!-- Source: company profile, LRQA Certificate of Approval -->
+          <article
+            class="album-card reveal"
+            data-category="certification"
+            data-modal="modal-album-03"
+          >
+            <div class="album-card-image">
+              <img
+                src="assets/License/iso-certificate.jpg"
+                alt="ISO 22000:2018"
+              />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12l2 2 4-4"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-certification"
+                >Certification</span
+              >
+              <h3>ISO 22000:2018</h3>
+              <span class="album-card-meta"
+                >LRQA · Issued 2024, valid to 2027</span
+              >
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="album-card reveal"
+            data-category="certification"
+            data-modal="modal-album-04"
+          >
+            <div class="album-card-image">
+              <img src="assets/License/iso-certificate.jpg" alt="ISO 9001:2015" />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12l2 2 4-4"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-certification"
+                >Certification</span
+              >
+              <h3>ISO 9001:2015</h3>
+              <span class="album-card-meta"
+                >LRQA · Issued 2024, valid to 2027</span
+              >
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ===================== AWARDS ===================== -->
+          <!-- Source: company profile, "License, Certifications and Awards" page -->
+          <article
+            class="album-card reveal"
+            data-category="award"
+            data-modal="modal-album-05"
+          >
+            <div class="album-card-image">
+              <img
+                src="assets/License/award-shell-2023.jpg"
+                alt="Shell Malaysia Safety Awards 2023"
+              />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M8 4h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V4z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 5H5v2a3 3 0 0 0 3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 5h3v2a3 3 0 0 1-3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path d="M12 11v3.5" stroke-width="1.8" />
+                <path d="M9 20h6" stroke-width="1.8" stroke-linecap="round" />
+                <path
+                  d="M9.7 20v-1.7c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3V20"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-award">Award</span>
+              <h3>Shell Malaysia Safety Awards</h3>
+              <span class="album-card-meta"
+                >Shell Malaysia · 2023 (presented 2024)</span
+              >
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="album-card reveal"
+            data-category="award"
+            data-modal="modal-album-06"
+          >
+            <div class="album-card-image">
+              <img
+                src="assets/License/award-msosh-silver-2024.jpg"
+                alt="MSOSH Silver Award"
+              />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M8 4h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V4z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 5H5v2a3 3 0 0 0 3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 5h3v2a3 3 0 0 1-3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path d="M12 11v3.5" stroke-width="1.8" />
+                <path d="M9 20h6" stroke-width="1.8" stroke-linecap="round" />
+                <path
+                  d="M9.7 20v-1.7c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3V20"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-award">Award</span>
+              <h3>MSOSH Silver Award</h3>
+              <span class="album-card-meta"
+                >MSOSH · 2023 (42nd Award, 2024)</span
+              >
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="album-card reveal"
+            data-category="award"
+            data-modal="modal-album-07"
+          >
+            <div class="album-card-image">
+              <img
+                src="assets/License/award-msosh-gold-2022.jpg"
+                alt="MSOSH Gold Class 2 Award"
+              />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M8 4h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V4z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 5H5v2a3 3 0 0 0 3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 5h3v2a3 3 0 0 1-3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path d="M12 11v3.5" stroke-width="1.8" />
+                <path d="M9 20h6" stroke-width="1.8" stroke-linecap="round" />
+                <path
+                  d="M9.7 20v-1.7c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3V20"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-award">Award</span>
+              <h3>MSOSH Gold Class 2 Award</h3>
+              <span class="album-card-meta"
+                >MSOSH · 2021 (40th Award, 2022)</span
+              >
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="album-card reveal"
+            data-category="award"
+            data-modal="modal-album-08"
+          >
+            <div class="album-card-image">
+              <img
+                src="assets/License/award-mdpc-hsse-2024.jpg"
+                alt="MDPC HSSE Recognition Award"
+              />
+            </div>
+            <div class="album-card-scrim"></div>
+            <div class="album-card-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M8 4h8v3a4 4 0 0 1-4 4 4 4 0 0 1-4-4V4z"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 5H5v2a3 3 0 0 0 3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M16 5h3v2a3 3 0 0 1-3 3"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path d="M12 11v3.5" stroke-width="1.8" />
+                <path d="M9 20h6" stroke-width="1.8" stroke-linecap="round" />
+                <path
+                  d="M9.7 20v-1.7c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3V20"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="album-card-content">
+              <span class="album-card-tag tag-award">Award</span>
+              <h3>MDPC HSSE Recognition</h3>
+              <span class="album-card-meta"
+                >MDPC HSSE Forum · 2023 (presented 2024)</span
+              >
+              <div class="album-card-cta">
+                <span>View Details</span
+                ><span class="album-card-cta-arrow"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                ></span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="album-empty" hidden>Nothing to show in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- ===================== MODALS ===================== -->
+
+    <div class="modal" id="modal-album-01">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img
+              src="assets/License/petronas-license.jpg"
+              alt="PETRONAS Vendor License & Registration"
+            />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-license">License</span>
+            <h2>PETRONAS Vendor License &amp; Registration</h2>
+            <div class="modal-meta">
+              <span><strong>Issuing body:</strong> PETRONAS</span>
+              <span><strong>License no.:</strong> 200601006212</span>
+              <span><strong>Validity:</strong> 27 Sept 2024 – 20 Nov 2027</span>
+            </div>
+            <p>
+              East Man Resources Sdn. Bhd. is fully licensed by PETRONAS,
+              registered and approved across a wide range of vendor categories,
+              including General Manpower, Industrial Waste Management, Kitchen
+              Equipment, Dockside Catering, Portable Gas Detectors, Vacuum
+              Pumps, and Environmental Quality Monitoring, among others.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-02">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media modal-media--empty">
+            <span>Document to be added</span>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-license">License</span>
+            <h2>Ministry of Finance License</h2>
+            <div class="modal-meta">
+              <span
+                ><strong>Issuing body:</strong> Ministry of Finance,
+                Malaysia</span
+              >
+              <span
+                ><strong>License no. / validity:</strong> Not specified in
+                company profile — add when available</span
+              >
+            </div>
+            <p>
+              East Man Resources Sdn. Bhd. is fully licensed by the Ministry of
+              Finance in respect of catering services, as confirmed in the
+              company profile. A copy of the license document was not included
+              in the profile — add the certificate photo and specific license
+              number/validity dates here once available.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-03">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img src="assets/License/iso-certificate.jpg" alt="ISO 22000:2018" />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-certification">Certification</span>
+            <h2>ISO 22000:2018</h2>
+            <div class="modal-meta">
+              <span><strong>Issuing body:</strong> LRQA</span>
+              <span><strong>Certificate:</strong> Approval no. 00044375</span>
+              <span
+                ><strong>Current certificate:</strong> Issued 4 June 2024, valid
+                to 9 May 2027</span
+              >
+            </div>
+            <p>
+              Food Safety Management System certification, scoped to the
+              distribution of chilled, frozen, and dried foods. East Man
+              Resources was originally approved to this standard on 28 June 2021
+              (via TÜV NORD) and has maintained continuous certification since,
+              now issued by LRQA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-04">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img src="assets/License/iso-certificate.jpg" alt="ISO 9001:2015" />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-certification">Certification</span>
+            <h2>ISO 9001:2015</h2>
+            <div class="modal-meta">
+              <span><strong>Issuing body:</strong> LRQA</span>
+              <span><strong>Certificate:</strong> Approval no. 00044376</span>
+              <span
+                ><strong>Current certificate:</strong> Issued 4 June 2024, valid
+                to 9 May 2027</span
+              >
+            </div>
+            <p>
+              Quality Management System certification, scoped to the provision
+              of food and manpower for the oil and gas industry. East Man
+              Resources was originally approved to this standard on 10 May 2021
+              (via TÜV NORD CERT GmbH) and has maintained continuous
+              certification since, now issued by LRQA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-05">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img
+              src="assets/License/award-shell-2023.jpg"
+              alt="Shell Malaysia Safety Awards 2023"
+            />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-award">Award</span>
+            <h2>Shell Malaysia Safety Awards</h2>
+            <div class="modal-meta">
+              <span><strong>Issuing body:</strong> Shell Malaysia</span>
+              <span
+                ><strong>Date:</strong> 2023 performance year, presented at the
+                Shell Malaysia CEO HSSE Forum 2024</span
+              >
+            </div>
+            <p>
+              Recognized as a Finalist in the Safety Award, Upstream Category,
+              at the Shell Malaysia Safety Awards 2023 — awarded in recognition
+              of outstanding achievement in safety performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-06">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img
+              src="assets/License/award-msosh-silver-2024.jpg"
+              alt="MSOSH Silver Award"
+            />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-award">Award</span>
+            <h2>MSOSH Silver Award</h2>
+            <div class="modal-meta">
+              <span
+                ><strong>Issuing body:</strong> Malaysian Society for
+                Occupational Safety and Health (MSOSH)</span
+              >
+              <span
+                ><strong>Date:</strong> For good OSH performance in 2023 (42nd
+                MSOSH Award, 2024)</span
+              >
+            </div>
+            <p>
+              Presented by MSOSH in recognition of a good occupational safety
+              and health (OSH) performance in 2023.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-07">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img
+              src="assets/License/award-msosh-gold-2022.jpg"
+              alt="MSOSH Gold Class 2 Award"
+            />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-award">Award</span>
+            <h2>MSOSH Gold Class 2 Award</h2>
+            <div class="modal-meta">
+              <span
+                ><strong>Issuing body:</strong> Malaysian Society for
+                Occupational Safety and Health (MSOSH)</span
+              >
+              <span
+                ><strong>Date:</strong> For very good OSH performance in 2021
+                (40th MSOSH Award, 2022)</span
+              >
+            </div>
+            <p>
+              Presented by MSOSH in recognition of a very good occupational
+              safety and health (OSH) performance in 2021.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal-album-08">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <div class="modal-body">
+          <div class="modal-media">
+            <img
+              src="assets/License/award-mdpc-hsse-2024.jpg"
+              alt="MDPC HSSE Recognition Award"
+            />
+            <div class="modal-media-scrim"></div>
+          </div>
+          <div class="modal-info">
+            <span class="modal-tag tag-award">Award</span>
+            <h2>MDPC HSSE Recognition</h2>
+            <div class="modal-meta">
+              <span
+                ><strong>Issuing body:</strong> Malaysia Deepwater Production
+                Contractors (MDPC)</span
+              >
+              <span
+                ><strong>Date:</strong> 2023 HSSE Recognition Awards, presented
+                at the MDPC HSSE Forum 2024</span
+              >
+            </div>
+            <p>
+              Silver Award for Excellence — recognizing HSSE performance
+              commitment in upholding HSSE excellence, presented at the MDPC
+              HSSE Forum 2024.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/album.js"></script>
+  </body>
+</html>

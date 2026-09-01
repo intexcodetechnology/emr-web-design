@@ -1,0 +1,846 @@
+/* album.html — page-specific styles */
+
+/* ============================
+   Segmented filter control
+============================ */
+.album-filterbar {
+  margin-top: 40px;
+  display: flex;
+}
+
+.album-filterbar {
+  position: relative;
+}
+
+.album-filterbar::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 0;
+  bottom: 6px;
+  width: 36px;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(
+    90deg,
+    rgba(247, 248, 250, 0),
+    var(--g50, #f7f8fa) 70%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.album-filterbar.can-scroll::after {
+  opacity: 1;
+}
+
+.album-filter {
+  position: relative;
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid rgba(15, 47, 107, 0.1);
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(15, 47, 107, 0.08);
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.album-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-indicator {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  height: calc(100% - 12px);
+  width: 0;
+  border-radius: 999px;
+  background: var(--deep, #0f2f6b);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+.filter-btn {
+  position: relative;
+  z-index: 2;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #55607a;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn.is-active {
+  color: #fff;
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: inherit;
+  opacity: 0.6;
+  min-width: 1.4em;
+}
+
+.filter-btn.is-active .filter-count {
+  opacity: 0.75;
+}
+
+/* ============================
+   Album Card Grid
+============================ */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.album-grid.is-filtering .album-card {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
+
+.album-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  min-height: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #0b1830;
+  box-shadow: 0 16px 40px rgba(15, 47, 107, 0.14);
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  border: 1px solid rgba(15, 47, 107, 0.06);
+}
+
+.album-card.is-hidden {
+  display: none;
+}
+
+.album-card:hover,
+.album-card:focus-visible {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(10, 25, 60, 0.3);
+  outline: none;
+}
+
+.album-card-image {
+  position: absolute;
+  inset: 0;
+}
+
+.album-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.album-card:hover .album-card-image img {
+  transform: scale(1.1);
+}
+
+.album-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 14, 32, 0.05) 0%,
+    rgba(6, 14, 32, 0.15) 35%,
+    rgba(6, 14, 32, 0.75) 75%,
+    rgba(4, 10, 26, 0.92) 100%
+  );
+  transition: opacity 0.5s ease;
+}
+
+.album-card:hover .album-card-scrim {
+  opacity: 0.85;
+}
+
+.album-card-icon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+  z-index: 3;
+}
+
+.album-card-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.album-card[data-category="license"]:hover .album-card-icon {
+  background: var(--blue, #2563eb);
+  color: #fff;
+  transform: scale(1.08) rotate(8deg);
+}
+
+.album-card[data-category="certification"]:hover .album-card-icon {
+  background: #fff;
+  color: var(--deep, #0f2f6b);
+  transform: scale(1.08) rotate(8deg);
+}
+
+.album-card[data-category="award"]:hover .album-card-icon {
+  background: var(--yellow, #facc15);
+  color: var(--deep, #0f2f6b);
+  transform: scale(1.08) rotate(8deg);
+}
+
+.album-card-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px 22px 22px;
+  z-index: 3;
+}
+
+/* Category tag colors */
+.album-card-tag,
+.modal-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.tag-license {
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(96, 150, 255, 0.5);
+  color: #a9c4ff;
+}
+
+.tag-certification {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 47, 107, 0.2);
+  color: var(--deep, #0f2f6b);
+}
+
+.tag-award {
+  background: rgba(250, 204, 21, 0.18);
+  border: 1px solid rgba(250, 204, 21, 0.5);
+  color: #facc15;
+}
+
+.modal-tag.tag-certification {
+  color: var(--deep, #0f2f6b);
+}
+
+.album-card-content h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #fff;
+  margin: 0 0 6px;
+  letter-spacing: -0.3px;
+}
+
+.album-card-meta {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 18px;
+}
+
+.album-card-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 6px 6px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.album-card-cta span {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.album-card-cta-arrow {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--deep, #0f2f6b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+.album-card-cta-arrow svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.album-card:hover .album-card-cta {
+  background: #fff;
+  border-color: #fff;
+}
+
+.album-card:hover .album-card-cta span {
+  color: var(--deep, #0f2f6b);
+}
+
+.album-card:hover .album-card-cta-arrow {
+  background: var(--deep, #0f2f6b);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+/* Top accent bar, colored per category, revealed on hover */
+.album-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  z-index: 4;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.album-card[data-category="license"]::after {
+  background: linear-gradient(
+    90deg,
+    var(--blue, #2563eb) 0%,
+    var(--deep, #0f2f6b) 100%
+  );
+}
+
+.album-card[data-category="certification"]::after {
+  background: linear-gradient(90deg, #fff 0%, var(--blue, #2563eb) 100%);
+}
+
+.album-card[data-category="award"]::after {
+  background: linear-gradient(
+    90deg,
+    var(--yellow, #facc15) 0%,
+    var(--deep, #0f2f6b) 100%
+  );
+}
+
+.album-card:hover::after {
+  transform: scaleX(1);
+}
+
+.album-empty {
+  text-align: center;
+  color: var(--g500, #6b7280);
+  padding: 60px 0;
+  font-size: 1rem;
+}
+
+/* Card/modal media placeholder for items with no photo on file yet
+   (kept honest rather than substituting an unrelated stock image) */
+.album-card-image--empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    #16273b,
+    #16273b 12px,
+    #1c3049 12px,
+    #1c3049 24px
+  );
+}
+
+.album-card-image--empty span {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.modal-media--empty {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: repeating-linear-gradient(
+    135deg,
+    #16273b,
+    #16273b 12px,
+    #1c3049 12px,
+    #1c3049 24px
+  );
+}
+
+.modal-media--empty span {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+
+@media (max-width: 1024px) {
+  .modal-media--empty {
+    height: 280px;
+  }
+}
+@media (max-width: 420px) {
+  .modal-media--empty {
+    height: 200px;
+    border-radius: 22px 22px 0 0;
+  }
+}
+@media (max-width: 480px) {
+  .modal-media--empty {
+    height: 190px;
+  }
+}
+
+/* ============================
+   Modal Styles
+============================ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  padding: 24px;
+  transition: opacity 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 12, 28, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  animation: albumFadeIn 0.3s ease;
+}
+
+@keyframes albumFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 28px;
+  max-width: 720px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.4);
+  animation: albumSlideUpModal 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+@keyframes albumSlideUpModal {
+  from {
+    transform: translateY(40px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.modal-close:hover {
+  background: var(--yellow, #facc15);
+  color: var(--deep, #0f2f6b);
+  border-color: var(--yellow, #facc15);
+  transform: rotate(90deg) scale(1.08);
+}
+
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  overflow: hidden;
+}
+
+.modal-media {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.modal-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  animation: albumImageZoom 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes albumImageZoom {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal-media-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 14, 32, 0) 55%,
+    rgba(6, 14, 32, 0.75) 100%
+  );
+  pointer-events: none;
+}
+
+.modal-info {
+  padding: 40px 48px 48px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
+  animation: albumSlideInContent 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@keyframes albumSlideInContent {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-info h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  color: #1a1a1a;
+  letter-spacing: -0.5px;
+}
+
+.modal-info h2::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--yellow, #facc15) 0%,
+    var(--deep, #0f2f6b) 100%
+  );
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+
+.modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  margin: 0 0 22px;
+  background: var(--g50, #f7f8fa);
+  border: 1px solid rgba(15, 47, 107, 0.08);
+  border-radius: 14px;
+}
+
+.modal-meta span {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.modal-meta strong {
+  color: var(--deep, #0f2f6b);
+  font-weight: 700;
+}
+
+.modal-info p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0 0 16px;
+  letter-spacing: 0.2px;
+}
+
+.modal-info p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f3f5;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ============================
+   Responsive Design
+============================ */
+@media (max-width: 1024px) {
+  .album-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .modal-content {
+    max-width: 600px;
+  }
+  .modal-media {
+    height: 280px;
+  }
+  .modal-info {
+    padding: 36px 40px 40px;
+  }
+  .modal-info h2 {
+    font-size: 1.75rem;
+  }
+  .album-card-content h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .album-filterbar {
+    margin-top: 28px;
+  }
+
+  .filter-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .filter-btn {
+    padding: 9px 13px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+
+  .album-card {
+    aspect-ratio: 3 / 4;
+    min-height: 260px;
+    border-radius: 18px;
+  }
+
+  .album-card-icon {
+    width: 36px;
+    height: 36px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .album-card-icon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .album-card-content {
+    padding: 16px 14px 16px;
+  }
+
+  .album-card-tag {
+    font-size: 9.5px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+  }
+
+  .album-card-content h3 {
+    font-size: 0.92rem;
+    margin-bottom: 12px;
+  }
+
+  .album-card-cta {
+    padding: 4px 4px 4px 12px;
+  }
+  .album-card-cta span {
+    font-size: 0.72rem;
+  }
+  .album-card-cta-arrow {
+    width: 26px;
+    height: 26px;
+  }
+  .album-card-cta-arrow svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .modal-content {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 22px;
+  }
+  .modal-close {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    top: 16px;
+    right: 16px;
+  }
+  .modal-media {
+    height: 200px;
+    border-radius: 22px 22px 0 0;
+  }
+  .modal-info {
+    padding: 28px 24px 32px;
+  }
+  .modal-info h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  .modal-info h2::before {
+    width: 46px;
+    margin-bottom: 12px;
+  }
+  .modal-info p {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .album-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .album-card {
+    aspect-ratio: 4 / 3.2;
+  }
+  .modal-media {
+    height: 190px;
+  }
+  .modal-info {
+    padding: 24px 20px 28px;
+  }
+  .modal-info h2 {
+    font-size: 1.3rem;
+  }
+}

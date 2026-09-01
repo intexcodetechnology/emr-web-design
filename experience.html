@@ -1,121 +1,838 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Experience | EMR</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/experience.css">
-</head>
+    <link rel="icon" type="image/png" href="assets/EMR_logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/experience.css" />
+  </head>
 
-<body>
+  <body>
     <div id="navbar-placeholder"></div>
-    <section class="page-hero">
-        <div class="container">
-            <div class="eyebrow" style="color:#FACC15">Track Record</div>
-            <h1>COMPANY <span>EXPERIENCE.</span></h1>
-            <p>Selected projects and clients represented in the company profile.</p>
-        </div>
+
+    <!-- ============================================================
+         1. HERO
+         Photo: FPSO Kikeh, from the company profile (real EMR project
+         image, currently at 700x350 — swap in a higher-resolution
+         version of the same shot, or another real project photo, if
+         you have one on file).
+    ============================================================= -->
+    <section class="exp-hero">
+      <div
+        class="exp-hero__bg"
+        style="
+          background-image: url(&quot;Assets/Experience/fpso-kikeh.jpg&quot;);
+        "
+      ></div>
+      <div class="exp-hero__scrim"></div>
+      <div class="container exp-hero__content">
+        <div class="exp-hero__eyebrow">Our Experience</div>
+        <h1>Nearly Two Decades of Offshore Catering Experience</h1>
+        <p>
+          Incorporated in 2006 and fully licensed by PETRONAS and the Ministry
+          of Finance, East Man Resources Sdn. Bhd. has grown into a trusted
+          offshore catering and associated-services partner to the petrochemical
+          industry in Malaysia and the region.
+        </p>
+      </div>
     </section>
-    <section class="section" style="background:var(--g50)">
-        <div class="container">
-            <div class="reveal">
-                <div class="eyebrow">Selected Experience</div>
-                <h2 class="title">OUR <span>TRACK RECORD.</span></h2>
+
+    <!-- ============================================================
+         2. EXPERIENCE AT A GLANCE
+         All four figures are sourced from the company profile:
+         - Years of Experience is calculated automatically from the
+           2006 incorporation date (see script at the bottom), so it
+           never goes out of date.
+         - Featured Projects (13) and Clients Served (8) are counted
+           from the "Company Experiences" list in the profile.
+         - Manhours without LTI is the 2024 safety record stated in
+           the profile — update the data-target if you get a newer figure.
+    ============================================================= -->
+    <section class="exp-stats">
+      <div class="container">
+        <div class="exp-stats__grid">
+          <div class="exp-stat reveal">
+            <div class="exp-stat__num" id="exp-years-stat">
+              <span class="exp-stat__val">0</span><sup>+</sup>
             </div>
-            <div class="list">
-                <div class="list-item reveal">
-                    <div class="num">01</div>
-                    <div><strong>MDPC</strong><small>Provision of catering and associated services for FPSO
-                            Kikeh</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">02</div>
-                    <div><strong>Sabah Shell Petroleum Company Limited</strong><small>Offshore Catering and Associated
-                            Services for SSPC Gumusut-Kakap</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">03</div>
-                    <div><strong>Sabah Shell Petroleum Company Limited</strong><small>Offshore Catering and Associated
-                            Services for SSPC Malikai TLP</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">04</div>
-                    <div><strong>Petronas Carigali Sdn Bhd</strong><small>Semarang, Sumandak, Kinabalu-NAG, Erbwest &
-                            Tembungo</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">05</div>
-                    <div><strong>Sabah Shell Petroleum Company Limited</strong><small>Offshore Catering for Malikai
-                            Tension Leg Platform</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">06</div>
-                    <div><strong>Sribima Offshore Catering Services</strong><small>Provision of catering and associated
-                            services for Petra Alya</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">07</div>
-                    <div><strong>Petrofac Energy Development</strong><small>Provision of catering and associated
-                            services for FPSO Berantai</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">08</div>
-                    <div><strong>PETRONAS Carigali Sdn Bhd, SKO</strong><small>Catering and associated services for
-                            Kumang Clusters</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">09</div>
-                    <div><strong>Duta Marine Sdn Bhd</strong><small>Marine Workbarge Tirta Rajawali</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">10</div>
-                    <div><strong>Duta Marine Sdn Bhd</strong><small>Marine Workbarge Crest Nautilus 1</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">11</div>
-                    <div><strong>TL Offshore Sdn Bhd</strong><small>Catering and Associated Service for Workbarge Lewek
-                            Champion</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">12</div>
-                    <div><strong>TL Offshore Sdn Bhd</strong><small>Offshore Catering and Associated Services for
-                            EMERALD</small></div>
-                    <div>↗</div>
-                </div>
-                <div class="list-item reveal">
-                    <div class="num">13</div>
-                    <div><strong>Duta Marine Sdn Bhd</strong><small>Offshore catering and associated services for Work
-                            Barge Support Station 3</small></div>
-                    <div>↗</div>
-                </div>
+            <div class="exp-stat__label">Years of Experience</div>
+          </div>
+          <div class="exp-stat reveal">
+            <div class="exp-stat__num" data-target="13">
+              <span class="exp-stat__val">0</span>
             </div>
+            <div class="exp-stat__label">Featured Projects</div>
+          </div>
+          <div class="exp-stat reveal">
+            <div class="exp-stat__num" data-target="8">
+              <span class="exp-stat__val">0</span>
+            </div>
+            <div class="exp-stat__label">Clients Served</div>
+          </div>
+          <div class="exp-stat reveal">
+            <div class="exp-stat__num" data-target="262000">
+              <span class="exp-stat__val">0</span><sup>+</sup>
+            </div>
+            <div class="exp-stat__label">Manhours Without LTI (2024)</div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. OUR JOURNEY
+         Every dated entry below is sourced directly from the company
+         profile. One placeholder slot is marked clearly for you to
+         fill in — e.g. a milestone from 2007-2020 — since the profile
+         doesn't itemize the years in between.
+    ============================================================= -->
+    <section class="section" style="background: #fff">
+      <div class="container">
+        <div
+          class="reveal"
+          style="text-align: center; max-width: 640px; margin: 0 auto"
+        >
+          <div class="eyebrow">Our Journey</div>
+          <h2 class="title">How We <span>Got Here.</span></h2>
+        </div>
+
+        <div class="exp-timeline">
+          <div class="exp-timeline__row">
+            <div class="exp-timeline__card reveal">
+              <span class="exp-timeline__year">2006</span>
+              <h3>Company Incorporated</h3>
+              <p>
+                East Man Resources Sdn. Bhd. was incorporated on 7 March 2006,
+                fully licensed by PETRONAS and the Ministry of Finance to
+                provide catering services.
+              </p>
+            </div>
+            <div class="exp-timeline__node"></div>
+          </div>
+          <div class="exp-timeline__row">
+            <div class="exp-timeline__node"></div>
+            <div
+              class="exp-timeline__card reveal exp-timeline__card--placeholder"
+            >
+              <span class="exp-timeline__year">20XX</span>
+              <h3>[Add a milestone]</h3>
+              <p>
+                [This period isn't itemized in the company profile — add a
+                milestone from your records, e.g. a major contract award or
+                office opening.]
+              </p>
+            </div>
+          </div>
+          <div class="exp-timeline__row">
+            <div class="exp-timeline__card reveal">
+              <span class="exp-timeline__year">2021</span>
+              <h3>MSOSH Gold Class 2 Award</h3>
+              <p>
+                Awarded the 40th MSOSH Gold Class 2 Award for very good OSH
+                performance in 2021, presented by the Malaysian Society for
+                Occupational Safety and Health.
+              </p>
+            </div>
+            <div class="exp-timeline__node"></div>
+          </div>
+          <div class="exp-timeline__row">
+            <div class="exp-timeline__node"></div>
+            <div class="exp-timeline__card reveal">
+              <span class="exp-timeline__year">2024</span>
+              <h3>Diversifying Beyond Catering</h3>
+              <p>
+                Began diversifying into wider Oil & Gas services, signing
+                collaboration agreements with technology partners IPS, SINCO
+                Automasi, and OWS.
+              </p>
+            </div>
+          </div>
+          <div class="exp-timeline__row">
+            <div class="exp-timeline__card reveal">
+              <span class="exp-timeline__year">2024</span>
+              <h3>Recognized Across the Industry</h3>
+              <p>
+                Closed the year with the MSOSH 42nd Silver Award, a Shell
+                Malaysia Safety Awards finalist placing, and an MDPC HSSE
+                Recognition Silver Award — plus 262,000+ manhours without LTI.
+              </p>
+            </div>
+            <div class="exp-timeline__node"></div>
+          </div>
+          <div class="exp-timeline__row">
+            <div class="exp-timeline__node"></div>
+            <div class="exp-timeline__card reveal">
+              <span class="exp-timeline__year">2025</span>
+              <h3>Moving Forward</h3>
+              <p>
+                Continuing to grow our offshore catering track record while
+                building out our technology-partner capabilities across Sabah
+                and beyond.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3B. AWARDS & RECOGNITION
+         All items below are real, named awards/certifications from
+         the company profile (section 7.0, License, Certifications
+         and Awards). Replace the icons with real certificate/award
+         photos if you'd like — they're in the profile PDF.
+    ============================================================= -->
+    <section class="section exp-awards" style="background: var(--g50)">
+      <div class="container">
+        <div
+          class="reveal"
+          style="text-align: center; max-width: 640px; margin: 0 auto"
+        >
+          <div class="eyebrow">Awards &amp; Recognition</div>
+          <h2 class="title">Recognized For <span>Excellence.</span></h2>
+        </div>
+
+        <div class="exp-awards__grid">
+          <div class="exp-award reveal">
+            <div class="exp-award__badge">2023</div>
+            <h3>Shell Malaysia Safety Awards</h3>
+            <p>
+              Finalist, Safety Award — Upstream Category. Presented at the Shell
+              Malaysia CEO HSSE Forum 2024.
+            </p>
+          </div>
+          <div class="exp-award reveal">
+            <div class="exp-award__badge">2024</div>
+            <h3>MSOSH Silver Award</h3>
+            <p>
+              42nd MSOSH Award, for good OSH performance in 2023 — Malaysian
+              Society for Occupational Safety and Health.
+            </p>
+          </div>
+          <div class="exp-award reveal">
+            <div class="exp-award__badge">2021</div>
+            <h3>MSOSH Gold Class 2 Award</h3>
+            <p>40th MSOSH Award, for very good OSH performance in 2021.</p>
+          </div>
+          <div class="exp-award reveal">
+            <div class="exp-award__badge">2024</div>
+            <h3>MDPC HSSE Recognition</h3>
+            <p>
+              Silver Award — Excellence, HSSE Performance Commitment, MDPC HSSE
+              Forum 2024.
+            </p>
+          </div>
+        </div>
+
+        <div class="exp-iso reveal">
+          <div class="exp-iso__badge">ISO 22000:2018</div>
+          <div class="exp-iso__badge">ISO 9001:2015</div>
+          <span class="exp-iso__note"
+            >Certified by LRQA — Food Safety Management &amp; Quality Management
+            Systems</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. FEATURED EXPERIENCE
+         Built from the company's actual project list. Services Provided /
+         Scope / Outcome are left as editable placeholders — fill in the
+         specifics for each project where marked.
+    ============================================================= -->
+    <section class="section" style="background: var(--g50)">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Featured Experience</div>
+          <h2 class="title" style="margin-bottom: 25px;">Selected <span>Projects.</span></h2>
+          <p style="color: var(--g500); max-width: 600px; margin-top: -10px">
+            13 contracts drawn directly from our company profile, spanning
+            FPSOs, offshore platforms, and marine support vessels.
+          </p>
+        </div>
+
+        <div class="exp-projects__grid" id="exp-project-grid">
+          <!-- Cards are generated from the data array in the script below -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="exp-modal-overlay" id="exp-modal-overlay">
+      <div class="exp-modal">
+        <div class="exp-modal__hero" id="exp-modal-hero">
+          <button
+            class="exp-modal__close"
+            id="exp-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+          <div class="exp-modal__heading">
+            <span class="exp-card__tag" id="exp-modal-tag">Category</span>
+            <h3 id="exp-modal-title">Project name</h3>
+          </div>
+        </div>
+        <div class="exp-modal__body">
+          <div class="exp-modal__meta">
+            <div>
+              <span>Client / Industry</span>
+              <strong id="exp-modal-client">—</strong>
+            </div>
+          </div>
+          <div class="exp-modal__section">
+            <h4>Project Description</h4>
+            <p id="exp-modal-desc">—</p>
+          </div>
+          <div class="exp-modal__section">
+            <h4>Services Provided</h4>
+            <p id="exp-modal-services">—</p>
+          </div>
+          <div class="exp-modal__section">
+            <h4>Project Scope</h4>
+            <p id="exp-modal-scope">—</p>
+          </div>
+          <div class="exp-modal__section">
+            <h4>Outcome / Achievement</h4>
+            <p id="exp-modal-outcome">—</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         5. INDUSTRIES & SECTORS
+         Sourced from the company profile: the "About Us" section (Oil &
+         Gas / petrochemical, offshore platforms, marine vessels) and the
+         "Oil and Gas Products and Services" section on technology-partner
+         diversification (rotating equipment, automation & instrumentation).
+    ============================================================= -->
+    <section class="section exp-industries">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">Where We Work</div>
+          <h2 class="title">Industries &amp; <span>Sectors We Serve.</span></h2>
+        </div>
+
+        <div class="exp-industries__grid">
+          <div class="exp-industry reveal">
+            <div class="exp-industry__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 21V9l8-5 8 5v12"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M9 21v-6h6v6"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3>Oil &amp; Gas / Petrochemical</h3>
+            <p>
+              Our founding sector — catering and associated services to
+              petrochemical clients in Malaysia and the region since 2006.
+            </p>
+          </div>
+          <div class="exp-industry reveal">
+            <div class="exp-industry__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M3 20h5V10l4-2 4 2v10h5M8 14h1m3 0h1m3-4h1"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>Offshore Platforms &amp; FPSOs</h3>
+            <p>
+              Direct experience on FPSO Kikeh, FPSO Berantai, Gumusut-Kakap, and
+              the Malikai Tension Leg Platform.
+            </p>
+          </div>
+          <div class="exp-industry reveal">
+            <div class="exp-industry__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M3 15c3-3 6 3 9 0s6-3 9 0M4 19h16"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M6 15V8l4-2v9M14 15V9l4-1v7"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </div>
+            <h3>Marine &amp; Vessel Operations</h3>
+            <p>
+              Catering and associated services aboard marine workbarges for
+              clients including Duta Marine and TL Offshore.
+            </p>
+          </div>
+          <div class="exp-industry reveal">
+            <div class="exp-industry__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M19 12a7 7 0 0 0-.14-1.4l2-1.55-2-3.46-2.37.96a7 7 0 0 0-2.4-1.4L13.6 3h-4l-.5 2.15a7 7 0 0 0-2.4 1.4l-2.37-.96-2 3.46 2 1.55A7 7 0 0 0 4.19 12l-2 1.55 2 3.46 2.37-.96a7 7 0 0 0 2.4 1.4L9.6 21h4l.5-2.15a7 7 0 0 0 2.4-1.4l2.37.96 2-3.46-2-1.55c.09-.46.13-.93.13-1.4Z"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+            </div>
+            <h3>Industrial Rotating Equipment</h3>
+            <p>
+              Via technology partner IPS — sales, service, and repair of
+              compressors, blowers, pumps, turbines, and gearboxes.
+            </p>
+          </div>
+          <div class="exp-industry reveal">
+            <div class="exp-industry__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <rect
+                  x="4"
+                  y="4"
+                  width="16"
+                  height="16"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+                <path
+                  d="M9 4v16M4 9h5M4 15h5"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+                <circle
+                  cx="15.5"
+                  cy="12"
+                  r="2.3"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+            </div>
+            <h3>Automation &amp; Instrumentation</h3>
+            <p>
+              Via technology partner SINCO Automasi — marine automation,
+              controls, and instrumentation engineering.
+            </p>
+          </div>
+          <div class="exp-industry reveal">
+            <div class="exp-industry__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 8h16M4 12h16M4 16h10"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+                <circle
+                  cx="18"
+                  cy="16"
+                  r="2"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                />
+              </svg>
+            </div>
+            <h3>Hospitality &amp; Catering</h3>
+            <p>
+              Our core discipline — food safety, provisioning, and hospitality
+              management under ISO 22000:2018.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. OUR CAPABILITIES
+         Sourced from the company profile: About Us, the QFOSH Company
+         Policy, the Organization Chart (Supply Chain / Crew Coordinator
+         roles), and the Oil & Gas Products and Services section covering
+         our technology partners (IPS, SINCO Automasi).
+    ============================================================= -->
+    <section class="section" style="background: #fff">
+      <div class="container">
+        <div class="reveal">
+          <div class="eyebrow">What We Deliver</div>
+          <h2 class="title">Our <span>Capabilities.</span></h2>
+        </div>
+
+        <div class="exp-capabilities__grid">
+          <div class="exp-capability reveal">
+            <div class="exp-capability__num">01</div>
+            <h3>Offshore Catering &amp; Hospitality</h3>
+            <p>
+              Food provisioning, storage, preparation, and distribution for
+              offshore platforms and vessels.
+            </p>
+          </div>
+          <div class="exp-capability reveal">
+            <div class="exp-capability__num">02</div>
+            <h3>Quality, Food Safety &amp; OSH</h3>
+            <p>
+              ISO 22000:2018 and ISO 9001:2015 certified, backed by a QFOSH
+              policy and a strong safety record.
+            </p>
+          </div>
+          <div class="exp-capability reveal">
+            <div class="exp-capability__num">03</div>
+            <h3>Supply Chain &amp; Crew Logistics</h3>
+            <p>
+              Dedicated supply chain and crew coordination teams supporting
+              offshore mobilization.
+            </p>
+          </div>
+          <div class="exp-capability reveal">
+            <div class="exp-capability__num">04</div>
+            <h3>Industrial Rotating Equipment</h3>
+            <p>
+              Sales, service, and repair of compressors, blowers, pumps, and
+              turbines with technology partner IPS.
+            </p>
+          </div>
+          <div class="exp-capability reveal">
+            <div class="exp-capability__num">05</div>
+            <h3>Automation &amp; Instrumentation</h3>
+            <p>
+              Controls, instrumentation, and marine automation engineering with
+              technology partner SINCO Automasi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. CTA
+    ============================================================= -->
+    <section class="section exp-cta">
+      <div class="container exp-cta__inner reveal">
+        <div class="eyebrow" style="color: var(--yellow)">
+          Let's Work Together
+        </div>
+        <h2>Ready to start your next project?</h2>
+        <p>
+          Looking for a reliable and experienced partner for your next project?
+          East Man Resources Sdn. Bhd. is ready to work with you.
+        </p>
+        <a href="contact.html" class="exp-cta__btn">Contact Us →</a>
+      </div>
     </section>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 
-
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/main.js"></script>
-</body>
 
+    <!-- ============================================================
+         Page-specific script: project data, card render, modal, count-up
+         Edit the PROJECTS array below to add, remove, or update projects.
+    ============================================================= -->
+    <script>
+      // Every name, client, and description below is taken directly from
+      // the "Company Experiences" list in the company profile (section 4.0).
+      // "services" uses the company's own general description of its work
+      // (About Us / QFOSH policy sections). "scope" and "outcome" are not
+      // itemized per-project in the profile — fill those in from your
+      // project records where you'd like more detail.
+      const EXP_PROJECTS = [
+        {
+          name: "FPSO Kikeh",
+          category: "Offshore Catering & Support",
+          client: "Malaysia Deepwater Production Contractors Sdn. Bhd. (MDPC)",
+          desc: "Provision of catering and associated services for FPSO Kikeh.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "Assets/Experience/fpso-kikeh.jpg",
+          real_photo: true,
+        },
+        {
+          name: "SSPC Gumusut-Kakap",
+          category: "Offshore Catering & Support",
+          client: "Sabah Shell Petroleum Company Limited",
+          desc: "Provision of offshore catering and associated services for SSPC Gumusut-Kakap.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "Assets/Experience/gumusut-kakap.jpg",
+          real_photo: true,
+        },
+        {
+          name: "SSPC Malikai Tension Leg Platform (TLP)",
+          category: "Offshore Catering & Support",
+          client: "Sabah Shell Petroleum Company Limited",
+          desc: "Provision of offshore catering and associated services for SSPC Malikai Tension Leg Platform (TLP).",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "Assets/Experience/malikai-tlp.jpg",
+          real_photo: true,
+        },
+        {
+          name: "Semarang, Sumandak, Kinabalu-NAG, Erbwest & Tembungo",
+          category: "Offshore Catering & Support",
+          client: "Petronas Carigali Sdn Bhd",
+          desc: "Provision of offshore catering and associated services across the Semarang, Sumandak, Kinabalu-NAG, Erbwest, and Tembungo platforms.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "Malikai Tension Leg Platform (TLP)",
+          category: "Offshore Catering & Support",
+          client: "Sabah Shell Petroleum Company Limited",
+          desc: "Provision of offshore catering for Malikai Tension Leg Platform (TLP).",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "Assets/Experience/malikai-tlp.jpg",
+          real_photo: true,
+        },
+        {
+          name: "Petra Alya",
+          category: "Offshore Catering & Support",
+          client: "Sribima Offshore Catering Services Sdn Bhd",
+          desc: "Provision of catering and associated services for Petra Alya.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "FPSO Berantai",
+          category: "Offshore Catering & Support",
+          client: "Petrofac Energy Development Sdn Bhd",
+          desc: "Provision of catering and associated services for FPSO Berantai.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "Kumang Clusters",
+          category: "Offshore Catering & Support",
+          client: "PETRONAS Carigali Sdn Bhd, SKO",
+          desc: "Provision of catering and associated services for Kumang Clusters — Petronas Carigali Sdn Bhd Sarawak Operations.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "Marine Workbarge Tirta Rajawali",
+          category: "Marine & Vessel Support",
+          client: "Duta Marine Sdn Bhd",
+          desc: "Provision of catering and associated services for Marine Workbarge Tirta Rajawali.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "Marine Workbarge Crest Nautilus 1",
+          category: "Marine & Vessel Support",
+          client: "Duta Marine Sdn Bhd",
+          desc: "Provision of catering and associated services for Marine Workbarge Crest Nautilus 1.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "Workbarge Lewek Champion",
+          category: "Marine & Vessel Support",
+          client: "TL Offshore Sdn Bhd",
+          desc: "Provision of catering and associated services for Workbarge Lewek Champion.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "EMERALD",
+          category: "Offshore Catering & Support",
+          client: "TL Offshore Sdn Bhd",
+          desc: "Provision of offshore catering and associated services for EMERALD.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+        {
+          name: "Work Barge Support Station 3",
+          category: "Marine & Vessel Support",
+          client: "Duta Marine Sdn Bhd",
+          desc: "Provision of offshore catering and associated services for Work Barge Support Station 3.",
+          services:
+            "Offshore catering and associated hospitality services, including food provisioning, storage, preparation, and distribution.",
+          scope: "[Add scope of work for this project]",
+          outcome: "[Add outcome / achievement for this project]",
+          img: "",
+          real_photo: false,
+        },
+      ];
+
+      // -- Render project cards --
+      const grid = document.getElementById("exp-project-grid");
+      EXP_PROJECTS.forEach((p, i) => {
+        const card = document.createElement("div");
+        card.className =
+          "exp-card reveal" + (p.real_photo ? "" : " exp-card--placeholder");
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("data-index", i);
+        card.innerHTML = `
+          ${p.real_photo ? `<div class="exp-card__img" style="background-image:url('${p.img}')"></div>` : `<div class="exp-card__img exp-card__img--empty"><span>Photo to be added</span></div>`}
+          <div class="exp-card__scrim"></div>
+          <span class="exp-card__tag">${p.category}</span>
+          <div class="exp-card__body">
+            <div class="exp-card__client">${p.client}</div>
+            <h3>${p.name}</h3>
+            <span class="exp-card__link">View Details →</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      // -- Modal logic --
+      const overlay = document.getElementById("exp-modal-overlay");
+      const modalHero = document.getElementById("exp-modal-hero");
+      const modalTag = document.getElementById("exp-modal-tag");
+      const modalTitle = document.getElementById("exp-modal-title");
+      const modalClient = document.getElementById("exp-modal-client");
+      const modalDesc = document.getElementById("exp-modal-desc");
+      const modalServices = document.getElementById("exp-modal-services");
+      const modalScope = document.getElementById("exp-modal-scope");
+      const modalOutcome = document.getElementById("exp-modal-outcome");
+
+      function expOpenModal(p) {
+        modalHero.style.backgroundImage = p.real_photo
+          ? `url('${p.img}')`
+          : "none";
+        modalHero.style.backgroundColor = "var(--deep)";
+        modalTag.textContent = p.category;
+        modalTitle.textContent = p.name;
+        modalClient.textContent = p.client;
+        modalDesc.textContent = p.desc;
+        modalServices.textContent = p.services;
+        modalScope.textContent = p.scope;
+        modalOutcome.textContent = p.outcome;
+        overlay.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function expCloseModal() {
+        overlay.classList.remove("is-open");
+        document.body.style.overflow = "";
+      }
+
+      grid.addEventListener("click", (e) => {
+        const card = e.target.closest(".exp-card");
+        if (!card) return;
+        expOpenModal(EXP_PROJECTS[card.getAttribute("data-index")]);
+      });
+
+      grid.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        const card = e.target.closest(".exp-card");
+        if (!card) return;
+        e.preventDefault();
+        expOpenModal(EXP_PROJECTS[card.getAttribute("data-index")]);
+      });
+
+      document
+        .getElementById("exp-modal-close")
+        .addEventListener("click", expCloseModal);
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) expCloseModal();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") expCloseModal();
+      });
+
+      // -- Count-up animation for stats --
+      // Years of Experience is computed from the 2006 incorporation date
+      // stated in the company profile, so this figure stays accurate
+      // without needing manual updates.
+      const EXP_FOUNDED_YEAR = 2006;
+      document
+        .getElementById("exp-years-stat")
+        .setAttribute(
+          "data-target",
+          new Date().getFullYear() - EXP_FOUNDED_YEAR,
+        );
+
+      const statEls = document.querySelectorAll(".exp-stat__num");
+      const statIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            const valEl = el.querySelector(".exp-stat__val");
+            const target = parseInt(el.getAttribute("data-target"), 10);
+            const duration = 1400;
+            const start = performance.now();
+            function tick(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              valEl.textContent = Math.round(eased * target).toLocaleString();
+              if (progress < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            statIO.unobserve(el);
+          });
+        },
+        { threshold: 0.4 },
+      );
+      statEls.forEach((el) => statIO.observe(el));
+    </script>
+  </body>
 </html>

@@ -1,5 +1,28 @@
 /* team.html only — styles shared with other pages stay in style.css */
 
+/* Hero Background Image */
+.page-hero .hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.page-hero:hover .hero-bg {
+  transform: scale(1.08);
+}
+
+.page-hero .hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, #081b3a89 0%, #0f2f6b9b 55%, #0f2f6b8c 100%),
+    linear-gradient(0deg, #081b3a61, transparent 60%);
+}
+
 /* ---------- Leadership spotlight ---------- */
 .spotlight {
   margin-top: 48px;

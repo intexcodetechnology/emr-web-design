@@ -588,9 +588,9 @@ p {
     x proximity;
 
   padding:
+    14px
     6px
-    2px
-    10px;
+    12px;
 
   scrollbar-width: none;
 }
@@ -718,11 +718,7 @@ p {
     translateY(-4px)
     scale(1.08);
 
-  outline-color:
-    var(
-      --yellow,
-      #ffc700
-    );
+  outline-color: transparent;
 
   box-shadow:
     0
@@ -736,6 +732,26 @@ p {
     );
 
   z-index: 3;
+}
+
+
+.gallery-item.is-active::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  border:
+    3px solid
+    var(
+      --yellow,
+      #ffc700
+    );
+
+  border-radius: inherit;
+
+  pointer-events: none;
 }
 
 

@@ -68,13 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const lightboxCounter = document.getElementById("lightboxCounter");
 
-  // Debug checks
-  console.log("Lightbox:", lightbox);
-  console.log("Image:", lightboxImage);
-  console.log("Close:", lightboxClose);
-  console.log("Previous:", lightboxPrev);
-  console.log("Next:", lightboxNext);
-
   // =========================================================
   // DATA
   // =========================================================
@@ -305,9 +298,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeLightbox() {
     if (!lightbox) return;
 
-    lightbox.classList.remove("is-open");
+    lightbox.classList.remove("is-open", "active");
 
     lightbox.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("lock");
 
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
@@ -316,32 +311,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Lightbox closed");
   }
-
-  // =========================================================
-  // CLOSE BUTTON
-  // =========================================================
-  if (lightboxClose) {
-    lightboxClose.addEventListener("click", function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      closeLightbox();
-    });
-  }
-
-  // =========================================================
-  // FALLBACK CLOSE HANDLER
-  // =========================================================
-  document.addEventListener("click", function (event) {
-    const closeButton = event.target.closest("#lightboxClose");
-
-    if (!closeButton) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    closeLightbox();
-  });
 
   // =========================================================
   // PREVIOUS LIGHTBOX
@@ -365,9 +334,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // THUMBNAIL EVENTS
   // =========================================================
   galleryItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      renderGallery(index);
-      startAutoPlay();
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      openLightbox(index);
     });
   });
 
@@ -461,51 +431,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     console.error("#lightboxNext not found!");
   }
-
-  // =========================================================
-  // EVENT DELEGATION FALLBACK
-  //
-  // Even if another script replaces a button,
-  // these controls will STILL work.
-  // =========================================================
-  document.addEventListener(
-    "click",
-    (event) => {
-      const close = event.target.closest("#lightboxClose");
-
-      const previous = event.target.closest("#lightboxPrev");
-
-      const next = event.target.closest("#lightboxNext");
-
-      if (close) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        closeLightbox();
-
-        return;
-      }
-
-      if (previous) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        previousLightbox();
-
-        return;
-      }
-
-      if (next) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        nextLightboxImage();
-
-        return;
-      }
-    },
-    true,
-  );
 
   // =========================================================
   // CLICK BACKGROUND TO CLOSE

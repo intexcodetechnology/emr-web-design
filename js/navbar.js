@@ -66,5 +66,17 @@
         document.body.classList.remove("lock");
       }
     });
+
+    const current = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".nav-links > a[href]").forEach((a) => {
+      if (a.getAttribute("href") === current) a.classList.add("nav-current");
+    });
+    document.querySelectorAll(".resource-menu a[href]").forEach((a) => {
+      if (a.getAttribute("href") === current) {
+        a.closest(".nav-item")
+          ?.querySelector(".nav-trigger")
+          ?.classList.add("nav-current");
+      }
+    });
   }
 })();

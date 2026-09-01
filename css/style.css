@@ -236,7 +236,9 @@ button {
 
 .nav-links a:hover:after,
 .nav-links .nav-trigger:hover:after,
-.nav-links .nav-trigger.active:after {
+.nav-links .nav-trigger.active:after,
+.nav-links a.nav-current:after,
+.nav-links .nav-trigger.nav-current:after {
   width: 100%;
 }
 
@@ -294,11 +296,11 @@ button {
 }
 
 .nav-cta {
-  background: var(--yellow);
+  background: #ffc107;
   color: #111;
   padding: 12px 18px;
   border-radius: 999px;
-  border: 0;
+  border: 1.5px solid rgba(255, 193, 7, 0.6);
   cursor: pointer;
   font-weight: 700;
   font-size: 12px;
@@ -306,7 +308,7 @@ button {
   box-shadow:
     0 8px 16px rgba(0, 0, 0, 0.15),
     0 3px 6px rgba(0, 0, 0, 0.1),
-    inset 0 2px 4px rgba(255, 255, 255, 0.6),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
     inset 0 -2px 4px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
   transition: all var(--ease);
@@ -317,7 +319,7 @@ button {
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.2),
     0 5px 10px rgba(0, 0, 0, 0.15),
-    inset 0 2px 4px rgba(255, 255, 255, 0.7),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
     inset 0 -2px 4px rgba(0, 0, 0, 0.12);
 }
 
@@ -344,6 +346,12 @@ button {
 .scrolled .menu-btn {
   background: var(--g100);
   color: #111;
+}
+
+.scrolled .nav-cta {
+  background: #ffc107;
+  color: #111;
+  border-color: rgba(255, 193, 7, 0.6);
 }
 
 .mobile-menu {

@@ -48,13 +48,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const goTo = (i) => {
     if (i === active) return;
+    const direction = i > active ? "next" : "prev";
     active = i;
+    panel.dataset.direction = direction;
+    visual.dataset.direction = direction;
     panel.classList.add("is-fading");
     visual.classList.add("is-fading");
     setTimeout(() => {
       apply();
       panel.classList.remove("is-fading");
       visual.classList.remove("is-fading");
+      panel.dataset.direction = "";
+      visual.dataset.direction = "";
     }, 220);
   };
 

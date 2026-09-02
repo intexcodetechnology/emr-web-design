@@ -212,13 +212,17 @@
   position: relative;
   z-index: 2;
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    opacity 0.26s ease,
+    transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .spotlight-panel.is-fading {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateX(var(--panel-shift, 26px));
+}
+
+.spotlight-panel[data-direction="prev"].is-fading {
+  --panel-shift: -26px;
 }
 
 .spotlight-index {
@@ -295,6 +299,16 @@
   min-height: 560px;
   padding-top: 0;
   padding-bottom: 0;
+  transition: transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.26s ease;
+}
+
+.spotlight-visual.is-fading {
+  opacity: 0.25;
+  transform: translateX(var(--visual-shift, 42px));
+}
+
+.spotlight-visual[data-direction="prev"].is-fading {
+  --visual-shift: -42px;
 }
 
 .spotlight-blob {
@@ -318,14 +332,20 @@
   transform: scale(var(--portrait-scale, 1));
   transform-origin: bottom right;
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    opacity 0.28s ease,
+    transform 0.38s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.38s ease;
 }
 
 .spotlight-visual.is-fading img {
   opacity: 0;
-  transform: translateY(8px) scale(calc(var(--portrait-scale, 1) * 0.98));
+  transform: translateX(var(--visual-shift, 42px)) scale(calc(var(--portrait-scale, 1) * 1.06));
+  filter: drop-shadow(0 12px 18px #00000035);
   margin-bottom: -40px;
+}
+
+.spotlight-visual[data-direction="prev"].is-fading img {
+  --visual-shift: -42px;
 }
 
 /* ---------- Thumbnail rail ---------- */
@@ -374,11 +394,15 @@
 
 .team-thumb.active .thumb-photo {
   border-color: #58c7e5;
-  transform: scale(1.12);
+  transform: scale(1.14);
   box-shadow:
     0 0 0 4px #58c7e52e,
-    0 0 26px 6px #58c7e580,
-    0 10px 22px #00000055;
+    0 0 32px 10px #58c7e580,
+    0 10px 24px #00000055;
+}
+
+.team-thumb.active {
+  transform: translateY(-3px);
 }
 
 .thumb-name {
